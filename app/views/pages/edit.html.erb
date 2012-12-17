@@ -1,0 +1,22 @@
+<% @title = 'Admin' %>
+
+<%= link_to 'Home', root_path %>/
+<%= link_to 'Admin', admins_path %>/
+<%= link_to 'Pages', pages_path %>/
+<%= link_to 'Edit', edit_page_path(@page) %>
+
+<h1>Editer un contenu:</h1>
+
+<%= form_for(@page, url: pages_path) do |f| %>
+
+	<%= render 'shared/error_messages', object: f.object %>
+
+	<%= f.label :title, "Titre:" %>
+	<%= f.text_field :title %></br>
+
+	<%= f.label :content, "Contenu" %>
+	<%= f.text_area :content %>
+
+	<%= f.submit "Editer" %>
+
+<% end %>

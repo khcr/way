@@ -13,3 +13,8 @@
 # ActiveSupport::Inflector.inflections do |inflect|
 #   inflect.acronym 'RESTful'
 # end
+
+ActiveSupport::Inflector.inflections do |inflect|
+	inflect.irregular 'erreur', 'erreurs'
+	inflect.irregular 'page', 'pages'
+end

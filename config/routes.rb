@@ -1,4 +1,12 @@
 Way::Application.routes.draw do
+
+  root to: 'pages#home'
+
+  match '/vision', to: 'pages#vision'
+
+  resources :admins, except: [:show]
+  resources :pages, only: [:edit, :index], path: "/admin/pages"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
