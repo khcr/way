@@ -1,0 +1,18 @@
+<% @title = 'Admin' %>
+
+<%= link_to 'Home', root_path %>/
+<%= link_to 'Admin', admins_path %>/
+<%= link_to 'News', news_path %>
+
+<h1>News:</h1>
+
+<p><%= link_to "Ajouter une new", new_new_path %>
+
+<ul>
+<% @news.each do |new| %>
+	<li>
+		<%= link_to new.title.capitalize, edit_new_path(new) %>
+		| <%= link_to "Supprimmer", new_path(new), method: :delete, confirm: "Etes-vous sûr de vouloir supprimmer cette news?" %>
+	</li>
+<% end %>
+<ul>

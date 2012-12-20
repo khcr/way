@@ -17,4 +17,5 @@
 ActiveSupport::Inflector.inflections do |inflect|
 	inflect.irregular 'erreur', 'erreurs'
 	inflect.irregular 'page', 'pages'
+	inflect.irregular 'new', 'news'
 end

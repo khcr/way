@@ -3,9 +3,11 @@ Way::Application.routes.draw do
   root to: 'pages#home'
 
   match '/vision', to: 'pages#vision'
+  match '/liens', to: 'pages#links'
 
   resources :admins, except: [:show]
   resources :pages, only: [:edit, :index], path: "/admin/pages"
+  resources :news, except: [:show], path: "/admin/news"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

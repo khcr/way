@@ -1,0 +1,11 @@
+<% @title = 'Admin' %>
+
+<h1>Editer une new</h1>
+
+<%= form_for @new do |f| %>
+
+	<%= render 'fields', f: f %>
+
+	<%= f.submit "Editer" %>
+
+<% end %>

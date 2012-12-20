@@ -1,0 +1,16 @@
+<% @title = 'Admin' %>
+
+<%= link_to 'Home', root_path %>/
+<%= link_to 'Admin', admins_path %>/
+<%= link_to 'News', news_path %>/
+<%= link_to 'New', new_new_path %>
+
+<h1>Ajouter une new</h1>
+
+<%= form_for(@new) do |f| %>
+
+	<%= render 'fields', f: f %>
+
+	<%= f.submit "Ajouter" %>
+
+<% end %>
