@@ -1,0 +1,25 @@
+<%= render 'shared/error_messages', object: f.object %>
+
+<%= f.select :type_soiree, ['GPS','Extra','Actu','Culte','Youth','Event','Inter-GDJ','Divers'] %>
+
+<%= f.label :theme, "Thème" %>
+<%= f.text_field :theme %>
+
+<%= f.label :info, "Information" %>
+<%= f.text_area(:info, size: '40x10') %>
+
+<%= f.label :president, "Président" %>
+<%= f.text_field :president %>
+
+<%= f.label :remarque %>
+<%= f.text_field :remarque %>
+
+<%= f.label :orateur %>
+<%= f.text_field :orateur %>
+
+<%= f.label :minigroup, "Mini-groupe" %>
+<%= f.radio_button :minigroup, true %>
+<%= f.radio_button :minigroup, false %>
+
+<%= f.label :date %>
+<%= f.date_select :date %>

@@ -18,4 +18,6 @@ ActiveSupport::Inflector.inflections do |inflect|
 	inflect.irregular 'erreur', 'erreurs'
 	inflect.irregular 'page', 'pages'
 	inflect.irregular 'new', 'news'
+	inflect.irregular 'gallery', 'galleries'
+	inflect.irregular 'admin', 'admins'
 end

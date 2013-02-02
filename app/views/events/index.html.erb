@@ -1,0 +1,20 @@
+<% @title = 'Programme' %>
+
+<h1>Programme</h1>
+
+<ul>
+	<% @events.each do |event| %> 
+
+	<li>
+		<%= event.type_soiree %>
+		<%= event.theme %>
+		<%= event.info %>
+		<%= event.president %>
+		<%= event.remarque %>
+		<%= event.orateur %>
+		<%= event.minigroup %>
+		<%= event.date %>
+	</li>
+
+	<% end %>
+</ul>

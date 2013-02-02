@@ -1,0 +1,12 @@
+<% @title = 'Galleries' %>
+
+<h1>Galleries</h1>
+
+<ul>
+<% @galleries.each do |gallery| %>
+	<li>
+		<%= link_to gallery.name, gallery %> | 
+		<%= gallery.description %>
+	</li>
+<% end %>
+</ul>

@@ -4,10 +4,35 @@ Way::Application.routes.draw do
 
   match '/vision', to: 'pages#vision'
   match '/liens', to: 'pages#links'
+  match '/contact', to: 'pages#contact'
+  match '/programme', to: 'events#index'
 
-  resources :admins, except: [:show]
-  resources :pages, only: [:edit, :index], path: "/admin/pages"
-  resources :news, except: [:show], path: "/admin/news"
+  match '/login', to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
+
+  match '/admin', to: 'pages#admin_index'
+  match '/admin/programme', to: 'events#admin_index'
+  match '/admin/galleries', to: 'galleries#admin_index'
+  match '/admin/projets', to: 'projects#admin_index'
+  match '/admin/news', to: 'news#admin_index'
+
+  scope(:path_names => { :new => "nouveau", :edit => "edition" }) do
+  
+    resources :galleries, only: [:index, :show]
+    resources :sessions, only: [:create, :destroy]
+    resources :projects, only: [:show]
+
+    scope "/admin" do
+      resources :news, except: [:show, :index], path: '/articles'
+      resources :users, except: [:show]
+      resources :pages, except: [:show]
+      resources :events, except: [:show, :index]
+      resources :projects, except: [:show,:index], path: '/projets'
+      resources :galleries, except: [:index, :show] do 
+        resources :paintings, except: [:index, :show]
+      end
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,13 +1,15 @@
 <% @title = 'Admin' %>
 
 <%= link_to 'Home', root_path %>/
-<%= link_to 'Admin', admins_path %>/
+<%= link_to 'Admin', admin_path %>/
 <%= link_to 'Pages', pages_path %>/
-<%= link_to 'Edit', edit_page_path(@page) %>
+<%= link_to 'Editer', edit_page_path(@page) %>
+
+<%= render '/shared/flash', flash: flash %>
 
 <h1>Editer un contenu:</h1>
 
-<%= form_for(@page, url: pages_path) do |f| %>
+<%= form_for(@page, :url => page_path(@page), :html => { :method => "put" }) do |f| %>
 
 	<%= render 'shared/error_messages', object: f.object %>
 

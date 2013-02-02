@@ -11,7 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121219182244) do
+ActiveRecord::Schema.define(:version => 20130201162846) do
+
+  create_table "events", :force => true do |t|
+    t.string   "theme"
+    t.string   "info"
+    t.string   "president"
+    t.string   "remarque"
+    t.string   "orateur"
+    t.boolean  "minigroup"
+    t.date     "date"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "type_soiree"
+  end
+
+  create_table "galleries", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "news", :force => true do |t|
     t.string   "title"
@@ -26,9 +46,32 @@ ActiveRecord::Schema.define(:version => 20121219182244) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "name"
-    t.string   "ancestry"
   end
 
-  add_index "pages", ["ancestry"], :name => "index_pages_on_ancestry"
+  create_table "paintings", :force => true do |t|
+    t.string   "name"
+    t.string   "image"
+    t.integer  "gallery_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "projects", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "content"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "name"
+    t.string   "password_digest"
+    t.string   "remember_token"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "users", ["name"], :name => "index_users_on_name", :unique => true
+  add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
 
 end

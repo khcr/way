@@ -1,5 +1,10 @@
 <% @title = 'Admin' %>
 
+<%= link_to 'Home', root_path %>/
+<%= link_to 'Admin', admin_path %>/
+<%= link_to 'News', news_path %>/
+<%= link_to 'Editer', edit_new_path(@new) %>
+
 <h1>Editer une new</h1>
 
 <%= form_for @new do |f| %>

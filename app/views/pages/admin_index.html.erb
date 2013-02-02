@@ -1,0 +1,15 @@
+<% @title = 'Admin' %>
+
+<%= link_to 'Home', root_path %>/
+<%= link_to 'Admin', admin_path %>
+
+<h1>Administration</h1>
+
+<ul>
+	<li><%= link_to "Utilisateurs", users_path %></li>
+	<li><%= link_to "Contenu du site", pages_path %></li>
+	<li><%= link_to "News", admin_news_path %></li>
+	<li><%= link_to "Programme", admin_programme_path %></li>
+	<li><%= link_to "Galleries", admin_galleries_path %></li>
+	<li><%= link_to "Projets", admin_projets_path %></li>
+</ul>

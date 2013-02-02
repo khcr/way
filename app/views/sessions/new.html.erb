@@ -1,0 +1,15 @@
+<% @title = "Connexion" %>
+
+<h1>Connexion:</h1>
+
+<%= form_for(:session, url: sessions_path) do |f| %>
+	
+	<%= f.label :name, "Pseudo" %>
+	<%= f.text_field :name %>
+
+	<%= f.label :password, "Mot de passe" %>
+	<%= f.password_field :password %>
+
+	<%= f.submit "Connexion" %>
+
+<% end %>
