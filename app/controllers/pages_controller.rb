@@ -37,7 +37,7 @@ class PagesController < ApplicationController
 
 	def update
 		@page = Page.find(params[:id])
-		if @page.update_attributes(params[:id])
+		if @page.update_attributes(params[:page])
 			flash[:success] = 'Contenu édité'
 			redirect_to pages_path 
 		else
