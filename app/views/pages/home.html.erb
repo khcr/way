@@ -1,5 +1,9 @@
 <% @title = 'Acceuil' %>
 
+<h1><%= @presentation.title %></h1>
+
+<p><%= @presentation.content %></p>
+
 <% @news.each do |new| %>
 
 	<h3><%= new.title %></h3>
