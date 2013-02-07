@@ -1,10 +1,25 @@
 <header>
-	<p>Bienvenue sur le site du groupe de jeune WAY à Bulle</p>
-	<%= link_to "Home", root_path %>
-	<%= link_to "Vision", vision_path %>
-	<%= link_to "Programme", programme_path %>
-	<%= link_to "Medias", galleries_path %>
-	<%= link_to "Projet", '#' %>
-	<%= link_to "Contact", contact_path %>
-	<%= link_to "Liens", liens_path %>
+
+	<nav>
+	  <ul class="topnav">
+	    <li><%= link_to "Home", root_path %></li>
+	    <li><%= link_to "Vision", vision_path %></li>
+	    <li><%= link_to "Programme", programme_path %></li>
+	    <li><%= link_to "Medias", galleries_path %></li>
+	    <li><a href="book/book_rd.php">BOOK</a></li>
+	    <li><a href="#">PROJETS</a>
+	      <ul class="subnav">
+	        <li><%= link_to "Medias", galleries_path %></li>
+	        <li><%= link_to "Medias", galleries_path %></li>
+	      </ul>
+	    </li>
+	    <li><a href="#">CONTACT</a>
+	      <ul class="subnav">
+	        <li><%= link_to "Contact", contact_path %></li>
+	        <li><%= link_to "Liens", liens_path %></li>
+	      </ul>
+	    </li>
+	  </ul>
+	</nav>
+	
 </header>

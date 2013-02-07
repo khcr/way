@@ -8,17 +8,24 @@
 </head>
 <body>
 
-	<%= render 'layouts/header' %>
+	<div id="container">
 
-	<p>
-	<% flash.each do |key, value| %>
-		<%= content_tag(:div, value, class: "alert alert-#{key}") %>
-	<% end %>
-	</p>
+		
 
-	<%= yield %>
+		<%-# ==========- FLASH -========== -%>
+		<p>
+			<% flash.each do |key, value| %>
+				<%= content_tag(:div, value, class: "alert alert-#{key}") %>
+			<% end %>
+		</p>
 
-	<%= render 'layouts/footer' %>
+		<%-# ==========- CONTENT FROM THE VIEW -========== -%>
+		<%= yield %>
+
+		<%-# ==========- FOOTER -========== -%>
+		<%= render 'layouts/footer' %>
+
+	</div>
 
 </body>
 </html>
