@@ -25,6 +25,7 @@ Way::Application.routes.draw do
     end
   end
 
+
   match '/vision', to: 'pages#vision'
   match '/liens', to: 'pages#links'
   match '/contact', to: 'pages#contact'
