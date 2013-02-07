@@ -2,8 +2,6 @@ Way::Application.routes.draw do
 
   root to: 'pages#home'
 
-  match '/home', to: 'pages#home'
-
   scope(:path_names => { :new => "nouveau", :edit => "edition" }) do
   
     resources :galleries, only: [:index, :show]

@@ -5,8 +5,6 @@ class PagesController < ApplicationController
 	before_filter :signed_in_user, only: [:edit, :admin_index, :update]
 
 	def home
-		@presentation = Page.find_by_name('presentation')
-		@news = New.all
 	end
 
 	def vision
