@@ -22,4 +22,4 @@
 <%= f.radio_button :minigroup, false %>
 
 <%= f.label :date %>
-<%= f.date_select :date %>
+<%= f.date_select(:date, order: [:day, :month, :year]) %>

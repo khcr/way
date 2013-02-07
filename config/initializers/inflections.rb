@@ -20,4 +20,5 @@ ActiveSupport::Inflector.inflections do |inflect|
 	inflect.irregular 'new', 'news'
 	inflect.irregular 'gallery', 'galleries'
 	inflect.irregular 'admin', 'admins'
+	inflect.irregular 'projet', 'projets'
 end

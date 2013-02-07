@@ -17,7 +17,7 @@ class NewsController < ApplicationController
 		@new = New.new(params[:new])
 		if @new.save
 			flash[:success] = "New ajoutée"
-			redirect_to admin_news_path
+			redirect_to news_path
 		else
 			render 'new', layout: 'admin'
 		end
@@ -31,7 +31,7 @@ class NewsController < ApplicationController
 		@new = New.find(params[:id])
 		if @new.save_attributes(params[:new])
 			flash[:success] = "New éditée"
-			redirect_to admin_news_path
+			redirect_to news_path
 		else 
 			render 'edit'
 		end
@@ -40,6 +40,6 @@ class NewsController < ApplicationController
 	def destroy
 		New.find(params[:id]).destroy
 		flash[:success] = 'New supprimmée'
-		redirect_to admin_news_path
+		redirect_to news_path
 	end
 end

@@ -1,21 +1,5 @@
 Way::Application.routes.draw do
 
-  root to: 'pages#home'
-
-  match '/vision', to: 'pages#vision'
-  match '/liens', to: 'pages#links'
-  match '/contact', to: 'pages#contact'
-  match '/programme', to: 'events#index'
-
-  match '/login', to: 'sessions#new'
-  match '/signout', to: 'sessions#destroy', via: :delete
-
-  match '/admin', to: 'pages#admin_index'
-  match '/admin/programme', to: 'events#admin_index'
-  match '/admin/galleries', to: 'galleries#admin_index'
-  match '/admin/projets', to: 'projects#admin_index'
-  match '/admin/news', to: 'news#admin_index'
-
   scope(:path_names => { :new => "nouveau", :edit => "edition" }) do
   
     resources :galleries, only: [:index, :show]
@@ -23,7 +7,7 @@ Way::Application.routes.draw do
     resources :projects, only: [:show]
 
     scope "/admin" do
-      resources :news, except: [:show, :index], path: '/articles'
+      resources :news, except: [:show, :index], path: '/news'
       resources :users, except: [:show]
       resources :pages, except: [:show]
       resources :events, except: [:show, :index]
@@ -31,8 +15,26 @@ Way::Application.routes.draw do
       resources :galleries, except: [:index, :show] do 
         resources :paintings, except: [:index, :show]
       end
+
+      match '/programme', to: 'events#admin_index', as: :admin_programme
+      match '/galleries', to: 'galleries#admin_index'
+      match '/projets', to: 'projects#admin_index'
+      match '/news', to: 'news#admin_index'
     end
   end
+
+  root to: 'pages#home'
+
+  match '/vision', to: 'pages#vision'
+  match '/liens', to: 'pages#links'
+  match '/contact', to: 'pages#contact'
+  match '/programme', to: 'events#index'
+  match '/admin', to: 'pages#admin_index'
+
+  match '/login', to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
+
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
