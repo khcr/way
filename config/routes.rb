@@ -4,12 +4,12 @@ Way::Application.routes.draw do
 
   scope(:path_names => { :new => "nouveau", :edit => "edition" }) do
   
-    resources :galleries, only: [:index, :show]
+    resources :galleries, only: [:index, :show], path: '/medias'
     resources :sessions, only: [:create, :destroy]
     resources :projects, only: [:show]
 
     scope "/admin" do
-      resources :news, except: [:show, :index], path: '/news'
+      resources :news, except: [:show, :index]
       resources :users, except: [:show]
       resources :pages, except: [:show]
       resources :events, except: [:show, :index]
@@ -19,7 +19,7 @@ Way::Application.routes.draw do
       end
 
       match '/programme', to: 'events#admin_index', as: :admin_programme
-      match '/galleries', to: 'galleries#admin_index'
+      match '/galleries', to: 'galleries#admin_index', as: :admin_galleries
       match '/projets', to: 'projects#admin_index'
       match '/news', to: 'news#admin_index'
     end

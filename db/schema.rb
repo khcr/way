@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130201162846) do
+ActiveRecord::Schema.define(:version => 20130208154254) do
 
   create_table "events", :force => true do |t|
     t.string   "theme"
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(:version => 20130201162846) do
     t.string   "type_soiree"
   end
 
+  add_index "events", ["date"], :name => "index_events_on_date"
+
   create_table "galleries", :force => true do |t|
     t.string   "name"
     t.string   "description"
@@ -38,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20130201162846) do
     t.string   "content"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "date_exp"
   end
 
   create_table "pages", :force => true do |t|
