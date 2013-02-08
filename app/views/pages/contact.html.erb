@@ -1,7 +1,17 @@
 <% @title = 'Contact' %>
 
-<h1><%= @contact.title %></h1>
+<h1>Contact lieu plan carte télépnone email e-mail responsables dons Groupe de jeunes WAY Bulle</h1>
 
-<p>
-	<%= @contact.content %>
-</p>
+<%-# ==========- HEADER -========== -%>
+<%= render 'layouts/header' %>
+
+<h2 style="text-align:center"><%= @contact.title %></h2>
+
+<article>
+	<div id="contact">
+		<p>
+			<%=raw @contact.content %>
+		</p>
+	</div>
+</article>
+<div class="clear"></div>

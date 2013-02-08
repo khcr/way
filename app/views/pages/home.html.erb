@@ -14,16 +14,13 @@
 
 <div id="text-fb">
 	<article class="left">
-	  
-		<h3>Qui sommes-nous ?</h3>
-	  <p>
-	  	Nous nous rencontrons, de <em>jeunes</em> adolescents à <em>jeunes</em> adultes, tous les samedis soirs pour découvrir qui est <em>Dieu</em> et pour passer du bon temps entre amis.Ainsi, parce que <em>Dieu</em> se cherche et se trouve, <em>WAY</em> c'est de l'exploration; Parce qu'on est <em>jeunes</em>, <em>WAY</em> c'est du délire et du <em>fun</em> ! Sois le/la bienvenu/e!<br />
-	  	W.A.Y = What About You ?
-	  </p>
+	   
+	<h3><%= @presentation.title %></h3>
+    <p><%=raw @presentation.content %></p>
 	  <br />
 	  <div class="fb">
 	    <div class="fb-like" data-href="http://gdjway.com" data-send="false" data-width="450" data-show-faces="true" data-font="arial"></div>
-	    <p>Retrouve-nous sur notre page Facebook<a href="https://www.facebook.com/groups/206372632235/"><img class="fb" src="assets/utils/facebook_logo.jpg" alt="Logo Facebook"/></a></p>
+      <p>Retrouve-nous sur notre page Facebook<a href="https://www.facebook.com/groups/206372632235/"><img class="fb" src="assets/utils/facebook_logo.jpg" alt="Logo Facebook"/></a></p>
 	  </div>
 	</article>
 
@@ -58,14 +55,12 @@
 <div id="news-events">
 	<h2 class="home">News/Events <a href="rssfeed/flux.xml"><img src="assets/layout/rss.jpeg" alt="RSS" title="RSS" width="30" height="27" /></a></h2>
 	<article class="left">
-    <h3>News</h3>
-    <div style="min-height:210px; margin-top:1px; padding-bottom: 7px">
-    	<h4>Mini-groupes <sup style="font-size:10px; text-decoration:none;">le 04.02.2013</sup></h4>
-    	<p>
-    		Un changement important a lieu dans l'organisation des mini-groupes: dorénavant, les mini-groupes se dérouleront uniquement et occasionnellement après le message des soirées WAY
-    	</p>
-    	<p style="text-align: right; font-style:italic; font-size: 10px"><br /><br />expire le 04.04.2013</p>
-    </div>
+
+    <h3>News (<%= @news.count %>)</h3>
+    <% if @news.any? %>
+    <%= render @news %>
+    <% end %>
+    
   </article>
 
   <article class="right">

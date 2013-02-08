@@ -1,7 +1,15 @@
 <% @title = 'Liens' %>
 
-<h1><%= @links.title %></h1>
+<h1>Liens sites chrétiens Groupe de jeunes WAY Bulle</h1>
 
-<p>
-	<%= @links.content %>
-</p>
+<%-# ==========- HEADER -========== -%>
+<%= render 'layouts/header' %>
+
+<h2 style="text-align:center"><%= @links.title %></h2>
+
+<article>
+		<p>
+			<%=raw @links.content %>
+		</p>
+</article>
+<div class="clear"></div>
