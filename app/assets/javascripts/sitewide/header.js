@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function() {
 
 	$("ul.subnav").parent().append("<span></span>"); //Only shows drop down trigger when js is enabled (Adds empty span tag after ul.subnav*)
 	

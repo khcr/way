@@ -1,5 +1,6 @@
 <% @title = 'Admin' %>
 
+<<<<<<< HEAD
 <%= link_to 'Home', root_path %>/
 <%= link_to 'Admin', admin_path %>
 
@@ -13,3 +14,39 @@
 	<li><%= link_to "Galleries", admin_galleries_path %></li>
 	<li><%= link_to "Projets", projets_path %></li>
 </ul>
+=======
+<p> <%= link_to 'Home', root_path %> / <%= link_to 'Admin', admin_path %> </p>
+
+<h2>Administration</h2>
+
+<table>
+	<tr>
+		<th>Gestion utilisateurs</th>
+		<td><%= link_to "Utilisateurs", users_path %></td>
+	</tr>
+	<tr>
+		<th>Pages du site</th>
+		<td><%= link_to "Contenu du site", pages_path %></td>
+	</tr>
+	<tr>
+		<th>Les news</th>
+		<td><%= link_to "News", news_path %></td>
+	</tr>
+	<tr>
+		<th>Le programme</th>
+		<td><%= link_to "Programme", admin_programme_path %></td>
+	</tr>
+	<tr>
+		<th>La galerie photos</th>
+		<td><%= link_to "Galleries", galleries_path %></td>
+	</tr>
+	<tr>
+		<th>Les projets</th>
+		<td><%= link_to "Projets", projets_path %></td>
+	</tr>
+</table>
+
+<p style="text-align:right"><img src="assets/admin/way_admin.png"/></p>
+
+
+>>>>>>> a792aa983624dc9426799343fa9fecff7a68aec2

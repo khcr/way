@@ -6,7 +6,7 @@ class PagesController < ApplicationController
 
 	def home
 		@presentation = Page.find_by_name('presentation')
-		@news = New.all
+		@news = New.where('created_at <=?', [Time.zone.now])
 	end
 
 	def vision

@@ -1,7 +1,15 @@
 <% @title = 'Vision' %>
 
-<h1><%= @vision.title %></h1>
+<h1>Présentation et vision Amitié Dynamisme Evangélisation Groupe de jeunes WAY Bulle</h1>
 
-<p>
-	<%= @vision.content %>
-</p>
+<%-# ==========- HEADER -========== -%>
+<%= render 'layouts/header' %>
+
+<h2 style="text-align:center"><%= @vision.title %></h2>
+
+<article>
+	<p>
+		<%=raw @vision.content %>
+	</p>
+</article>
+<div class="clear"></div>

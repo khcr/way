@@ -1,20 +1,57 @@
 <% @title = 'Programme' %>
 
-<h1>Programme</h1>
+<h1>Programme soirées GPS actu extra culte event inter-gdj youth horaire Groupe de jeunes WAY Bulle</h1>
 
-<ul>
-	<% @events.each do |event| %> 
+<%-# ==========- HEADER -========== -%>
+<%= render 'layouts/header' %>
 
-	<li>
-		<%= event.type_soiree %>
-		<%= event.theme %>
-		<%= event.info %>
-		<%= event.president %>
-		<%= event.remarque %>
-		<%= event.orateur %>
-		<%= event.minigroup %>
-		<%= event.date %>
-	</li>
+<h2 style="text-align:center">Programme actuel </h2>
 
-	<% end %>
-</ul>
+<article>
+	<p> Sur cette page tu découvrira notre programme mais aussi l'organisation de nos soirées. Tu verras, nous sommes organisés en différents types de soirées, il y en a pour tous les goûts! <br />
+      <br />
+    </p>
+    <p> <b>L'horaire officiel :</b> <br />
+      Ouverture des locaux : 19h30 <br />
+      Début de la soirée : 20h00 <br />
+      Fin de la soirée : 21h30 <br />
+      Vidage des locaux : 23h30 <br />
+      <br />
+      Remarque : <b>Il en va de la responsabilité de chaque parent de venir chercher leur(s) enfant(s) entre 21h30 et 23h30</b>. Dès 23h30, chaque enfant doit être à nouveau sous la responsabilité de ses parents <br />
+      <br />
+    </p>
+
+
+<div id="content">
+
+		<%-# ==========- Title -========== -%>
+    <div class="title" style="width:90%; margin:auto"><div class="left"><p><span class="discret">du </span><%= Time.now %></p></div><div class="right"><p><span class="discret">au </span><%= 25.days.from_now %></p></div></div>
+
+    <%-# ==========- Table with loop iteration over days -========== -%>
+    <table id="timeline">
+
+    	<tr class="marker">
+    	<% (Date.today..Date.today + 25.days).each do |day| %>
+    	<%	if day = Date.today %>
+    		<td style="color:red"></td>
+    	<% else %>
+    		<td></td>
+    	<% end %>
+    	<% end %>
+    	</tr>
+
+    	<tr class="date">
+    	<% (Date.today..Date.today + 25.days).each do |day| %>
+    	<%	if day == Date.today %>
+    		<td style="color:red"><%= day.day %></td>
+    	<% else %>
+    		<td><%= day.day %></td>
+    	<% end %>
+    	<% end %>
+    	</tr>
+
+  	</table>
+
+</div>
+
+</article>

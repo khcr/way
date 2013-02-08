@@ -1,0 +1,111 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+
+	#content .title {
+		font-size: 18px;
+	}
+
+		#content .title .discret {
+			font-size: 14px;
+		}
+
+		#content .title .left {
+			float: left;
+		}
+
+		#content .title .right {
+			float: right;
+		}
+
+	#content table {
+		width: 90%;
+		margin: auto;
+	}
+
+	#content #timeline {
+		margin-top: 40px;
+	}
+
+		#content #timeline .marker td {
+			width: 900px;
+			text-align: center;
+		}
+
+		#content #timeline .date td {
+			width: 900px;
+			text-align: center;
+			background: #e9a7a7;
+			padding: 4px;
+		}
+
+		#content #timeline .date .weekend {
+			background: #a7b8e9;
+			color: white;
+		}
+
+	#content .subtitle {
+		text-align: center;
+		padding: 20px 0 20px 0;
+		font-size: 18px;
+	}
+
+	#content #summary_timeline {
+	}
+
+		#content #summary_timeline tr {
+		}
+
+		#content #summary_timeline .countdown {
+			font-size: 12px;
+			min-width: 100px;
+			text-align: right;
+		}
+
+		#content #summary_timeline .marker {
+			padding: 0 10px 0 7px;
+		}
+
+		#content #summary_timeline .number {
+			background: #e9a7a7;
+			padding: 7px 7px 7px 7px;
+			color: white;
+			//border-radius: 5px;
+			text-align: center;
+		}
+
+		#content #summary_timeline .number_weekend {
+			background: #a7b8e9;
+			padding: 7px 7px 7px 7px;
+			color: white;
+			//border-radius: 5px;
+			text-align: center;
+		}
+
+		#content #summary_timeline .description {
+			width: 100%;
+			padding-left: 10px;
+		}
+
+		#content #summary_timeline .selected {
+			background-color: red;
+		}
+
+	#content #informations {
+		position : absolute;
+		background-color: #7d77cb;
+		color: white;
+		text-align: center;
+		width: 300px;
+		padding: 10px;
+		border-radius: 5px;
+		display: none;
+	}
+
+	#content .d, #content .f {
+		display: none;
+	}
+
+
+
