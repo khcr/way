@@ -3,6 +3,7 @@
 
 class GalleriesController < ApplicationController
 	before_filter :signed_in_user, only: [:admin_index, :new, :create, :edit, :update, :destroy]
+	include SessionsHelper
 
 	def index
 		@galleries = Gallery.all

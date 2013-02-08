@@ -25,29 +25,31 @@
 <div id="content">
 
 		<%-# ==========- Title -========== -%>
-    <div class="title" style="width:90%; margin:auto"><div class="left"><p><span class="discret">du </span><%= Time.now %></p></div><div class="right"><p><span class="discret">au </span><%= 25.days.from_now %></p></div></div>
+    <div class="title" style="width:90%; margin:auto"><div class="left"><p><span class="discret">du </span><%= french_date_short(Date.today) %></p></div><div class="right"><p><span class="discret">au </span><%= french_date_short(25.days.from_now) %></p></div></div>
 
     <%-# ==========- Table with loop iteration over days -========== -%>
     <table id="timeline">
 
+    	<%-# ==========- First row -========== -%>
     	<tr class="marker">
-    	<% (Date.today..Date.today + 25.days).each do |day| %>
-    	<%	if day = Date.today %>
-    		<td style="color:red"></td>
-    	<% else %>
-    		<td></td>
-    	<% end %>
-    	<% end %>
+	    	<% (Date.today..Date.today + 25.days).each do |day| %>
+	    		<td>
+	    			<% if ((event = match_event(day)) != nil) %>					<!-- to check if it matches -->		
+	    					<%= image_tag "timeline/" + sort_event(event) %>	<!-- to display image  depending on the event.type -->
+	    			<% end %>
+	    		</td>
+	    	<% end %>
     	</tr>
 
+    	<%-# ==========- Second row -========== -%>
     	<tr class="date">
-    	<% (Date.today..Date.today + 25.days).each do |day| %>
-    	<%	if day == Date.today %>
-    		<td style="color:red"><%= day.day %></td>
-    	<% else %>
-    		<td><%= day.day %></td>
-    	<% end %>
-    	<% end %>
+	    	<% (Date.today..Date.today + 25.days).each do |day| %>
+	    		<% if day.strftime('%w').to_f == 5 || day.strftime('%w').to_f == 6 %>
+		    		<td class="weekend"><%= day.day %></td>
+		    	<% else %>
+		    		<td><%= day.day %></td>
+		    	<% end %>
+	    	<% end %>
     	</tr>
 
   	</table>
