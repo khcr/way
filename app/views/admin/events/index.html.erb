@@ -10,19 +10,9 @@
 
 <p><%= link_to "Ajouter un événement", new_admin_event_path %>
 
-<ul>
-<% @events.each do |event| %>
-	<li>
-		<%= event.type_soiree %>
-		<%= event.theme %>
-		<%= event.info %>
-		<%= event.president %>
-		<%= event.remarque %>
-		<%= event.orateur %>
-		<%= event.minigroup %>
-		<%= event.date %>
-		<%= link_to "Modifier", edit_admin_event_path(event) %>
-		| <%= link_to "Supprimer", admin_event_path(event), method: :delete, confirm: "Etes-vous sûr de vouloir supprimser cet événement?" %>
-	</li>
-<% end %>
-<ul>
+<h2>Programme</h2>
+
+<table>
+	<%= render :partial => "shared/admin_render", :collection => @events, :as => :obj %>
+</table>
+
