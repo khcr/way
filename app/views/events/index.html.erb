@@ -18,14 +18,21 @@
       Vidage des locaux : 23h30 <br />
       <br />
       Remarque : <b>Il en va de la responsabilité de chaque parent de venir chercher leur(s) enfant(s) entre 21h30 et 23h30</b>. Dès 23h30, chaque enfant doit être à nouveau sous la responsabilité de ses parents <br />
-      <br />
+      <br /><br /><br /><br /><br />
     </p>
 
 
 <div id="content">
 
 		<%-# ==========- Title -========== -%>
-    <div class="title" style="width:90%; margin:auto"><div class="left"><p><span class="discret">du </span><%= french_date_short(Date.today) %></p></div><div class="right"><p><span class="discret">au </span><%= french_date_short(25.days.from_now) %></p></div></div>
+    <div class="title" style="width:90%; margin:auto">
+      <div class="left">
+        <p><span class="discret">du </span><%= french_date_short(Date.today) %></p>
+      </div>
+      <div class="right">
+        <p><span class="discret">au </span><%= french_date_short(25.days.from_now) %></p>
+      </div>
+    </div>
 
     <%-# ==========- Table with loop iteration over days -========== -%>
     <table id="timeline">
@@ -34,8 +41,8 @@
     	<tr class="marker">
 	    	<% (Date.today..Date.today + 25.days).each do |day| %>
 	    		<td>
-	    			<% if ((event = match_event(day)) != nil) %>					<!-- to check if it matches -->		
-	    					<%= image_tag "timeline/" + sort_event(event) %>	<!-- to display image  depending on the event.type -->
+	    			<% if ((event = match_event(day)) != nil) %>														                <!-- to check if it matches -->		
+	    					<%= image_tag "timeline/" + sort_event(event) , :class => day.day.to_s + ' b' %>		<!-- to display image  depending on the event.type -->
 	    			<% end %>
 	    		</td>
 	    	<% end %>
@@ -43,8 +50,8 @@
 
     	<%-# ==========- Second row -========== -%>
     	<tr class="date">
-	    	<% (Date.today..Date.today + 25.days).each do |day| %>
-	    		<% if day.strftime('%w').to_f == 5 || day.strftime('%w').to_f == 6 %>
+	    	<% (Date.today..Date.today + 25.days).each do |day| %>                    
+	    		<% if day.strftime('%w').to_f == 5 || day.strftime('%w').to_f == 6 %>  <!-- if at weekend -->   
 		    		<td class="weekend"><%= day.day %></td>
 		    	<% else %>
 		    		<td><%= day.day %></td>
@@ -53,6 +60,26 @@
     	</tr>
 
   	</table>
+
+    <p class="subtitle">Les prochaines rencontres</p>
+
+      <table id="summary_timeline">
+
+        <% @events.each do |event| %>
+
+          <tr class="<%= 'a ' + event.date.day.to_s + 'a' %>">
+            <td class="countdown">Dans <%= (event.date.day - Date.today.day ) %> jours </td>
+            <td class="marker"><%= image_tag "timeline/" + sort_event(event) %></td>
+            <td class="number"><%= event.date.day %></td>
+            <td class="description">
+              <div><%= event.theme %></div>
+              <div><%= event.info %></div>
+            </td>
+          </tr>
+
+        <% end %>
+
+      </table>
 
 </div>
 
