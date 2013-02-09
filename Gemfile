@@ -26,7 +26,7 @@ end
 
 group :assets do
   gem 'sass-rails',   '3.2.5'
-  gem 'coffee-rails', '3.2.2'
+  gem 'coffee-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
@@ -34,9 +34,10 @@ group :assets do
   gem 'uglifier', '1.2.3'
   gem 'jquery-fileupload-rails'
   gem 'fancybox2-rails'
+  gem 'jquery-rails'
 end
 
-gem 'jquery-rails'
+
 
 group :production do
   gem 'pg'

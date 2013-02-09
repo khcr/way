@@ -1,13 +1,12 @@
 <% @title = 'Admin' %>
 
-<<<<<<< HEAD
 <%= link_to 'Home', root_path %>/
 <%= link_to 'Admin', admin_path %>
 
 <h1>Administration</h1>
 
 <ul>
-	<li><%= link_to "Utilisateurs", users_path %></li>
+	<li><%= link_to "Utilisateurs", admin_users_path %></li>
 	<li><%= link_to "Contenu du site", admin_pages_path %></li>
 	<li><%= link_to "News", admin_news_path %></li>
 	<li><%= link_to "Programme", admin_events_path %></li>
@@ -22,7 +21,7 @@
 <table>
 	<tr>
 		<th>Gestion utilisateurs</th>
-		<td><%= link_to "Utilisateurs", users_path %></td>
+		<td><%= link_to "Utilisateurs", admin_users_path %></td>
 	</tr>
 	<tr>
 		<th>Pages du site</th>

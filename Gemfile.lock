@@ -226,7 +226,7 @@ DEPENDENCIES
   capistrano
   capybara
   carrierwave
-  coffee-rails (= 3.2.2)
+  coffee-rails
   cucumber-rails (= 1.2.1)
   database_cleaner (= 0.7.0)
   factory_girl_rails (= 1.4.0)
