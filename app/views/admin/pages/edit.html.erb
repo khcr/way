@@ -1,0 +1,24 @@
+<% @title = 'Admin' %>
+
+<%= link_to 'Home', root_path %>/
+<%= link_to 'Admin', admin_path %>/
+<%= link_to 'Pages', admin_pages_path %>/
+<%= link_to 'Editer', edit_admin_page_path(@page) %>
+
+<%= render '/shared/flash', flash: flash %>
+
+<h1>Editer un contenu:</h1>
+
+<%= form_for [:admin, @page] do |f| %>
+
+	<%= render 'shared/error_messages', object: f.object %>
+
+	<%= f.label :title, "Titre:" %>
+	<%= f.text_field :title %></br>
+
+	<%= f.label :content, "Contenu" %>
+	<%= f.text_area :content %>
+
+	<%= f.submit "Editer" %>
+
+<% end %>

@@ -1,0 +1,16 @@
+<% @title = 'Admin' %>
+
+<%= link_to 'Home', root_path %>/
+<%= link_to 'Admin', admin_path %>/
+<%= link_to 'Programme', admin_events_path %>/
+<%= link_to 'Editer', edit_admin_event_path(@event) %>
+
+<h1>Editer un événement</h1>
+
+<%= form_for(@event, url: admin_events_path) do |f| %>
+
+	<%= render 'fields', f: f %>
+
+	<%= f.submit "Editer" %>
+	
+<% end %>

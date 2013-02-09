@@ -1,0 +1,26 @@
+<% @title = 'Admin' %>
+
+<%= link_to 'Home', root_path %>/
+<%= link_to 'Admin', admin_path %>/
+<%= link_to 'Utilisateurs', admin_users_path %>
+
+<h1>Utilisateurs:</h1>
+
+<p>
+	<%= link_to "Ajouter un utilisateur", new_admin_user_path %>
+</p>
+<p>
+	<%= link_to "Editer mon profile", edit_admin_user_path(@current_user) %>
+<p>
+
+<ul>
+<% @users.each do |user| %>
+	<li>
+		<%= user.name %>
+
+		<% if !current_user?(user) %>
+			<%= link_to "supprimer", admin_user_path(user), method: :delete, confirm: "Etes-vous sûr ?" %>
+		<% end %>
+	</li>
+<% end %>
+</ul>

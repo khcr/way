@@ -1,0 +1,15 @@
+<% @title = "Admin" %>
+
+<%= link_to 'Home', root_path %>/
+<%= link_to 'Admin', admin_path %>/
+<%= link_to 'Utilisateurs', admin_users_path %>/
+<%= link_to 'Editer', edit_admin_user_path(@user) %>
+
+<h1>Editer</h1>
+
+<%= form_for [:admin, @user] do |f| %>
+	
+	<%= render 'fields', f: f %>
+	<%= f.submit "Editer" %>
+
+<% end %> 

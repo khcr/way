@@ -1,0 +1,20 @@
+<% @title = 'Admin' %>
+
+<%= link_to 'Home', root_path %>/
+<%= link_to 'Admin', admin_path %>/
+<%= link_to 'Galleries', admin_galleries_path %>
+
+<%= render '/shared/flash', flash: flash %>
+
+<h1>Galleries:</h1>
+
+<p><%= link_to "Ajouter une gallerie", new_admin_gallery_path %>
+
+<ul>
+<% @galleries.each do |gallery| %>
+	<li>
+		<%= link_to gallery.name, edit_admin_gallery_path(gallery) %>
+		| <%= link_to "Supprimer", admin_gallery_path(gallery), method: :delete, confirm: "Etes-vous sûr de vouloir supprimer cette gallerie ?" %>
+	</li>
+<% end %>
+<ul>

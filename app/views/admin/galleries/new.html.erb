@@ -1,0 +1,16 @@
+<% @title = 'Admin' %>
+
+<%= link_to 'Home', root_path %>/
+<%= link_to 'Admin', admin_path %>/
+<%= link_to 'Galleries', admin_galleries_path %>/
+<%= link_to 'Nouveau', new_admin_gallery_path %>
+
+<h1>Créer une gallerie</h1>
+
+<%= form_for [:admin, @gallery] do |f| %>
+
+	<%= render 'fields', f: f %>
+
+	<%= f.submit "Créer" %>
+	
+<% end %>

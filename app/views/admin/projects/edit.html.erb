@@ -1,0 +1,16 @@
+<% @title = 'Admin' %>
+
+<%= link_to 'Home', root_path %>/
+<%= link_to 'Admin', admin_path %>/
+<%= link_to 'Projet', admin_projects_path %>/
+<%= link_to 'Editer', edit_admin_project_path(@project) %>
+
+<h1>Editer un projet:</h1>
+
+<%= form_for [:admin, @project] do |f| %>
+
+	<%= render 'fields', f: f %>
+
+	<%= f.submit "Editer" %>
+
+<% end %>

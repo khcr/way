@@ -1,0 +1,17 @@
+<% @title = 'Admin' %>
+
+<%= link_to 'Home', root_path %>/
+<%= link_to 'Admin', admin_path %>/
+<%= link_to 'Pages', admin_pages_path %>
+
+<%= render '/shared/flash', flash: flash %>
+
+<h1>Pages:</h1>
+
+<ul>
+<% @pages.each do |page| %>
+	<li>
+		<%= link_to page.title, edit_admin_page_path(page) %>
+	</li>
+<% end %>
+<ul>
