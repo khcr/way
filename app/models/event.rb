@@ -4,6 +4,6 @@ class Event < ActiveRecord::Base
   validates :date, presence: true
   validates :minigroup, presence: true
   validates :type_soiree, presence: true
-  validates :theme, presence: true, length: { maximum: 15}
+  validates :theme, presence: true, length: { maximum: 35}
 
 end

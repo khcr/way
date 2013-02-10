@@ -1,3 +1,38 @@
-// Place all the styles related to the admins controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+table{
+	margin: auto;
+	margin-top: 40px;
+
+}
+
+form {
+	width: 100%;
+}
+
+
+
+table th {
+	border-radius: 5px;
+	padding: 5px;
+}
+
+table td {
+	vertical-align: top;
+	padding: 5px;
+}
+
+table tr {
+	
+}
+
+table caption {
+	color: orange;
+	font-weight: bold;
+}
+
+table .odd {
+	background: #e9eaff;
+}
+
+table .even {
+	background: #dcdeff
+}

@@ -1,8 +1,7 @@
-<tr>
+<tr class="<%= cycle('even', 'odd') -%>">
 		<% obj.attributes.each do |attr_name, attr_value| %>
-		<td><%= attr_value %>
+		<td><%= shorti_text(attr_value, 20) %>
 	<% end %>
-	<td><%= link_to "Modifier", edit_admin_event_path(obj) %></td>
-	<td><%= link_to "Supprimer", admin_event_path(obj), method: :delete, confirm: "Etes-vous sûr de vouloir supprimser cet événement?" %></td>
-		
+	<td><%= link_to ">>", edit_admin_event_path(obj) %></td>
+	<td><%= link_to "x", admin_event_path(obj), method: :delete, confirm: "Etes-vous sûr de vouloir supprimser cet événement?" %></td>
 </tr>
