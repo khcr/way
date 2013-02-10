@@ -34,10 +34,9 @@ group :assets do
   gem 'uglifier', '1.2.3'
   gem 'jquery-fileupload-rails'
   gem 'fancybox2-rails'
-  gem 'jquery-rails'
 end
 
-
+gem 'jquery-rails'
 
 group :production do
   gem 'pg'
