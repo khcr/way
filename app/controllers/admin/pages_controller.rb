@@ -6,7 +6,7 @@ class Admin::PagesController < ApplicationController
 	layout 'admin'
 
 	def index
-		@pages = Page.all
+		@pages = Page.page(params[:page]).per_page(10)
 	end
 
 	def admin_index

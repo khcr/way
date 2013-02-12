@@ -7,7 +7,8 @@ class Admin::EventsController < ApplicationController
 	include ApplicationHelper
 
 	def index
-		@events = Event.all
+		#@events = Event.all
+		@events = Event.page(params[:page]).per_page(10)
 	end
 
 	def new 

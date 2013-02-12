@@ -8,11 +8,8 @@
 
 <h1>Programme:</h1>
 
-<p><%= link_to "Ajouter un événement", new_admin_event_path %>
+<p><%= link_to "Ajouter un événement", new_admin_event_path %></p>
 
 <h2>Programme</h2>
 
-<table>
-	<%= render :partial => "shared/admin_render", :collection => @events, :as => :obj %>
-</table>
-
+<%= render partial: "shared/admin_render", locals: { arrayi: @events} %>

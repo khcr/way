@@ -10,11 +10,6 @@
 
 <p><%= link_to "Ajouter une new", new_admin_new_path %>
 
-<ul>
-<% @news.each do |new| %>
-	<li>
-		<%= link_to new.title, edit_admin_new_path(new) %>
-		| <%= link_to "Supprimer", admin_new_path(new), method: :delete, confirm: "Etes-vous sûr de vouloir supprimmer cette news?" %>
-	</li>
-<% end %>
-<ul>
+<h2>News</h2>
+
+<%= render partial: "shared/admin_render", locals: { arrayi: @news} %>
