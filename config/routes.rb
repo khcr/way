@@ -6,7 +6,7 @@ Way::Application.routes.draw do
   
     namespace :admin do
       resources :galleries, except: [:show] do
-        resources :paintings, except: [:index, :show]
+        resources :paintings, except: [:show]
       end
       resources :events, except: [:show]
       resources :news, except: [:show]

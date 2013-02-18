@@ -11,7 +11,7 @@ describe "NewPages" do
   end
 
   describe "new" do 
-  	before { visit new_new_path }
+  	before { visit new_admin_new_path }
 
   	it { should have_selector('title', text: 'Admin') }
   end

@@ -4,7 +4,6 @@
 class Admin::EventsController < ApplicationController
 	before_filter :signed_in_user
 	layout 'admin'
-	include ApplicationHelper
 
 	def index
 		@events = Event.all

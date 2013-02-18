@@ -5,6 +5,10 @@ class Admin::PaintingsController < ApplicationController
   before_filter :signed_in_user
   layout 'admin'
 
+  def index
+    @paintings = Painting.all
+  end
+
   def new
     @painting = Painting.new(:gallery_id => params[:gallery_id])
   end
@@ -16,7 +20,7 @@ class Admin::PaintingsController < ApplicationController
   def destroy
     @painting = Painting.find(params[:id])
     @painting.destroy
-    redirect_to paintings_url, notice: "Image supprimée"
+    redirect_to admin_galleries_url, notice: "Image supprimée"
   end
 
 end

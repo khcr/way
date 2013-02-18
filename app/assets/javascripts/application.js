@@ -14,6 +14,5 @@
 //= require jquery_ujs
 //= require jquery-fileupload/basic
 //= require jquery-fileupload/vendor/tmpl
-//= require_tree ./sitewide
+//= require jquery-ui
 //= require_tree .
-//= require fancybox

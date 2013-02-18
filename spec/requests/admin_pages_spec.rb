@@ -5,20 +5,20 @@ describe "AdminPages" do
 	subject { page }
   
   describe "index" do
-  	before { visit admins_path }
+  	before { visit admin_path }
 
   	it { should have_selector('title', text: 'Admin') }
   end
 
   describe "galleries" do 
-  	before { visit new_gallery_path }
+  	before { visit new_admin_gallery_path }
 
   	it { should have_selector('title', text: 'Admin') }
   end
 
   describe "news" do 
   	before do
-  		visit new_new_path
+  		visit new_admin_new_path
   		click_button "Ajouter"
   	end
 
@@ -26,7 +26,7 @@ describe "AdminPages" do
   end
 
   describe "events" do
-    before { visit new_event_path }
+    before { visit new_admin_event_path }
 
     it { should have_selector('title', text: 'Gjsasda') }
   end
