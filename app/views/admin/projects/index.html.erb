@@ -10,10 +10,6 @@
 
 <p><%= link_to "Créer un projet", new_admin_project_path %></p>
 
-<ul>
-	<% @projects.each do |project| %>
+<h2>Projets</h2>
 
-		<li><%= link_to project.name, edit_admin_project_path(project) %></li>
-
-	<% end %>
-</ul>
+<%= render partial: "shared/admin_render", locals: { arrayi: @projets} %>

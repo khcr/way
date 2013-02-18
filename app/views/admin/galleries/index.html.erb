@@ -8,13 +8,9 @@
 
 <h1>Galleries:</h1>
 
-<p><%= link_to "Ajouter une gallerie", new_admin_gallery_path %>
+<p><%= link_to "Ajouter une gallerie", new_admin_gallery_path %></p>
 
-<ul>
-<% @galleries.each do |gallery| %>
-	<li>
-		<%= link_to gallery.name, edit_admin_gallery_path(gallery) %>
-		| <%= link_to "Supprimer", admin_gallery_path(gallery), method: :delete, confirm: "Etes-vous sûr de vouloir supprimer cette gallerie ?" %>
-	</li>
-<% end %>
-<ul>
+<h2>Galleries:</h2>
+
+<%= render partial: "shared/admin_render", locals: { arrayi: @galleries} %>
+

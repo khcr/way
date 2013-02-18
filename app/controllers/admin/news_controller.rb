@@ -6,7 +6,7 @@ class Admin::NewsController < ApplicationController
 	layout 'admin'
 
 	def index
-		@news = New.all
+		@news = New.page(params[:page]).per_page(10)
 	end
 
 	def new
