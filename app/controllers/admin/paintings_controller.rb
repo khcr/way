@@ -6,7 +6,7 @@ class Admin::PaintingsController < ApplicationController
   layout 'admin'
 
   def index
-    @paintings = Painting.all
+    @paintings = Painting.page(params[:page]).per_page(10)
   end
 
   def new

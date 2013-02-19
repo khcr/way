@@ -1,5 +1,5 @@
 <table>
-	<% if arrayi.empty? %>
+	<% if arrayi == nil || arrayi.empty? %>
 	<tr>
 		<td>Pas d'entrées à afficher</td>
 	</tr>
@@ -34,6 +34,6 @@
 		<% end %>
 	<% end %>
 	<table>
-		<tr><td><%= will_paginate(@arrayi, previous_label: 'Précédent', next_label: 'Suivant') %></td></tr>
+		<tr><td><%#= will_paginate(@arrayi, previous_label: 'Précédent', next_label: 'Suivant') %></td></tr>
 	</table>
 </table>
