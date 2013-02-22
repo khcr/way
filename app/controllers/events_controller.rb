@@ -4,7 +4,7 @@
 class EventsController < ApplicationController
 
 	def index
-		@events = Event.where('date >=?', [Date.today])
+		@events = Event.where(date: Date.today..Date.today + 25.days)
 	end
 
 end

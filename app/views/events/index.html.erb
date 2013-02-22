@@ -22,16 +22,16 @@
         <p><span class="discret">du </span><%= french_date_short(Date.today) %></p>
       </div>
       <div class="right">
-        <p><span class="discret">au </span><%= french_date_short(25.days.from_now) %></p>
+        <p><span class="discret">au </span><%= french_date_short(@events.last.date) %></p>
       </div>
     </div>
 
-    <%-# ==========- Table with loop iteration over days -========== -%>
+    <%-# ==========- Table with loop iteration over days for timeline -========== -%>
     <table id="timeline">
 
     	<%-# ==========- First row -========== -%>
     	<tr class="marker">
-	    	<% (Date.today..Date.today + 25.days).each do |day| %>
+	    	<% (Date.today..@events.last.date).each do |day| %>
 	    		<td> <a href="#W">
 	    			<% if ((event = match_event(day)) != nil) %>														                <!-- to check if it matches -->		
 	    					<%= image_tag "timeline/" + sort_event(event) , :class => day.day.to_s + ' b' %>		<!-- to display image  depending on the event.type -->
@@ -42,7 +42,7 @@
 
     	<%-# ==========- Second row -========== -%>
     	<tr class="date">
-	    	<% (Date.today..Date.today + 25.days).each do |day| %>                    
+	    	<% (Date.today..@events.last.date).each do |day| %>                    
 	    		<% if day.strftime('%w').to_f == 5 || day.strftime('%w').to_f == 6 %>                      <!-- if at weekend -->   
 		    		<td class="weekend"><%= day.day %></td>
 		    	<% else %>
@@ -53,6 +53,7 @@
 
   	</table>
 
+    <%-# ==========- Table with loop iteration over days for summary -========== -%>
     <p class="subtitle">Les prochaines rencontres</p>
 
       <table id="summary_timeline">
