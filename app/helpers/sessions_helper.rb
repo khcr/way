@@ -30,7 +30,7 @@ module SessionsHelper
 	end
 
 	def signed_in_user
-		unless signed_in?
+		unless current_user.level == 1
 			redirect_to login_path, notice: "Connectez-vous pour accèder a cette page"
 		end
 	end

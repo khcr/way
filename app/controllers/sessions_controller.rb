@@ -10,7 +10,9 @@ class SessionsController < ApplicationController
 		user = User.find_by_name(params[:session][:name])
 		if user && user.authenticate(params[:session][:password])
 			sign_in user
-			redirect_to admin_path
+			if current_user.level == 1
+				redirect_to admin_path
+			end
 		else
 			flash.now[:error] = "Pseudo ou mot de passe incorrect"
 			render 'new'
