@@ -6,7 +6,7 @@ class Admin::ProjectsController < ApplicationController
   layout 'admin'
 
 	def index
-		@projects = Project.all
+		@projects = Project.page(params[:page]).per_page(10)
 	end
 
 	def new

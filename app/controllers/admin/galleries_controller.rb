@@ -6,7 +6,7 @@ class Admin::GalleriesController < ApplicationController
 	layout 'admin'
 
 	def index
-		@galleries = Gallery.all
+		@galleries = Gallery.page(params[:page]).per_page(10)
 	end
 
 	def new
