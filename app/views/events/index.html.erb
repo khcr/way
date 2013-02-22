@@ -58,15 +58,15 @@
 
       <table id="summary_timeline">
 
-        <% @events.each do |event| %>
+        <% @events.each_with_index do |event, index| %>
 
           <tr class="<%= 'a ' + event.date.day.to_s + 'a' %>">
             <td class="countdown">Dans <%= (event.date.day - Date.today.day ) %> jours </td>
             <td class="marker"><%= image_tag "timeline/" + sort_event(event) %></td>
             <td class="number"><%= event.date.day %></td>
             <td class="description">
-              <div><%= event.theme %></div>
-              <div><%= event.info %></div>
+              <div><a class="toggle_trigger"><%= event.theme %></a></div>
+              <div class="<%= index == 0 ? "toggle_now" : "toggle_wrap" %>"><%= event.info %></div>
             </td>
           </tr>
 

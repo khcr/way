@@ -92,6 +92,14 @@
 			background-color: red;
 		}
 
+		#content #summary_timeline .toggle_wrap {
+			display: none;
+		}
+
+		#content #summary_timeline .toggle_now {
+			display: none;
+		}
+
 	#content #informations {
 		position : absolute;
 		background-color: #7d77cb;
