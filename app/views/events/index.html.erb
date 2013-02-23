@@ -43,11 +43,9 @@
     	<%-# ==========- Second row -========== -%>
     	<tr class="date">
 	    	<% (Date.today..@events.last.date).each do |day| %>                    
-	    		<% if day.strftime('%w').to_f == 5 || day.strftime('%w').to_f == 6 %>                      <!-- if at weekend -->   
-		    		<td class="weekend"><%= day.day %></td>
-		    	<% else %>
-		    		<td><%= day.day %></td>
-		    	<% end %>
+		    		<td class="<%= day.strftime('%w').to_f == 6 || day.strftime('%w').to_f == 0 ? "weekend" : "" %>">
+              <%= day.day %>
+            </td>
 	    	<% end %>
     	</tr>
 
@@ -61,12 +59,17 @@
         <% @events.each_with_index do |event, index| %>
 
           <tr class="<%= 'a ' + event.date.day.to_s + 'a' %>">
-            <td class="countdown">Dans <%= (event.date.day - Date.today.day ) %> jours </td>
+            <td class="countdown"><%= Date.today == event.date ? "Aujourd'hui!" : "Dans "+time_ago_in_words(event.date) %></td>
             <td class="marker"><%= image_tag "timeline/" + sort_event(event) %></td>
-            <td class="number"><%= event.date.day %></td>
+            <td class="<%= event.date.strftime('%w').to_f == 6 || event.date.strftime('%w').to_f == 0 ? "weekend" : "number" %>"><%= event.date.day %></td>
             <td class="description">
-              <div><a class="toggle_trigger"><%= event.theme %></a></div>
-              <div class="<%= index == 0 ? "toggle_now" : "toggle_wrap" %>"><%= event.info %></div>
+              <div><a class="toggle_trigger <%= index == 0 ? "active" : ""%>"><%= event.theme %></a></div>
+              <div class="<%= index == 0 ? "toggle_now" : "toggle_wrap" %>">
+                <p>
+                  <% # .gsub(/(?:\n\r?|\r\n?)/, '<br>') %>
+                  <%=raw simple_format event.info%>
+                </p>
+              </div>
             </td>
           </tr>
 
