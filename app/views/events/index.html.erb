@@ -32,11 +32,11 @@
     	<%-# ==========- First row -========== -%>
     	<tr class="marker">
 	    	<% (Date.today..@events.last.date).each do |day| %>
-	    		<td> <a href="#W">
+	    		<td>
 	    			<% if ((event = match_event(day)) != nil) %>														                <!-- to check if it matches -->		
 	    					<%= image_tag "timeline/" + sort_event(event) , :class => day.day.to_s + ' b' %>		<!-- to display image  depending on the event.type -->
 	    			<% end %>
-	    		</a></td>
+	    		</td>
 	    	<% end %>
     	</tr>
 

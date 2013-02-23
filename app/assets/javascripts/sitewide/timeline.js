@@ -27,7 +27,7 @@ $(document).ready(function(){
           });
       });
   */
-  $(".toggle_trigger").click(function() {
+  $(".toggle_trigger, .toggle_now").click(function() {
     $(this).parent().nextAll('.toggle_wrap').first().toggle('slow');
   });
   $(".toggle_now").toggle(2000);
