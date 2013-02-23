@@ -7,7 +7,7 @@
 
 <h1>Ajouter un événement</h1>
 
-<%= form_for(@event, url: admin_events_path) do |f| %>
+<%= form_for [:admin, @event] do |f| %>
 
 	<%= render 'fields', f: f %>
 

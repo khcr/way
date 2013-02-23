@@ -25,7 +25,7 @@
 		<td><%= shorti_text(attr_value, 40) %></td>
 		<% end %>
 		<% end %>
-		<td><%= link_to ">>", "/admin/#{obj.class.to_s.pluralize.downcase}/2/edition" %></td>
+		<td><%= link_to ">>", "/admin/#{obj.class.to_s.pluralize.downcase}/#{obj.id}/edition" %></td>
 		<td><%= link_to "x", "/admin/#{obj.class.to_s.pluralize.downcase}/#{obj.id}", method: :delete, confirm: "Etes-vous sûr de vouloir supprimer cet événement?" %></td>
 	</tr>
 	<% end %>

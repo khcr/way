@@ -29,7 +29,7 @@ class Admin::NewsController < ApplicationController
 
 	def update
 		@new = New.find(params[:id])
-		if @new.save_attributes(params[:new])
+		if @new.update_attributes(params[:new])
 			flash[:success] = "New éditée"
 			redirect_to admin_news_path
 		else 
