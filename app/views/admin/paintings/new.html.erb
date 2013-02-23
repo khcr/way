@@ -1,11 +1,29 @@
-<h1>Ajouter des images:</h1>
+<%= form_for [:admin, @gallery, @painting], :remote => true do %>
 
-<%= form_for [:admin, :gallery,  @painting], html: { multipart: true} do |f| %>
+	<h1>Upload Gallery Photos:	<%= @gallery.name %></h1>
+	<p id="notice"><%= notice %></p>
 
-	<%= f.hidden_field :gallery_id %>
+		Upload Photos: 
+		<input id="fileupload" type="file" name="painting[image]" multiple>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script src="/jquery-file-upload/vendor/jquery.ui.widget.js"></script>
+		<script src="/jquery-file-upload/jquery.iframe-transport.js"></script>
+		<script src="/jquery-file-upload/jquery.fileupload.js"></script>
+		<script>
+		$(function () {
+		    $('#fileupload').fileupload({
+		        dataType: 'json',
+		        url: '<%= admin_gallery_paintings_path(@gallery.id) %>',
+		        done: function (e, data) {
+		            $.each(data.result, function (index, file) { 
+		               $('<li><img src="'+file.thumbnail_url+'"></li>').appendTo('#thumbs');
+		            });
+		        }
+		    });
+		});
+		</script>
 	
-  <%= f.label :image, "Upload paintings:" %>
-
-  <%= f.file_field :image, multiple: true, name: "painting[image]" %>
-
+		<ul id="thumbs" class="cf">
+	<!-- json-ajax response here, see fileupload script above, .appendTo css id:"thumbs"-->
+		</ul>
 <% end %>
