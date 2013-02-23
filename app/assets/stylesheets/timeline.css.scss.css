@@ -59,7 +59,7 @@
 
 		#content #summary_timeline .countdown {
 			font-size: 12px;
-			min-width: 100px;
+			min-width: 75px;
 			text-align: right;
 		}
 
@@ -75,7 +75,7 @@
 			text-align: center;
 		}
 
-		#content #summary_timeline .number_weekend {
+		#content #summary_timeline .weekend {
 			background: #a7b8e9;
 			padding: 7px 7px 7px 7px;
 			color: white;
@@ -88,17 +88,32 @@
 			padding-left: 10px;
 		}
 
-		#content #summary_timeline .selected {
-			background-color: red;
-		}
+			#content #summary_timeline .description p {
+				margin-top: 10px;
+			}
 
-		#content #summary_timeline .toggle_wrap {
-			display: none;
-		}
+			#content #summary_timeline .description img {
+				float: right;
+				margin: 0 0 10px 10px;
+			}
 
-		#content #summary_timeline .toggle_now {
-			display: none;
-		}
+			#content #summary_timeline .description a {
+				cursor:pointer;
+			}
+
+			#content #summary_timeline .description .active {
+				font-weight: bold;
+				font-size: 1em;
+			}
+
+			#content #summary_timeline .description .toggle_wrap {
+				display: none;
+			}
+
+			#content #summary_timeline .description .toggle_now {
+				display: none;
+			}
+
 
 	#content #informations {
 		position : absolute;

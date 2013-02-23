@@ -27,8 +27,10 @@ $(document).ready(function(){
           });
       });
   */
-  $(".toggle_trigger, .toggle_now").click(function() {
-    $(this).parent().nextAll('.toggle_wrap').first().toggle('slow');
+  $(".toggle_trigger").click(function() {
+    $(this).parent().nextAll('.toggle_wrap, .toggle_now').first().toggle('slow');
+    $(this).toggleClass('active');
   });
   $(".toggle_now").toggle(2000);
+
 });
