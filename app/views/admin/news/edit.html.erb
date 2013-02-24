@@ -5,6 +5,8 @@
 <%= link_to 'News', admin_news_path %>/
 <%= link_to 'Editer', edit_admin_new_path(@new) %>
 
+<%= render '/shared/flash', flash: flash %>
+
 <h1>Editer une new</h1>
 
 <%= form_for [:admin, @new] do |f| %>

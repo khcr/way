@@ -5,6 +5,8 @@
 <%= link_to 'Programme', admin_events_path %>/
 <%= link_to 'Editer', edit_admin_event_path(@event) %>
 
+<%= render '/shared/flash', flash: flash %>
+
 <h1>Editer un événement</h1>
 
 <%= form_for [:admin, @event] do |f| %>

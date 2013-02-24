@@ -5,6 +5,8 @@
 <%= link_to 'Projet', admin_projects_path %>/
 <%= link_to 'Editer', edit_admin_project_path(@project) %>
 
+<%= render '/shared/flash', flash: flash %>
+
 <h1>Editer un projet:</h1>
 
 <%= form_for [:admin, @project] do |f| %>

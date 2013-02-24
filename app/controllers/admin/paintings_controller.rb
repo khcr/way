@@ -8,30 +8,22 @@ class Admin::PaintingsController < ApplicationController
 
   def new
     @painting = Painting.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @painting }
-    end
   end
 
   def create
     @painting = @gallery.paintings.new(params[:painting])
     if @painting.save
-
     else
-      render :json => { "errors" => @painting.errors } 
+      render 'new'
     end
   end
 
   def destroy
     @painting = Painting.find(params[:id])
+    FileUtils.rm_rf("public/uploads/painting/image/#{@gallery.id}/#{@painting.id}")
     @painting.destroy
-
-    respond_to do |format|
-      format.html { redirect_to admin_gallery_path(@gallery) }
-      format.json { head :no_content }
-    end
+    flash[:success] = "Image supprimée"
+    redirect_to edit_admin_gallery_path(@gallery)
   end
 
   private 

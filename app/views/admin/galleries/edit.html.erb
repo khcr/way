@@ -5,7 +5,9 @@
 <%= link_to 'Galleries', admin_galleries_path %>/
 <%= link_to 'Editer', edit_admin_gallery_path(@gallery) %>
 
-<h1>Editer une gallerie:</h1>
+<%= render '/shared/flash', flash: flash %>
+
+<h2><%= @gallery.name %></h1>
 
 <p><%= link_to "Ajouter des images", new_admin_gallery_painting_path(@gallery) %></p>
 
@@ -14,5 +16,14 @@
 	<%= render 'fields', f: f %>
 
 	<%= f.submit 'Editer' %>
+
+<% end %>
+
+<h2>Images:</h2>
+
+<% @gallery.paintings.each do |painting| %>
+
+	<img src="<%= painting.image_url(:thumb) %>" />
+	<%= link_to "X", admin_gallery_painting_path(@gallery, painting), method: :delete, confirm: "Etes-vous sûr de vouloir supprimer cette image?" %>
 
 <% end %>

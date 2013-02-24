@@ -11,20 +11,15 @@ class Admin::GalleriesController < ApplicationController
 
 	def new
 		@gallery = Gallery.new
-
 	end
 
 	def create 
 		@gallery = Gallery.new(params[:gallery])
-
-    respond_to do |format|
-      if @gallery.save
-        format.html { redirect_to galleries_url, notice: 'Gallerie crée' }
-        format.json { render json: @gallery, status: :created, location: @gallery }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @gallery.errors, status: :unprocessable_entity }
-      end
+    if @gallery.save
+      flash[:success] = "Gallerie crée"
+      redirect_to edit_admin_gallery_path(@gallery)
+    else
+      render 'new' 
     end
 	end
 
@@ -34,15 +29,11 @@ class Admin::GalleriesController < ApplicationController
 
 	def update
 		@gallery = Gallery.find(params[:id])
-
-    respond_to do |format|
-      if @gallery.update_attributes(params[:gallery])
-        format.html { redirect_to galleries_url , notice: 'Gallerie édité' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @gallery.errors, status: :unprocessable_entity }
-      end
+    if @gallery.update_attributes(params[:gallery])
+      flash[:success] = "Gallerie modifiée"
+      redirect_to edit_admin_gallery_path(@gallery)
+    else
+      render 'edit'
     end
 	end
 
@@ -50,11 +41,7 @@ class Admin::GalleriesController < ApplicationController
     @gallery = Gallery.find(params[:id])
     FileUtils.rm_rf("public/uploads/painting/image/#{@gallery.id}")   
     @gallery.destroy
-    flash[:success] = "Gallerie supprimé"
-
-    respond_to do |format|
-      format.html { redirect_to galleries_url }
-      format.json { head :no_content }
-  	end
+    flash[:success] = "Gallerie supprimée"
+    redirect_to admin_galleries_path
   end
 end
