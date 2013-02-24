@@ -8,8 +8,9 @@
 	    <li><%= link_to "Medias", galleries_path %></li>
 	    <li><a href="#">PROJETS</a>
 	      <ul class="subnav">
-	        <li><%= link_to "Medias", galleries_path %></li>
-	        <li><%= link_to "Medias", galleries_path %></li>
+	      	<% Project.all.each do |project| %>
+	        	<li><%= link_to project.name , project_path(project) %></li>
+	        <% end %>
 	      </ul>
 	    </li>
 	    <li><a href="#">CONTACT</a>

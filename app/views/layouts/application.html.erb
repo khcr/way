@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>GDJ Way - <%= @title %></title>
+  <title>GDJ Way - <%= yield(:title) %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -9,7 +9,8 @@
 <body>
 
 	<div id="container">
-		
+		<h1><%= yield(:h1_title) %></h1>
+		<%= render 'layouts/header' %>
 		<%-# ==========- FLASH -========== -%>
 		<p>
 			<% flash.each do |key, value| %>

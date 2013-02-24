@@ -1,6 +1,51 @@
-<% @title = 'Galleries' %>
+<% provide(:title, 'Galleries') %>
+<% provide(:h1_title, 'Galleries Photos événements') %>
 
-<h1>Galleries</h1>
+<h2>Photos</h2>
+
+<table>
+	<% @galleries.each_slice(2) do |slice_gallerie| %>
+		<tr>
+			<td style="width:469px">
+				<table>
+					<tr>
+
+						<td style="text_align:right; padding:15px; width: 100%">
+							<p>
+								<%= slice_gallerie[0].name %> <sup style="font-size:10px"> le *une date* </sup>
+							</p>
+							<p>
+								<%= slice_gallerie[0].description %>
+							</p>
+						</td>
+						<td>
+							<div class="picsLoop">
+								<%= image_tag slice_gallerie[0].paintings.first.image_url(:thumb) %>
+							</div>
+						</td>
+
+						<% if slice_gallerie.length > 1 %>
+							<td>
+								<div class="picsLoop">
+									<%= image_tag slice_gallerie[1].paintings.first.image_url(:thumb) %>
+								</div>
+							</td>
+							<td style="padding:15px; width: 100%">
+								<p>
+									<%= slice_gallerie[1].name %> <sup style="font-size:10px"> le *une date* </sup>
+								</p>
+								<p>
+									<%= slice_gallerie[1].description %>
+								</p>
+							</td>
+						<% end %>
+
+					</tr>
+				</table>
+			</td>
+		</tr>
+	<% end %>
+</table>
 
 <ul>
 <% @galleries.each do |gallery| %>

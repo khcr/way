@@ -1,3 +1,11 @@
-<% @title = @project.name %>
+<% provide(:title, @project.name) %>
+<% provide(:h1_title, @project.name) %>
 
-</h1><%= @project.name %></h1>
+
+<h2><%= @project.name %></h2>
+
+<article>
+<p>
+	<%= @project.content %>
+</p>
+</article>

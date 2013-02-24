@@ -1,13 +1,15 @@
 <% @title = 'Admin' %>
 
+
 <%= link_to 'Home', root_path %>/
 <%= link_to 'Admin', admin_path %>
 
 <%= render '/shared/flash', flash: flash %>
 
-<p> <%= link_to 'Home', root_path %> / <%= link_to 'Admin', admin_path %> </p>
-
 <h2>Administration</h2>
+
+
+<p> <%= link_to 'Home', root_path %> / <%= link_to 'Admin', admin_path %> </p>
 
 <table>
 	<tr>
@@ -37,4 +39,3 @@
 </table>
 
 <p style="text-align:right"><img src="assets/admin/way_admin.png"/></p>
-
