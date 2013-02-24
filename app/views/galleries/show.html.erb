@@ -5,6 +5,28 @@
 
 <% @gallery.paintings.each do |painting| %>
 	
-	<a class="fancybox-buttons" data-fancybox-group="button" href="<%= painting.image_url %>"><img src="<%= painting.image_url %>" alt="" /></a>
+	<a class="fancybox-button" rel="fancybox-button" href="<%= painting.image_url %>" title="<%= painting.name %>">
+	<img src="<%= painting.image_url(:thumb) %>" alt="" />
+	</a>
 
 <% end %>
+
+<script>
+	$(document).ready(function() {
+		$(".fancybox-button").fancybox({
+			prevEffect		: 'none',
+			nextEffect		: 'none',
+			closeBtn		: false,
+			helpers		: {
+				title	: { type : 'inside' },
+				buttons	: {}
+			}
+		});
+	});
+</script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".fancybox").fancybox();
+	});
+</script>

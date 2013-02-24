@@ -48,7 +48,7 @@ class Admin::GalleriesController < ApplicationController
 
 	def destroy
     @gallery = Gallery.find(params[:id])
-    FileUtils.rm_rf("public/uploads/image/image/#{@gallery.id}")   
+    FileUtils.rm_rf("public/uploads/painting/image/#{@gallery.id}")   
     @gallery.destroy
     flash[:success] = "Gallerie supprimé"
 

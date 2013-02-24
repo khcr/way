@@ -1,4 +1,6 @@
-<%= form_for [:admin, @gallery, @painting], :remote => true do %>
+<%= form_for [:admin, @gallery, @painting], :remote => true do |f| %>
+
+	<%= render 'shared/error_messages', object: f.object %>
 
 	<h1>Upload Gallery Photos:	<%= @gallery.name %></h1>
 	<p id="notice"><%= notice %></p>
@@ -9,8 +11,10 @@
     	<div class="bar" style="width: 0%;"></div>
 		</div>
 		<script>
+		
 		$(function () {
 		    $('#fileupload').fileupload({
+		    		acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
 		        dataType: 'json',
 		        url: '<%= admin_gallery_paintings_path(@gallery.id) %>',
 		        done: function (e, data) {
@@ -25,8 +29,6 @@
 				            progress + '%'
 				        );
 				    }
-
-
 				});
 		});
 		</script>
