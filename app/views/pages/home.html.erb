@@ -2,45 +2,35 @@
 <% provide(:h1_title, 'Bienvenue sur le site du <strong>groupe de jeunes</strong> <strong>WAY</strong> à Bulle') %>
 
 
-<h2 class="index">Bienvenue sur le site du <strong>groupe de jeunes</strong> <strong>WAY</strong> à Bulle</h2>
+<h1 class="index">Bienvenue sur le site du <strong>groupe de jeunes</strong> <strong>WAY</strong> à Bulle</h1>
 <article>
-	<h2 class="home" style="padding-top:40px">Prochaine soirée <a href="rssfeed/flux.xml"><img src="/assets/layout/rss.jpeg" alt="RSS" title="RSS" width="30" height="27" /></a></h2>
+	<h2 class="home" style="padding-top:40px">Prochain événement<a href="rssfeed/flux.xml"><img src="/assets/layout/rss.jpeg" alt="RSS" title="RSS" width="30" height="27" /></a></h2>
 	<div class="nextevent">
-		<p> La prochaine soirée! </p> 
+		<h4> <%= image_tag "timeline/" + sort_event(@next_event) %> <%=raw @next_event.theme %> <sup> <%= link_to "voir tout le programme", programme_path %></sup> </h4> 
+    <p> <%=raw simple_format @next_event.info %> </p> 
 	</div>
 </article>
 
-<div id="text-fb">
+<div id="presentation">
 	<article class="left">
 	   
 	<h3><%= @presentation.title %></h3>
-    <p><%=raw @presentation.content %></p>
-	  <br />
+    <div><p class="content"><%=raw @presentation.content %></p></div><div class="img"><p><img src="assets/utils/salle.jpg"/></p></div>
 	  <div class="fb">
-	    <div class="fb-like" data-href="http://gdjway.com" data-send="false" data-width="450" data-show-faces="true" data-font="arial"></div>
       <p>Retrouve-nous sur notre page Facebook<a href="https://www.facebook.com/groups/206372632235/"><img class="fb" src="assets/utils/facebook_logo.jpg" alt="Logo Facebook"/></a></p>
 	  </div>
 	</article>
 
 	<article class="right">
-    <h3>Photos aléatoires</h3>
-    <table>
-    	<tr style="vertical-align:bottom; text-align:center">
-    		<td>
-    			<p style="margin-bottom:20px">Journée neurone - octobre 2012 </p>
-    			<div class="picsLoop" style="margin:auto">
-    			</div>
-    		</td>
-    		<td>
-    			<p style="margin-bottom:20px">Repas communautaire et soirée inter-gdj.</p>
-    			<div class="picsLoop" style="margin:auto">
-    			</div>
-    		</td>
-    		<td>
-    			<p style="margin-bottom:20px">Repas communautaire et soirée inter-gdj.</p>
-    			<div class="picsLoop" style="margin:auto">
-    			</div>
-    		</td>
+    <h3>Les dernières galleries</h3>
+    <table class="home_galery">
+      <tr>
+        <% @galleries.each do |galery| %> 
+        <td>
+          <p class="gallery_txt"><%= galery.name %></p>
+          <div class="image_container"><p><%= link_to image_tag(galery.paintings.first.image_url(:thumb)), galery %></p></div>
+        </td>
+        <% end %>
     	</tr>
     </table>
     <p class="pict">Retrouves toutes les autres photos <%= link_to "ici", galleries_path %></p>

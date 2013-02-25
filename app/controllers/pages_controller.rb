@@ -6,6 +6,8 @@ class PagesController < ApplicationController
 	def home
 		@presentation = Page.find_by_name('presentation')
 		@news = New.where('created_at <=?', [Time.zone.now])
+		@galleries = Gallery.limit(3)
+		@next_event = Event.where('date >=?', [Time.zone.now]).order('date ASC').first
 	end
 
 	def vision

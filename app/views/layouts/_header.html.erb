@@ -6,14 +6,14 @@
 	    <li><%= link_to "Vision", vision_path %></li>
 	    <li><%= link_to "Programme", programme_path %></li>
 	    <li><%= link_to "Medias", galleries_path %></li>
-	    <li><a href="#">PROJETS</a>
+	    <li><a href="#">Projets</a>
 	      <ul class="subnav">
 	      	<% Project.all.each do |project| %>
 	        	<li><%= link_to project.name , project_path(project) %></li>
 	        <% end %>
 	      </ul>
 	    </li>
-	    <li><a href="#">CONTACT</a>
+	    <li><a href="#">Contact</a>
 	      <ul class="subnav">
 	        <li><%= link_to "Contact", contact_path %></li>
 	        <li><%= link_to "Liens", liens_path %></li>
