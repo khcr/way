@@ -1,0 +1,12 @@
+<%= link_to 'Home', root_path %>/
+<%= link_to 'Admin', admin_path %>/
+<%= link_to 'Images', admin_images_path %>
+
+<h2>Images</h2>
+
+<%= link_to "Ajouter des images", new_admin_image_path %>
+
+<% @images.each do |image| %>
+	<%= image_tag image.image.url %>
+	<%= link_to "X", admin_image_path(image), method: :delete, confirm: "Etes-vous sûr de vouloir supprimer cette image?" %>
+<% end %>

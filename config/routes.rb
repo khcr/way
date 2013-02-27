@@ -13,7 +13,7 @@ Way::Application.routes.draw do
       resources :pages, except: [:show]
       resources :projects, except: [:show]
       resources :users, except: [:show]
-      resources :images, only: [:create]
+      resources :images
     end
 
     resources :galleries, only: [:index, :show], path: '/medias'

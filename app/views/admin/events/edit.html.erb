@@ -16,6 +16,8 @@
 	<% if @event.image_id? %>
 		<% image = Image.find(@event.image_id) %>
 		<%= image_tag image.image.url %>
+		<%= f.label :image_id, "Supprimer" %>
+		<%= f.radio_button :image_id, "" %>
 	<% end %>
 
 	<%= render 'images', f: f %>
@@ -24,4 +26,4 @@
 	
 <% end %>
 
-<%= render 'upload' %>
+<%= render 'shared/upload' %>
