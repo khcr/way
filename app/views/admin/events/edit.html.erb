@@ -13,6 +13,29 @@
 
 	<%= render 'fields', f: f %>
 
+	<% if @event.image_id? %>
+		<% image = Image.find(@event.image_id) %>
+		<%= image_tag image.image.url %>
+	<% end %>
+
+	<% Image.all.each do |image| %>
+
+		<%= image_tag image.image.url %>
+		<%= f.radio_button :image_id, image.id, checked: image.id == @event.image_id %>
+
+	<% end %>
+
 	<%= f.submit "Editer" %>
 	
+<% end %>
+
+<%= form_for Image.new, url: admin_images_path do |f| %>
+
+	<%= render '/shared/flash', flash: flash %>
+
+	<%= f.label :image %>
+	<%= f.file_field :image %>
+
+	<%= f.submit "Téléverser" %>
+
 <% end %>

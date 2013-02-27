@@ -2,7 +2,7 @@ class Painting < ActiveRecord::Base
   attr_accessible :gallery_id, :image, :name
 
   belongs_to :gallery
-  mount_uploader :image, ImageUploader
+  mount_uploader :image, PaintingUploader
 
   before_create :default_name
 

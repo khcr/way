@@ -4,7 +4,7 @@
 class Admin::UsersController < ApplicationController
 	layout 'admin'
 	before_filter :signed_in_user
-	before_filter :correct_user, only: [:edit, :update, :destroy]
+	before_filter :correct_user, only: [:edit, :update]
 
 	def index
 		@users = User.page(params[:page]).per_page(10)

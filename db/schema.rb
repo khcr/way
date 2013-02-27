@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130220202216) do
+ActiveRecord::Schema.define(:version => 20130226160316) do
 
   create_table "events", :force => true do |t|
     t.string   "theme"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20130220202216) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.string   "type_soiree"
+    t.integer  "image_id"
   end
 
   add_index "events", ["date"], :name => "index_events_on_date"
@@ -33,6 +34,12 @@ ActiveRecord::Schema.define(:version => 20130220202216) do
     t.string   "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "images", :force => true do |t|
+    t.string   "image"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "news", :force => true do |t|
