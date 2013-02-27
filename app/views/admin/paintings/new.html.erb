@@ -39,6 +39,9 @@
 				            progress + '%'
 				        );
 				        $('.progress .progress-val').text(progress + '%');
+				    },
+				    fail: function (e, data) {
+				    	$('.progress .progress-val').text('Téleversement échoué! :/');
 				    }
 				});
 		});

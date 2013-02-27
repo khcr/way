@@ -5,8 +5,12 @@
 <article>
 	<h2 class="home" style="padding-top:40px">Prochain événement<a href="rssfeed/flux.xml"><img src="/assets/layout/rss.jpeg" alt="RSS" title="RSS" width="30" height="27" /></a></h2>
 	<div class="nextevent">
+    <% if(@next_event != nil) %>
 		<h4> <%= image_tag "timeline/" + sort_event(@next_event) %> <%=raw @next_event.theme %> <sup> <%= link_to "voir tout le programme", programme_path %></sup> </h4> 
     <p> <%=raw simple_format @next_event.info %> </p> 
+    <% else %>
+    <p> Pas d'événement agendé</p>
+    <% end %>
 	</div>
 </article>
 
