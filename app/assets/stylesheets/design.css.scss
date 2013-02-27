@@ -81,9 +81,13 @@ div#container {
 			margin-bottom: .5em
 		}
 
-		#container div.nextevent p img {
+		#container div.nextevent .img {
 			float: right;
-			margin: 0 0 0 20px;
+			//margin: 0 0 0 20px;
+		}
+
+		#container div.nextevent .txt {
+			float: left;
 		}
 
 	#container #presentation {
@@ -94,6 +98,10 @@ div#container {
 
 		}
 
+		#container #presentation h3 {
+			margin-top: 20px;
+		}
+
 		#container #presentation .img {
 			width: 100%;
 			text-align: center;
@@ -102,6 +110,29 @@ div#container {
 		#container #presentation .img img {
 			text-align: center;
 		}
+
+
+	#container #presentation {
+		width: 100%;
+		margin: 0 auto;
+	}
+
+		#container #presentation article.left {
+			display: table-cell;
+			min-width: 500px;
+		}
+
+			#container #presentation article.left p {
+				margin-top: 10px;
+			}		
+
+		#container #presentation article.right {
+			width: 80%;
+			display: table-cell;
+			vertical-align: top;
+			padding: 0 10px 0 0;
+		}
+
 
 p.nextevent img {
 	float: left;
@@ -119,20 +150,7 @@ article div.docs p {
 article div.docs p span {
 	font-weight: bold
 }
-div#presentation div.fb {
-	float: left;
-	margin-top: 2em
-}
-div#presentation article h3 {
-	text-align: left
-}
-img.fb {
-	margin-top: 2em;
-	margin-left: 1em
-}
-p.pict {
-	margin-top: 1em
-}
+
 div#news-events article h3 {
 	margin-bottom: 0.5em
 }
@@ -150,14 +168,8 @@ nav {
 	margin-left: 8%;
 // chrome/firefox:8% safari:5% margin-bottom:10%
 }
-div#presentation {
-	margin-top: 2em
-}
-div#presentation article, div#news-events article {
-	margin: 1em;
-	float: left;
-	width: 45%
-}
+
+
 
 div.types-soirees{
 	margin-left:4.5em;
@@ -254,9 +266,15 @@ footer {
 #container {
 
 }
-
+/*
 	#container .right {
 
+	}
+
+	div#presentation article, div#news-events article {
+		margin: 1em;
+		float: left;
+		width: 45%
 	}
 
 		#container .right .home_galery tr {
@@ -289,4 +307,4 @@ footer {
 				max-width: 120px;
 				padding: 10px;
 				border-radius: 9px;
-			}
+			}*/

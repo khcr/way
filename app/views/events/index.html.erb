@@ -63,7 +63,8 @@
               <div class="<%= index == 0 ? "toggle_now" : "toggle_wrap" %>">
                 <p>
                   <% # .gsub(/(?:\n\r?|\r\n?)/, '<br>') %>
-                  <%=raw simple_format event.info%><%= event.image.blank? ? "" : image_tag(event.image.url) %>
+                  <%=raw simple_format event.info%>
+                  <%= event.image_id? ? image_tag(Image.find(event.image_id).image.url) : "" %>
                 </p>
               </div>
             </td>
