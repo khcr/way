@@ -11,25 +11,10 @@
 
 	<%= render 'fields', f: f %>
 
-
-	<% Image.all.each do |image| %>
-
-		<%= image_tag image.image.url %>
-		<%= f.radio_button :image_id, image.id %>
-
-	<% end %>
+	<%= render 'images', f: f %>
 
 	<%= f.submit "Ajouter" %>
 	
 <% end %>
 
-<%= form_for Image.new, url: admin_images_path do |f| %>
-
-	<%= render '/shared/flash', flash: flash %>
-
-	<%= f.label :image %>
-	<%= f.file_field :image %>
-
-	<%= f.submit "Téléverser" %>
-
-<% end %>
+<%= render 'upload' %>

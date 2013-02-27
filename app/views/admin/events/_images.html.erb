@@ -1,0 +1,6 @@
+<% Image.all.each do |image| %>
+
+	<%= image_tag image.image.url %>
+	<%= f.radio_button :image_id, image.id %>
+
+<% end %>
