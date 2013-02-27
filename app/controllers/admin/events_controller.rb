@@ -25,7 +25,7 @@ class Admin::EventsController < ApplicationController
 
 	def edit
 		@event = Event.find(params[:id])
-	end
+	end 
 
 	def update
 		@event = Event.find(params[:id])
@@ -42,5 +42,4 @@ class Admin::EventsController < ApplicationController
 		flash[:success] = "Evénement supprimé"
 		redirect_to admin_events_path
 	end
-
 end

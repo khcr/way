@@ -8,11 +8,12 @@ Way::Application.routes.draw do
       resources :galleries, except: [:show] do
         resources :paintings, except: [:show]
       end
-      resources :events, except: [:show]
+      resources :events, except: [:show] 
       resources :news, except: [:show]
       resources :pages, except: [:show]
       resources :projects, except: [:show]
       resources :users, except: [:show]
+      resources :images, only: [:create]
     end
 
     resources :galleries, only: [:index, :show], path: '/medias'
@@ -30,4 +31,6 @@ Way::Application.routes.draw do
 
   match '/login', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
+
+  
 end

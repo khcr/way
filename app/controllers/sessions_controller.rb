@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
 	end
 
 	def create
+		params[:session][:name] = params[:session][:name].gsub(/\s+/, "").downcase
 		user = User.find_by_name(params[:session][:name])
 		if user && user.authenticate(params[:session][:password])
 			sign_in user
@@ -14,7 +15,7 @@ class SessionsController < ApplicationController
 				redirect_to admin_path
 			end
 		else
-			flash.now[:error] = "Pseudo ou mot de passe incorrect"
+			flash.now[:error] = "Mot de passe ou nom d'utilisateur incorrect."
 			render 'new'
 		end
 	end

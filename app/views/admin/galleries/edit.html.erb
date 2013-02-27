@@ -19,8 +19,6 @@
 
 <% end %>
 
-<h2>Images:</h2>
-
 <% @gallery.paintings.each do |painting| %>
 
 	<img src="<%= painting.image_url(:thumb) %>" />

@@ -2,13 +2,13 @@
 
 <%= f.select :type_soiree, ['GPS','Extra','Actu','Culte','Youth','Event','Inter-GDJ','Divers'] %>
 
-<%= f.label :theme, "Thème" %>
+<%= f.label :theme %>
 <%= f.text_field :theme %>
 
-<%= f.label :info, "Information" %>
+<%= f.label :info %>
 <%= f.text_area(:info, size: '40x10') %>
 
-<%= f.label :president, "Président" %>
+<%= f.label :president %>
 <%= f.text_field :president %>
 
 <%= f.label :remarque %>
@@ -17,7 +17,7 @@
 <%= f.label :orateur %>
 <%= f.text_field :orateur %>
 
-<%= f.label :minigroup, "Mini-groupe" %>
+<%= f.label :minigroup %>
 <%= f.radio_button :minigroup, true %>
 <%= f.radio_button :minigroup, false %>
 

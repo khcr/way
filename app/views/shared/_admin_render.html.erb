@@ -26,7 +26,7 @@
 		<% end %>
 		<% end %>
 		<td><%= link_to ">>", "/admin/#{obj.class.to_s.pluralize.downcase}/#{obj.id}/edition" %></td>
-		<td><%= link_to "x", "/admin/#{obj.class.to_s.pluralize.downcase}/#{obj.id}", method: :delete, confirm: "Etes-vous sûr de vouloir supprimer cet événement?" %></td>
+		<td><%= link_to "x", "/admin/#{obj.class.to_s.pluralize.downcase}/#{obj.id}", method: :delete, confirm: "Etes-vous sûr de vouloir supprimer cette entrée?" %></td>
 	</tr>
 	<% end %>
 	<% end %>
