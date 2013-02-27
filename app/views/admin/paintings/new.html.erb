@@ -15,8 +15,9 @@
 
 		Téléverser des images:
 		<input id="fileupload" type="file" name="painting[image]" multiple>
-		<div id="progress">
-    	<div class="bar" style="width: 0%;"></div>
+		<div class="progress">
+		<span class="progress-val">0%</span>
+    <span class="progress-bar"><span class="progress-in"></span></span>
 		</div>
 		<script>
 		
@@ -29,13 +30,15 @@
 		            $.each(data.result, function (index, file) { 
 		               $('<img style="float:left" src="'+file.thumbnail_url+'">').appendTo('#thumbs');
 		            });
+		            $('.progress .progress-val').text('100% chargement terminé');
 		        },
 		        progressall: function (e, data) {
 				        var progress = parseInt(data.loaded / data.total * 100, 10);
-				        $('#progress .bar').css(
+				        $('.progress .progress-in').css(
 				            'width',
 				            progress + '%'
 				        );
+				        $('.progress .progress-val').text(progress + '%');
 				    }
 				});
 		});
