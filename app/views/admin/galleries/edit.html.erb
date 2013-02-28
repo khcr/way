@@ -3,13 +3,13 @@
 <%= link_to 'Home', root_path %>/
 <%= link_to 'Admin', admin_path %>/
 <%= link_to 'Galleries', admin_galleries_path %>/
-<%= link_to 'Editer', edit_admin_gallery_path(@gallery) %>
+<%= link_to 'Editer', edit_admin_gallery_path(@gallery.id) %>
 
 <%= render '/shared/flash', flash: flash %>
 
 <h2><%= @gallery.name %></h1>
 
-<p><%= link_to "Ajouter des images", new_admin_gallery_painting_path(@gallery) %></p>
+<p><%= link_to "Ajouter des images", new_admin_gallery_painting_path(@gallery.id) %></p>
 
 <%= form_for [:admin, @gallery] do |f| %>
 

@@ -1,7 +1,7 @@
 <%= link_to 'Home', root_path %>/
 <%= link_to 'Admin', admin_path %>/
 <%= link_to 'Galleries', admin_galleries_path %>/
-<%= link_to 'Edition', edit_admin_gallery_path(@gallery) %>
+<%= link_to 'Edition', edit_admin_gallery_path(@gallery.id) %>
 
 <%= render '/shared/flash', flash: flash %>
 
