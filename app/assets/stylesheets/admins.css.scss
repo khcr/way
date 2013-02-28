@@ -35,6 +35,42 @@ form {
 	width: 100%;
 }
 
+  form table {
+    width: 100%;
+    border-collapse:collapse
+  }
+
+  form table tr td:first-child {
+    background-color: #ffc2c2;
+    min-width: 250px;
+    border-top: 1px solid #ffeded;
+    color: #333;
+    padding: 3px 0 0 10px;
+  }
+
+  form table tr td:last-child {
+    width: 100%;
+  }
+
+  form table tr td:last-child img {
+    max-height: 100px;
+    border: 2px solid #ffc2c2;
+    padding: 4px;
+    border-radius: 3px;
+  }
+
+  form table tr td:last-child .img {
+    float: left;
+  }
+
+  form table tr td textarea {
+    width: 100%;
+  }
+
+  form table tr td input {
+    width: 100%;
+  }
+
 .pagination ul li {
 	float: left;
 	list-style-type: none;
@@ -42,10 +78,6 @@ form {
 }
 
 .pagination ul {
-}
-
-form {
-
 }
 
 
