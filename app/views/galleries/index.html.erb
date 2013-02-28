@@ -51,12 +51,3 @@
 		<% end %>
 	</table>
 </div>
-
-<ul>
-<% @galleries.each do |gallery| %>
-	<li>
-		<%= link_to gallery.name, gallery %> | 
-		<%= gallery.description %>
-	</li>
-<% end %>
-</ul>

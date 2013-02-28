@@ -23,7 +23,7 @@ class Admin::ImagesController < ApplicationController
 
 	def destroy
 		@image = Image.find(params[:id])
-		FileUtils.rm_rf("public#{@image.image}") if @image.image?
+		FileUtils.rm("public#{@image.image}")
 		@image.destroy
 		flash[:success] = "Image supprimée"
 		redirect_to admin_images_path
