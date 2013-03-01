@@ -1,5 +1,7 @@
 Way::Application.routes.draw do
 
+  mount Mercury::Engine => '/'
+
   root to: 'pages#home'
 
   match '/vision', to: 'pages#vision'
@@ -19,16 +21,17 @@ Way::Application.routes.draw do
       end
       resources :events, except: [:show] 
       resources :news, except: [:show]
-      resources :pages, except: [:show]
+      resources :pages, except: [:show] do
+        member { post :mercury_update }
+      end
       resources :projects, except: [:show]
       resources :users, except: [:show]
       resources :images
     end
 
-    resources :galleries, only: [:index], path: '/medias'
-    resources :galleries, only: [:show], path: ''
+    resources :galleries, only: [:index, :show], path: '/medias'
     resources :sessions, only: [:create, :destroy]
-    resources :projects, only: [:show]
+    resources :projects, only: [:show], path: '/projets'
 
   end
   

@@ -7,6 +7,7 @@ gem 'bootstrap-will_paginate'
 gem 'bootstrap-sass'
 gem 'carrierwave'
 gem "mini_magick", "~> 3.4"
+gem 'mercury-rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
