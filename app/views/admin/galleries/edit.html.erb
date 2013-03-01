@@ -22,6 +22,6 @@
 <% @gallery.paintings.each do |painting| %>
 
 	<img src="<%= painting.image_url(:thumb) %>" />
-	<%= link_to "X", admin_gallery_painting_path(@gallery, painting), method: :delete, confirm: "Etes-vous sûr de vouloir supprimer cette image?" %>
+	<%= link_to "X", admin_gallery_painting_path(@gallery.id, painting), method: :delete, confirm: "Etes-vous sûr de vouloir supprimer cette image?" %>
 
 <% end %>

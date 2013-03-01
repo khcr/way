@@ -17,7 +17,7 @@ class Admin::ProjectsController < ApplicationController
 		@project = Project.new(params[:project])
 		if @project.save
 			flash[:success] = "Projet créé"
-			redirect_to project_path(@project)
+			redirect_to project_path(@project.id)
 		else
 			render 'new'
 		end
@@ -31,7 +31,7 @@ class Admin::ProjectsController < ApplicationController
 		@project = Project.find(params[:id])
 		if @project.save_attributes(params[:project])
 			flash[:success] = "Projet édité "
-			redirect_to project_path(@project)
+			redirect_to project_path(@project.id)
 		else
 			render 'edit'
 		end

@@ -2,9 +2,15 @@
 # encoding: utf-8
 
 class ProjectsController < ApplicationController
+	before_filter :find_page
 
 	def show
-		@project = Project.find(params[:id])
+	end
+
+	private 
+	
+	def find_page
+  	@project = Project.find_by_slug!(params[:id])
 	end
 
 end

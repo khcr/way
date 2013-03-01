@@ -2,11 +2,11 @@
 <% provide(:h1_title, 'Présentation et vision Amitié Dynamisme Evangélisation Groupe de jeunes WAY Bulle') %>
 
 
-<h2 style="text-align:center"><%= @vision.title %></h2>
+<h2 style="text-align:center"><div id="primary" data-mercury="full"><%= raw @vision.title %></div></h2>
 
-<article>
-	<p>
+<article><div id="primary" data-mercury="full">
 		<%=raw @vision.content %>
-	</p>
-</article>
+</div></article>
 <div class="clear"></div>
+
+<p><%= link_to "Edit Page", "/editor" + request.path, id: "edit_link", data: { save_url: "mercury_update_admin_page_path(@vision)" } %></p>

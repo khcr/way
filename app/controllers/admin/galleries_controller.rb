@@ -3,7 +3,6 @@
 
 class Admin::GalleriesController < ApplicationController
 	before_filter :signed_in_user
-	#before_filter :find_page, only: [:edit, :update, :destroy]
 	layout 'admin'
 
 	def index
@@ -18,7 +17,7 @@ class Admin::GalleriesController < ApplicationController
 		@gallery = Gallery.new(params[:gallery])
     if @gallery.save
       flash[:success] = "Gallerie crée"
-      redirect_to edit_admin_gallery_path(@gallery)
+      redirect_to edit_admin_gallery_path(@gallery.id)
     else
       render 'new' 
     end
@@ -29,26 +28,20 @@ class Admin::GalleriesController < ApplicationController
 	end
 
 	def update
-		
+		@gallery = Gallery.find(params[:id])
     if @gallery.update_attributes(params[:gallery])
       flash[:success] = "Gallerie modifiée"
-      redirect_to edit_admin_gallery_path(@gallery)
+      redirect_to edit_admin_gallery_path(@gallery.id)
     else
       render 'edit'
     end
 	end
 
 	def destroy
-    
+		@gallery = Gallery.find(params[:id])
     FileUtils.rm_rf("public/uploads/painting/image/#{@gallery.id}")   
     @gallery.destroy
     flash[:success] = "Gallerie supprimée"
     redirect_to admin_galleries_path
   end
-
-  # private
-
-	# def find_page
-  # 	@gallery = Gallery.find_by_slug!(params[:id])
-	# end
 end
