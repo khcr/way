@@ -13,16 +13,22 @@
 
 	<%= render 'fields', f: f %>
 
+
 	<% if @event.image_id? %>
-		<% image = Image.find(@event.image_id) %>
-		<%= image_tag image.image.url %>
-		<%= f.label :image_id, "Supprimer" %>
-		<%= f.radio_button :image_id, "" %>
+	<table>
+		<tr>
+			<td><label>Image</label></td>
+			<td><%= image_tag Image.find(@event.image_id).image.url %></td>
+		</tr>
+		<tr>
+			<td><%= f.label :image_id, "Supprimer l'image" %></td>
+			<td><%= f.radio_button :image_id, "" %></td>
+		</tr>
 	<% end %>
 
 	<%= render 'images', f: f %>
 
-	<%= f.submit "Editer" %>
+	<table><tr><td>Editer l'event</td><td><%= f.submit "Enregistrer les modifications", class: 'w8-button l-blue' %></td></tr></table>
 	
 <% end %>
 
