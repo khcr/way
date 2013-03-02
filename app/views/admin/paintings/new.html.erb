@@ -26,7 +26,7 @@
 		    		acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
 		        dataType: 'json',
 		        url: '<%= admin_gallery_paintings_path(@gallery.id) %>',
-		        done: function (e, data) {
+		        chunkdone: function (e, data) {
 		            $.each(data.result, function (index, file) { 
 		               $('<img style="float:left" src="'+file.thumbnail_url+'">').appendTo('#thumbs');
 		            });

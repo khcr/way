@@ -20,7 +20,7 @@
 							</td>
 							<td>
 								<div class="image_container">
-									<p><%= link_to image_tag(slice_gallerie[0].paintings.first.image_url(:thumb)), slice_gallerie[0] %></p>
+									<p><%= (image=slice_gallerie[0].paintings.first) ? link_to(image_tag(image.image_url(:thumb)), slice_gallerie[0]) : "*pad d'images*" %></p>
 								</div>
 							</td>
 						</tr>
@@ -32,7 +32,7 @@
 							<tr>
 								<td>
 									<div class="image_container">
-										<p><%= link_to image_tag(slice_gallerie[1].paintings.first.image_url(:thumb)), slice_gallerie[1] %></p>
+										<p><%= (image=slice_gallerie[1].paintings.first) ? link_to(image_tag(image.image_url(:thumb)), slice_gallerie[1]) : "*pas d'images*" %></p>
 									</div>
 								</td>
 								<td class="text">

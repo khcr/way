@@ -18,7 +18,7 @@
         <p><span class="discret">du </span><%= french_date_short(Date.today) %></p>
       </div>
       <div class="right">
-        <p><span class="discret">au </span><%= french_date_short(@events.last.date) %></p>
+        <p><span class="discret">au </span><%= (date=french_date_short(@events.last.date))   %></p>
       </div>
     </div>
 

@@ -29,10 +29,10 @@
     <h3>Les dernières galleries</h3>
     <table class="home_galery">
       <tr>
-        <% @galleries.each do |galery| %> 
+        <% @galleries.each do |gallery| %> 
         <td>
-          <p class="gallery_txt"><%= galery.name %></p>
-          <div class="image_container"><p><%= link_to image_tag(galery.paintings.first.image_url(:thumb)), galery %></p></div>
+          <p class="gallery_txt"><%= gallery.name %></p>
+          <div class="image_container"><p><%= (image = gallery.paintings.first) != nil ? link_to(image_tag(image.image_url(:thumb)), gallery) : "*pas d'images*" %></p></div>
         </td>
         <% end %>
     	</tr>
