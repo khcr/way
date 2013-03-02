@@ -14,10 +14,10 @@ class PaintingUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.gallery_id}/#{model.id}"
   end
 
-  process :resize_to_fit => [900, 900]
+  process :resize_to_limit => [900, 900]
 
   version :thumb do
-    process resize_to_fit: [150, 150]
+    process resize_to_fit: [136, 90]
   end
 
   def extension_white_list

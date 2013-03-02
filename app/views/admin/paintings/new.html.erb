@@ -19,6 +19,7 @@
 		<span class="progress-val">0%</span>
     <span class="progress-bar"><span class="progress-in"></span></span>
 		</div>
+		<div class="console"></div>
 		<script>
 		
 		$(function () {
@@ -26,11 +27,10 @@
 		    		acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
 		        dataType: 'json',
 		        url: '<%= admin_gallery_paintings_path(@gallery.id) %>',
-		        chunkdone: function (e, data) {
+		        done: function (e, data) {
 		            $.each(data.result, function (index, file) { 
 		               $('<img style="float:left" src="'+file.thumbnail_url+'">').appendTo('#thumbs');
 		            });
-		            $('.progress .progress-val').text('100% chargement terminé');
 		        },
 		        progressall: function (e, data) {
 				        var progress = parseInt(data.loaded / data.total * 100, 10);
@@ -41,7 +41,10 @@
 				        $('.progress .progress-val').text(progress + '%');
 				    },
 				    fail: function (e, data) {
-				    	$('.progress .progress-val').text('Téleversement échoué! :/');
+				    	$('.console').text('Problème rencontré');
+				    },
+				    stop: function (e, data) {
+				    	$('.progress .progress-val').text('100% chargement terminé');
 				    }
 				});
 		});
