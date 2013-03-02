@@ -1,8 +1,9 @@
 class Gallery < ActiveRecord::Base
-  attr_accessible :name, :description
+  attr_accessible :name, :description, :date
   has_many :paintings, :dependent => :destroy 
 
   validates :name, presence: true, length: { maximum: 55 }
+  validates :date, presence: true
 
   validates :slug, uniqueness: true, presence: true
 
