@@ -13,7 +13,7 @@ body {
 	font-size: 0.9em;
 	line-height: 1.3em;
 	font-weight: 400;
-	background: url(../layout/way_background.jpeg) no-repeat center top #000000
+	background: url(/assets/layout/way_background.jpeg) no-repeat center top #000000
 }
 
 a {
@@ -119,19 +119,32 @@ div#container {
 
 		#container #presentation article.left {
 			display: table-cell;
-			min-width: 500px;
+			min-width: 600px;
+			font-size: 15px;
 		}
 
 			#container #presentation article.left p {
-				margin-top: 10px;
+				padding: 10px;
 			}		
 
 		#container #presentation article.right {
 			width: 80%;
 			display: table-cell;
+			margin: auto;
 			vertical-align: top;
 			padding: 0 10px 0 0;
 		}
+
+			#container #presentation article.right h3 {
+				text-align: right;
+			}
+
+			#container #presentation article.right p {
+				text-align: center;
+			}
+
+
+
 
 
 p.nextevent img {
