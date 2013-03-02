@@ -45,6 +45,12 @@
 			color: white;
 		}
 
+		#content #timeline .date .today {
+			-moz-box-shadow:inset 1px 1px 20px #000000;
+			-webkit-box-shadow:inset 1px 1px 20px #000000;
+			box-shadow:inset 1px 1px 20px #000000;
+		}
+
 	#content .subtitle {
 		text-align: center;
 		padding: 20px 0 20px 0;
