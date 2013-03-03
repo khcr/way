@@ -11,11 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130302103027) do
+ActiveRecord::Schema.define(:version => 20130303170446) do
 
   create_table "events", :force => true do |t|
     t.string   "theme"
-    t.string   "info"
     t.string   "president"
     t.string   "remarque"
     t.string   "orateur"
@@ -25,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20130302103027) do
     t.datetime "updated_at",  :null => false
     t.string   "type_soiree"
     t.integer  "image_id"
+    t.text     "info"
   end
 
   add_index "events", ["date"], :name => "index_events_on_date"
@@ -48,18 +48,18 @@ ActiveRecord::Schema.define(:version => 20130302103027) do
 
   create_table "news", :force => true do |t|
     t.string   "title"
-    t.string   "content"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.date     "date_exp"
+    t.text     "content"
   end
 
   create_table "pages", :force => true do |t|
     t.string   "title"
-    t.string   "content"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "name"
+    t.text     "content"
   end
 
   create_table "paintings", :force => true do |t|
@@ -74,8 +74,8 @@ ActiveRecord::Schema.define(:version => 20130302103027) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string   "content"
     t.string   "slug"
+    t.text     "content"
   end
 
   add_index "projects", ["slug"], :name => "index_projects_on_slug"
