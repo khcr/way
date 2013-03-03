@@ -23,6 +23,10 @@ class Admin::ImagesController < ApplicationController
 
 	def destroy
 		@image = Image.find(params[:id])
+		Event.where('image_id = ?', @image.id).each do |event|
+			event.image_id = ""
+			event.save
+		end
 		FileUtils.rm("public#{@image.image}")
 		@image.destroy
 		flash[:success] = "Image supprimée"

@@ -8,5 +8,7 @@
 
 <% @images.each do |image| %>
 	<%= image_tag image.image.url %>
-	<%= link_to "X", admin_image_path(image), method: :delete, confirm: "Etes-vous sûr de vouloir supprimer cette image?" %>
+	<% (@events = Event.where('image_id = ?', image.id)).any? ? confirmation = "Cette image est utilisée dans les événements suivant: #{@events.map{ |event| event.id } }. Voulez-vous vraiment la supprimer ?" : confirmation = "Etes-vous sûr de vouloir supprimer cette image?" %>
+	<%= link_to "X", admin_image_path(image), method: :delete, confirm: confirmation %>
 <% end %>
+
