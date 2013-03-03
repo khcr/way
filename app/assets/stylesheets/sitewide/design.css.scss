@@ -1,6 +1,8 @@
 @charset "utf-8";
 /* CSS Document */
 
+@import 'variables.css.scss';
+
 * {
 	margin: 0;
 	padding: 0
@@ -13,8 +15,12 @@ body {
 	font-size: 0.9em;
 	line-height: 1.3em;
 	font-weight: 400;
-	background: url(/assets/layout/way_background.jpeg) no-repeat center top #000000
+	background: url(/assets/layout/way_background.jpeg) no-repeat center top #000000;
 }
+
+	body p {
+		line-height: 1.54;
+	}
 
 a {
 	text-decoration: none;
@@ -45,7 +51,7 @@ div#container {
 		}
 
 	#container h2, #container h3 {
-			color: #C90
+			color: $title_color;
 	}
 
 	#container h2, #container #presentation article h3 {
@@ -119,16 +125,17 @@ div#container {
 
 		#container #presentation article.left {
 			display: table-cell;
-			min-width: 600px;
+			min-width: 550px;
 			font-size: 15px;
 		}
 
 			#container #presentation article.left p {
-				padding: 10px;
+				color: $l-grey;
+				padding-bottom: 8px;
 			}		
 
 		#container #presentation article.right {
-			width: 80%;
+			width: 100%;
 			display: table-cell;
 			margin: auto;
 			vertical-align: top;
@@ -141,7 +148,13 @@ div#container {
 
 			#container #presentation article.right p {
 				text-align: center;
+				color: $l-grey;
 			}
+
+	#container #presentation article.middle {
+		display: table-cell;
+		min-width: 30px;
+	}
 
 
 
@@ -276,48 +289,40 @@ footer {
 	border-radius: 10px
 }
 
-#container {
-
-}
-/*
-	#container .right {
-
+	#container #presentation .right .home_galery .gallery_txt {
+		font-weight: bold;
 	}
 
-	div#presentation article, div#news-events article {
-		margin: 1em;
-		float: left;
-		width: 45%
+	#container #presentation .right .home_galery .image_container {
+		width: 156px;
+		height: 110px;
+		padding: 0;
+		margin-top: 0.5em;
+		margin-bottom: 0.5em;
+		margin-left: 0.1em;
+		margin-right: 0.1em;
+		box-shadow: 1px 1px 12px #C90;
+		border-radius: 9px;
 	}
 
-		#container .right .home_galery tr {
-			vertical-align:bottom; 
-			text-align:center;
-		}
-
-		#container .right .home_galery td {
-			margin: 0;
-			padding: 0;
-		}
-
-		#container .right .home_galery .gallery_txt {
-			margin-bottom: 20px;
-		}
-
-		#container .right .home_galery .image_container {
-			width: 156px;
-			height: 110px;
-			box-shadow: 1px 1px 12px #C90;
+		#container #presentation .right .home_galery .image_container img {
+			height: 90px;
+			max-width: 120px;
+			padding: 10px;
 			border-radius: 9px;
 		}
 
-			#container .right .home_galery .image_container p {
-				text-align: center;
-			}
+	#container #gallery_show {
+		background-color: #222;
+		color: #bbb;
+	}
 
-			#container .right .home_galery .image_container p img {
-				height: 90px;
-				max-width: 120px;
-				padding: 10px;
-				border-radius: 9px;
-			}*/
+	#container #gallery_show .description {
+		padding: 20px;
+	}
+
+		#container #gallery_show .photos {
+			margin: auto;
+			text-align: center;
+			width: 100%;
+		}

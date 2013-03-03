@@ -1,6 +1,9 @@
 <% provide(:title, 'Programme') %>
 <% provide(:h1_title, 'Programme soirées GPS actu extra culte event inter-gdj youth horaire Groupe de jeunes WAY Bulle') %>
 
+<%# Return the end date of timeline. First test if not nil, second test if the date is not too close. In this case, return the date after 10 days %>
+<% last_date = @events.last.date? ? (@events.last.date < Date.today + 10.day ? Date.today + 10.day : @events.last.date) : Date.today + 10.day %>
+
 <h2 style="text-align:center">Programme actuel </h2>
 
 <article>
@@ -18,7 +21,7 @@
         <p><span class="discret">du </span><%= french_date_short(Date.today) %></p>
       </div>
       <div class="right">
-        <p><span class="discret">au </span><%= (date=@events.last.date) < (date2=Date.today + 10.day) ? french_date_short(date2) : french_date_short(date)  %></p>
+        <p><span class="discret">au </span><%= french_date_short(last_date) %></p>
       </div>
     </div>
 

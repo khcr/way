@@ -3,20 +3,23 @@
 
 ul.topnav {
 	list-style: none;
+	border-radius: 6px;
 	padding: 0 20px;
 	margin: 0;
 	float: left;
 	width: 765px; /*chrome:757px safari:790px firefox:739px*/
 	background: #222;
-	font-size: 1.2em;
 	background: url(/assets/header/topnav_bg.gif) repeat-x;
-	margin-left: -0.4em
+	margin-left: -0.4em;
+	font-size: 17px;
+	font-weight: lighter;
 }
 ul.topnav li {
 	float: left;
 	margin: 0;
 	padding: 0 15px 0 0;
 	position: relative; /*--Declare X and Y axis base--*/
+	left: 117px;
 }
 ul.topnav li a {
 	padding: 10px 5px;
@@ -62,6 +65,7 @@ ul.topnav li ul.subnav li {
 	border-bottom: 1px solid #444; /*--Create bevel effect--*/
 	clear: both;
 	width: 170px;
+	left: 0;
 }
 html ul.topnav li ul.subnav li a {
 	float: left;

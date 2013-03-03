@@ -1,16 +1,20 @@
 <% @title = @gallery.name %>
 
-<h1><%= @gallery.name %></h1>
-<h2><%= @gallery.description %></h2>
+<h2><%= @gallery.name %></h2>
+<div id="gallery_show">
+<p class="description"><%= @gallery.description %></p>
 
-<% @gallery.paintings.each do |painting| %>
-	
-	<a class="fancybox-button" rel="fancybox-button" href="<%= painting.image_url %>" title="<%= painting.name %>">
-	<img src="<%= painting.image_url(:thumb) %>" alt="" />
-	</a>
+<div class="photos">
+	<p>
+	<% @gallery.paintings.each do |painting| %>
+		
+		<a class="fancybox-button" rel="fancybox-button" href="<%= painting.image_url %>" title="<%= painting.name %>">
+		<img src="<%= painting.image_url(:thumb) %>" alt="" />
+		</a>
 
-<% end %>
-
+	<% end %>
+	</p>
+</div>
 <script>
 	$(document).ready(function() {
 		$(".fancybox-button").fancybox({
@@ -30,3 +34,4 @@
 		$(".fancybox").fancybox();
 	});
 </script>
+</div>
