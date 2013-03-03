@@ -3,6 +3,7 @@
 class PaintingUploader < CarrierWave::Uploader::Base
 
   include CarrierWave::MiniMagick
+  include CarrierWave::Processing::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
   storage :file
@@ -15,6 +16,7 @@ class PaintingUploader < CarrierWave::Uploader::Base
   end
 
   process :resize_to_limit => [900, 900]
+  process :quality => 90
 
   version :thumb do
     process resize_to_fit: [136, 90]

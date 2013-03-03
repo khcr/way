@@ -48,6 +48,10 @@ div#container {
 		#container h1.index {
 			position: static;
 			text-align: center;
+			font-size: 24px;
+		}
+
+		#container h1>strong{
 		}
 
 	#container h2, #container h3 {
@@ -132,7 +136,7 @@ div#container {
 			#container #presentation article.left p {
 				color: $l-grey;
 				padding-bottom: 8px;
-			}		
+			}
 
 		#container #presentation article.right {
 			width: 100%;
@@ -326,3 +330,23 @@ footer {
 			text-align: center;
 			width: 100%;
 		}
+
+		#container #type_soirees {
+
+		}
+
+			#container #type_soirees h4 {
+				margin-top: 30px;
+			}
+
+			#container #type_soirees div {
+				display: table-row;
+			}
+
+			#container#type_soirees div p {
+				color: $l-grey;
+			}
+
+			#container #type_soirees a img {
+				float: right;
+			}

@@ -43,6 +43,8 @@ GEM
     carrierwave (0.8.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
+    carrierwave-processing (0.0.1)
+      carrierwave
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -152,6 +154,7 @@ DEPENDENCIES
   bootstrap-will_paginate
   capistrano
   carrierwave
+  carrierwave-processing
   coffee-rails (~> 3.2.1)
   fancybox2-rails
   jbuilder
