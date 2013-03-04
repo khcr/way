@@ -21,7 +21,7 @@ Way::Application.routes.draw do
       end
       resources :events, except: [:show] 
       resources :news, except: [:show]
-      resources :pages, except: [:show] do
+      resources :pages do
         member { post :mercury_update }
       end
       resources :projects, except: [:show]

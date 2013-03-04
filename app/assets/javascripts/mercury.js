@@ -92,23 +92,23 @@ window.Mercury = {
     // `Mercury.Toolbar.Button.contexts` and `Mercury.Toolbar.ButtonGroup.contexts`
     toolbars: {
       primary: {
-        save:                  ['Save', 'Save this page'],
-        preview:               ['Preview', 'Preview this page', { toggle: true, mode: true }],
+        save:                  ['Enregistrer', 'Enregistrer cette page'],
+        preview:               ['Prévisualiser', 'Prévisualiser cette page', { toggle: true, mode: true }],
         sep1:                  ' ',
         undoredo:              {
-          undo:                ['Undo', 'Undo your last action'],
-          redo:                ['Redo', 'Redo your last action'],
+          undo:                ['Annuler', 'Annule votre dernière action'],
+          redo:                ['Remettre', 'Remet votre dernière action'],
           sep:                 ' '
           },
-        insertLink:            ['Link', 'Insert Link', { modal: '/mercury/modals/link.html', regions: ['full', 'markdown'] }],
-        insertMedia:           ['Media', 'Insert Media (images and videos)', { modal: '/mercury/modals/media.html', regions: ['full', 'markdown'] }],
-        insertTable:           ['Table', 'Insert Table', { modal: '/mercury/modals/table.html', regions: ['full', 'markdown'] }],
-        insertCharacter:       ['Character', 'Special Characters', { modal: '/mercury/modals/character.html', regions: ['full', 'markdown'] }],
+        insertLink:            ['Lien', 'Insérer un lien', { modal: '/mercury/modals/link.html', regions: ['full', 'markdown'] }],
+        insertMedia:           ['Media', 'Insérer un média (vidéo ou image)', { modal: '/mercury/modals/media.html', regions: ['full', 'markdown'] }],
+        insertTable:           ['Tableau', 'Insérer un tableau', { modal: '/mercury/modals/table.html', regions: ['full', 'markdown'] }],
+        insertCharacter:       ['Caractères', 'Caractères spéciaux', { modal: '/mercury/modals/character.html', regions: ['full', 'markdown'] }],
         snippetPanel:          ['Snippet', 'Snippet Panel', { panel: '/mercury/panels/snippets.html' }],
         sep2:                  ' ',
-        historyPanel:          ['History', 'Page Version History', { panel: '/mercury/panels/history.html' }],
+        historyPanel:          ['Historique', 'Historique de la version de la page', { panel: '/mercury/panels/history.html' }],
         sep3:                  ' ',
-        notesPanel:            ['Notes', 'Page Notes', { panel: '/mercury/panels/notes.html' }]
+        notesPanel:            ['Notes', 'Notes de la page', { panel: '/mercury/panels/notes.html' }]
         },
 
       editable: {
@@ -116,21 +116,21 @@ window.Mercury = {
         predefined:            {
           style:               ['Style', null, { select: '/mercury/selects/style.html', preload: true }],
           sep1:                ' ',
-          formatblock:         ['Block Format', null, { select: '/mercury/selects/formatblock.html', preload: true }],
+          formatblock:         ['Format du block', null, { select: '/mercury/selects/formatblock.html', preload: true }],
           sep2:                '-'
           },
         colors:                {
-          backColor:           ['Background Color', null, { palette: '/mercury/palettes/backcolor.html', context: true, preload: true, regions: ['full'] }],
+          backColor:           ['Couleur de fond', null, { palette: '/mercury/palettes/backcolor.html', context: true, preload: true, regions: ['full'] }],
           sep1:                ' ',
-          foreColor:           ['Text Color', null, { palette: '/mercury/palettes/forecolor.html', context: true, preload: true, regions: ['full'] }],
+          foreColor:           ['Couleur du texte', null, { palette: '/mercury/palettes/forecolor.html', context: true, preload: true, regions: ['full'] }],
           sep2:                '-'
           },
         decoration:            {
-          bold:                ['Bold', null, { context: true }],
-          italic:              ['Italicize', null, { context: true }],
-          overline:            ['Overline', null, { context: true, regions: ['full'] }],
-          strikethrough:       ['Strikethrough', null, { context: true, regions: ['full'] }],
-          underline:           ['Underline', null, { context: true, regions: ['full'] }],
+          bold:                ['Gras', null, { context: true }],
+          italic:              ['Italique', null, { context: true }],
+          overline:            ['Surligné', null, { context: true, regions: ['full'] }],
+          strikethrough:       ['Barré', null, { context: true, regions: ['full'] }],
+          underline:           ['Sousligné', null, { context: true, regions: ['full'] }],
           sep:                 '-'
           },
         script:                {
@@ -139,56 +139,56 @@ window.Mercury = {
           sep: '-'
           },
         justify:               {
-          justifyLeft:         ['Align Left', null, { context: true, regions: ['full'] }],
-          justifyCenter:       ['Center', null, { context: true, regions: ['full'] }],
-          justifyRight:        ['Align Right', null, { context: true, regions: ['full'] }],
-          justifyFull:         ['Justify Full', null, { context: true, regions: ['full'] }],
+          justifyLeft:         ['Aligné à gauche', null, { context: true, regions: ['full'] }],
+          justifyCenter:       ['Centré', null, { context: true, regions: ['full'] }],
+          justifyRight:        ['Aligné à droite', null, { context: true, regions: ['full'] }],
+          justifyFull:         ['Justifié', null, { context: true, regions: ['full'] }],
           sep:                 '-'
           },
         list:                  {
-          insertUnorderedList: ['Unordered List', null, { context: true }],
-          insertOrderedList:   ['Numbered List', null, { context: true }],
+          insertUnorderedList: ['Liste non numéroté', null, { context: true }],
+          insertOrderedList:   ['Liste numéroté', null, { context: true }],
           sep:                 '-'
           },
         indent:                {
-          outdent:             ['Decrease Indentation'],
-          indent:              ['Increase Indentation'],
+          outdent:             ['Diminuer l\indentation'],
+          indent:              ['Augmenter l\indentation'],
           sep:                 '-'
           },
         table:                 {
           _context:            true,
-          insertRowBefore:     ['Insert Table Row', 'Insert a table row before the cursor', { regions: ['full'] }],
-          insertRowAfter:      ['Insert Table Row', 'Insert a table row after the cursor', { regions: ['full'] }],
-          deleteRow:           ['Delete Table Row', 'Delete this table row', { regions: ['full'] }],
-          insertColumnBefore:  ['Insert Table Column', 'Insert a table column before the cursor', { regions: ['full'] }],
-          insertColumnAfter:   ['Insert Table Column', 'Insert a table column after the cursor', { regions: ['full'] }],
-          deleteColumn:        ['Delete Table Column', 'Delete this table column', { regions: ['full'] }],
+          insertRowBefore:     ['Insérer une ligne', 'Insère une ligne avant le curseur', { regions: ['full'] }],
+          insertRowAfter:      ['Insérer une ligne', 'Insère une ligne après le curseur', { regions: ['full'] }],
+          deleteRow:           ['Supprimer une ligne', 'Supprimer cette ligne', { regions: ['full'] }],
+          insertColumnBefore:  ['Insérer une colonne', 'Insère une colonne avant le curseur', { regions: ['full'] }],
+          insertColumnAfter:   ['Insérer une colonne', 'Insère une colonne après le curseur', { regions: ['full'] }],
+          deleteColumn:        ['Supprimer une colonne', 'Supprimer cette colonne', { regions: ['full'] }],
           sep1:                ' ',
-          increaseColspan:     ['Increase Cell Columns', 'Increase the cells colspan'],
-          decreaseColspan:     ['Decrease Cell Columns', 'Decrease the cells colspan and add a new cell'],
-          increaseRowspan:     ['Increase Cell Rows', 'Increase the cells rowspan'],
-          decreaseRowspan:     ['Decrease Cell Rows', 'Decrease the cells rowspan and add a new cell'],
+          increaseColspan:     ['Ajouter une cellule aux colonnes', 'Ajoute une cellule aux colonnes'],
+          decreaseColspan:     ['Enlever une cellule aux colonnes', 'Enlève une cellule et en rajoute une'],
+          increaseRowspan:     ['Ajouter une cellule aux lignes', 'Ajoute une cellule aux ligne'],
+          decreaseRowspan:     ['Enlever une cellule aux lignes', 'Enlève une cellule aux lignes et en rajoute une'],
           sep2:                '-'
           },
         rules:                 {
-          horizontalRule:      ['Horizontal Rule', 'Insert a horizontal rule'],
+          horizontalRule:      ['Règle horizantale', 'Insérer une règle horizantale'],
           sep1:                '-'
           },
         formatting:            {
-          removeFormatting:    ['Remove Formatting', 'Remove formatting for the selection', { regions: ['full'] }],
+          removeFormatting:    ['Supprimer le formatage', 'Supprime le formatage de la selection', { regions: ['full'] }],
           sep2:                ' '
           },
         editors:               {
-          htmlEditor:          ['Edit HTML', 'Edit the HTML content', { regions: ['full'] }]
+          htmlEditor:          ['Editer l\'HTMl', 'Editer le contenu HTML', { regions: ['full'] }]
           }
         },
 
       snippets: {
         _custom:               true,
         actions:               {
-          editSnippet:         ['Edit Snippet Settings'],
+          editSnippet:         ['Editer les paramètres des Snippet'],
           sep1:                ' ',
-          removeSnippet:       ['Remove Snippet']
+          removeSnippet:       ['Supprimer un Snippet']
           }
         }
       },
@@ -448,9 +448,19 @@ window.Mercury = {
   //
   // Turning debug mode on will log events and other various things (using console.debug if available).
   debug: false,
+
+  onload: function() {
+    //Mercury.PageEditor.prototype.iframeSrc = function(url) { return '/testing'; }
+    Mercury.on('ready', function() {
+      var link = $('#mercury_iframe').contents().find('#edit_link');
+      Mercury.saveUrl = link.data('save-url');
+      link.hide();
+    });
+
+    Mercury.on('saved', function() {
+      window.location.href = window.location.href.replace(/\/editor\//i, '/');
+    });
+  }
 };
-
-
-
 
 

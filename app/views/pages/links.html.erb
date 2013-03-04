@@ -2,11 +2,14 @@
 <% provide(:h1_title, 'Liens sites chrétiens Groupe de jeunes WAY Bulle') %>
 
 
-<h2 style="text-align:center"><%= @links.title %></h2>
+<h2 style="text-align:center" id="page_title" data-mercury="full"><%= @links.title %></h2>
 
-<article>
+<article><div id="page_content" data-mercury="full">
 		<p>
 			<%=raw @links.content %>
 		</p>
-</article>
+</div></article>
+
+<%= render 'editor', page: @links %>
+
 <div class="clear"></div>
