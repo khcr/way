@@ -5,4 +5,4 @@ production:
   pool: 5
   host: localhost
   username: way
-  password: v3E5Tg6$e
+  password:
