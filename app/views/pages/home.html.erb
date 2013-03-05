@@ -2,7 +2,22 @@
 <% provide(:h1_title, 'Bienvenue sur le site du <strong>groupe de jeunes</strong> <strong>WAY</strong> à Bulle') %>
 
 <% if params[:redirect] == "true" %>
-  <%= "I love poneys" %>
+
+<div id='message' style="display: none;">
+    <span>Attention, nous attirons le fait que vous venez d'utiliser l'ancienne adresse <u>gdjway.com</u>.<br/> Cette addresse à été remplacée par <u>gdjway.ch</u>, merci d'en prendre note.</span>
+    <a href="#" class="close-notify">X</a>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#message").fadeIn("slow");
+    $("#message a.close-notify").click(function() {
+        $("#message").fadeOut("slow");
+        return false;
+    });
+});
+</script>
+
 <% end %>
 
 <h1 class="index">Bienvenue sur le site du <strong>groupe de jeunes</strong> <strong>WAY</strong> à Bulle</h1>

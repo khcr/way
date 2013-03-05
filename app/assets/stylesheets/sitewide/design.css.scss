@@ -343,3 +343,44 @@ footer {
 	#container .editor #page_content {
 		margin: 40px 40px 40px 40px;
 	}
+
+
+
+
+
+
+
+	#message {
+    position:fixed;
+    top:0px;
+    left:0px;
+    width:100%;
+    z-index:105;
+    text-align:center;
+    color:white;
+    padding:10px 0px 10px 0px;
+    background-color:#8181a1;
+    font-weight: lighter;
+}
+
+#message span {
+    text-align: center;
+    width: 95%;
+    float:left;
+}
+
+.close-notify {
+    white-space: nowrap;
+    float:right;
+    margin-right:10px;
+    color:#fff;
+    text-decoration:none;
+    padding-left:3px;
+    padding-right:3px
+}
+
+.close-notify a {
+    color: #fff;
+}
+
+
