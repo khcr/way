@@ -292,8 +292,8 @@ window.Mercury = {
     //
     // preferredLocale: If a client doesn't support the locales you've included, this is used as a fallback.
     localization: {
-      enabled: false,
-      preferredLocale: 'swedish_chef-BORK'
+      enabled: true,
+      preferredLocale: 'fr.locale'
       },
 
 
