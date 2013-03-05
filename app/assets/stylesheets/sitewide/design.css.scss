@@ -18,8 +18,8 @@ body {
 	background: url(/assets/layout/way_background.jpeg) no-repeat center top #000000;
 }
 
-	body p {
-		line-height: 1.54;
+	 p {
+		line-height: 22px;
 	}
 
 a {
@@ -79,7 +79,13 @@ div#container {
 		}
 
 			#container div.nextevent h4 img {
+				
+			}
+
+			#container div.nextevent .icns {
+				display: inline-block;
 				margin-right: 10px;
+				color: $l-grey;
 			}
 
 			#container div.nextevent h4 sup {
@@ -93,7 +99,7 @@ div#container {
 
 		#container div.nextevent .img {
 			float: right;
-			//margin: 0 0 0 20px;
+			margin: 0 10px 0 10px;
 		}
 
 		#container div.nextevent .txt {
@@ -222,16 +228,7 @@ table tr td.title{
 ul.link {
 	margin-left: 3em
 }
-div#contact {
-	font-size: 16px;
-	margin-left: 10em
-}
-div#contact-text {
-	margin-left: 3em
-}
-div#contact p {
-	margin: 1em 0em
-}
+
 .address {
 	font-weight: bold;
 	font-size: 18px;
@@ -241,12 +238,7 @@ div#contact p {
 	border: 0px;
 	border-radius: 10px
 }
-.contact {
-	font-weight: bolder;
-	border-bottom: 1px solid red;
-	width: 200px;
-	font-size: 18px
-}
+
 .data {
 	font-weight: bold;
 	font-size: 18px
@@ -262,9 +254,6 @@ div#contact p {
 	border: 3px solid red;
 	background-color: #CCCCCC;
 	position: absolute
-}
-#contact, #mapcontainer {
-	margin-left: 50px
 }
 .hidden {
 	color: transparent
@@ -350,3 +339,7 @@ footer {
 			#container #type_soirees a img {
 				float: right;
 			}
+
+	#container .editor #page_content {
+		margin: 40px 40px 40px 40px;
+	}

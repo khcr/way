@@ -4,13 +4,11 @@
 
 <h2 style="text-align:center" id="page_title" data-mercury="full"><%= @contact.title %></h2>
 
-<article>
-	<div id="contact">
-		<div id="page_content" data-mercury="full">
-			<p>
-				<%=raw @contact.content %>
-			</p>
-		</div>
+<article class="editor">
+	<div id="page_content" data-mercury="full">
+		<p>
+			<%=raw @contact.content %>
+		</p>
 	</div>
 </article>
 
