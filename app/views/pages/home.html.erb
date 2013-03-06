@@ -20,7 +20,7 @@ $(document).ready(function() {
 
 <% end %>
 
-<h1 class="index"><a href="#login-box" class="login-window">Login / Sign In</a>Bienvenue sur le site du <strong>groupe de jeunes</strong> <strong>WAY</strong> à Bulle</h1>
+<h1 class="index">Bienvenue sur le site du <strong>groupe de jeunes</strong> <strong>WAY</strong> à Bulle</h1>
 <article>
 	<h2 class="home" style="padding-top:40px">Prochain événement<a href="rssfeed/flux.xml"><img src="/assets/layout/rss.jpeg" alt="RSS" title="RSS" width="30" height="27" /></a></h2>
 	<div class="nextevent">
@@ -54,7 +54,7 @@ $(document).ready(function() {
         <% @galleries.each do |gallery| %> 
         <td>
           <p class="gallery_txt"><%= gallery.name %></p>
-          <div class="image_container"><p><%= (image = gallery.paintings.first) != nil ? link_to(image_tag(image.image_url(:thumb)), gallery) : "*pas d'images*" %></p></div>
+          <div class="image_container"><p><%= (image = gallery.paintings.first) != nil ? link_to(image_tag(image.image_url(:thumb), class: 'nice_pic'), gallery) : "*pas d'images*" %></p></div>
         </td>
         <% end %>
     	</tr>
