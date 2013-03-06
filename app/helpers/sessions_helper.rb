@@ -30,8 +30,19 @@ module SessionsHelper
 	end
 
 	def signed_in_user
-		unless current_user.level == 1
+		unless current_user.level >= 0
 			redirect_to login_path, notice: "Connectez-vous pour accèder a cette page"
+		end
+	end
+	def signed_in_admin
+		unless current_user.level >=1
+			redirect_to root_path, notice: "Vous devez avoir le niveau administrateur pour accèder à cette page"
+		end
+	end
+	
+	def signed_in superadmin
+		unless current_user.level == 2
+			redirect_to root_path, notice: "Vous devez être le superadministrateur pour accèder à cette page"
 		end
 	end
 	
