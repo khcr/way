@@ -20,7 +20,7 @@ $(document).ready(function() {
 
 <% end %>
 
-<h1 class="index">Bienvenue sur le site du <strong>groupe de jeunes</strong> <strong>WAY</strong> à Bulle</h1>
+<h1 class="index"><a href="#login-box" class="login-window">Login / Sign In</a>Bienvenue sur le site du <strong>groupe de jeunes</strong> <strong>WAY</strong> à Bulle</h1>
 <article>
 	<h2 class="home" style="padding-top:40px">Prochain événement<a href="rssfeed/flux.xml"><img src="/assets/layout/rss.jpeg" alt="RSS" title="RSS" width="30" height="27" /></a></h2>
 	<div class="nextevent">
@@ -82,3 +82,48 @@ $(document).ready(function() {
 <div class="clear"></div>
 
 
+
+
+<!--[if lt IE 9]>
+
+<script type="text/javascript">
+$(document).ready(function() {
+
+//Fade in the Popup
+$('#login-box').fadeIn(300);
+
+//Set the center alignment padding + border see css style
+var popMargTop = ($('#login-box').height() + 24) / 2; 
+var popMargLeft = ($('#login-box').width() + 24) / 2; 
+
+$('#login-box').css({ 
+  'margin-top' : -popMargTop,
+  'margin-left' : -popMargLeft
+});
+
+// Add the mask to body
+$('body').append('<div id="mask"></div>');
+$('#mask').fadeIn(300);
+    
+
+  
+  // When clicking on the button close or the mask layer the popup closed
+  $('a.close, #mask').click(function(){
+    $('#mask , .login-popup').fadeOut(300 , function() {
+    $('#mask').remove();  
+  }); 
+  return false;
+  });
+});
+</script>
+
+<div id="login-box" class="login-popup">
+        <a href="#" class="close"><img src="assets/utils/close_pop.png" class="btn_close" title="Close Window" alt="Close" /></a>
+          <form method="post" class="signin" action="#">
+                <fieldset class="textbox">
+              <label class="username">
+                <span>Attention, vous utilisez une version d'internet explorer obsolète. <br/>Pour profiter d'une meilleure expérience utilisateur nous vous recommandons de mettre à jour votre navigateur. <br/>Toutes les fonctionnalités de ce site ne sont pas disponibles.</span>      
+                </fieldset>
+          </form>
+</div>
+<![endif]-->
