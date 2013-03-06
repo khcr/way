@@ -39,12 +39,14 @@ fr:
     password: "Mot de passe"
     password_digest: "Mot de passe"
     password_confirmation: "Confirmation"
+    level: "Niveau"
   errors:
    messages:
     blank: "Veuillez compléter le champ \"%{attribute}\""
     too_long: "Le champ \"%{attribute}\" doit contenir maximum %{count} caractères"
     too_short: "Le champ \"%{attribute}\" doit contenir au moins %{count} caractères"
     confirmation: "Les mots de passe ne correspondent pas"
+    taken: "Le nom du champ \"%{attribute}\" est déjà utilisé"
  date:
   formats:
    default: "%d/%m/%Y"

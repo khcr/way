@@ -43,7 +43,7 @@ module SessionsHelper
 		end
 	end
 	def signed_in_admin
-		unless current_user.level >=1
+		unless current_user.level >= 1
 			redirect_to root_path, notice: "Vous devez avoir le niveau administrateur pour accèder à cette page"
 		end
 	end
