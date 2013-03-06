@@ -9,11 +9,13 @@
 <h2>Administration</h2>
 
 <table>
-	<tr>
-		<th>Gestion utilisateurs</th>
-		<td><%= link_to "Utilisateurs", admin_users_path %></td>
-	</tr>
-	<tr>
+	<% if signed_in_superadmin? %>
+		<tr>
+			<th>Gestion utilisateurs</th>
+			<td><%= link_to "Utilisateurs", admin_users_path %></td>
+		</tr>
+		<tr>
+	<% end %>
 		<th>Pages du site</th>
 		<td><%= link_to "Contenu du site", admin_pages_path %></td>
 	</tr>

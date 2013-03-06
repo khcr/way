@@ -3,7 +3,7 @@
 
 class Admin::UsersController < ApplicationController
 	layout 'admin'
-	before_filter :signed_in_user
+	before_filter :signed_in_superadmin, except: [:edit, :update]
 	before_filter :correct_user, only: [:edit, :update]
 
 	def index

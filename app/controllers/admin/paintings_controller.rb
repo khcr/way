@@ -2,7 +2,7 @@
 # encoding: utf-8
 
 class Admin::PaintingsController < ApplicationController
-  before_filter :signed_in_user
+  before_filter :signed_in_admin
   before_filter :gallery
   layout 'admin'
 

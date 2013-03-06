@@ -2,7 +2,6 @@
 <% provide(:h1_title, 'Bienvenue sur le site du <strong>groupe de jeunes</strong> <strong>WAY</strong> à Bulle') %>
 
 <% if params[:redirect] == "true" %>
-<<<<<<< HEAD
 
 <div id='message' style="display: none;">
     <span>Attention, nous attirons le fait que vous venez d'utiliser l'ancienne adresse <u>gdjway.com</u>.<br/> Cette addresse à été remplacée par <u>gdjway.ch</u>, merci d'en prendre note.</span>
@@ -19,9 +18,6 @@ $(document).ready(function() {
 });
 </script>
 
-=======
-  <% flash.now[:success] = "Bienvenue sur le nouveau site" %>
->>>>>>> redirect
 <% end %>
 
 <h1 class="index">Bienvenue sur le site du <strong>groupe de jeunes</strong> <strong>WAY</strong> à Bulle</h1>

@@ -2,6 +2,8 @@
 # encoding: utf-8
 
 class Admin::ImagesController < ApplicationController
+	before_filter :signed_in_admin
+	layout 'admin'
 
 	def index
 		@images = Image.all

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130303170446) do
+ActiveRecord::Schema.define(:version => 20130306174657) do
 
   create_table "events", :force => true do |t|
     t.string   "theme"
@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(:version => 20130303170446) do
     t.string   "remember_token"
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
-    t.integer  "level",           :default => 1
+    t.integer  "level",           :limit => 255
   end
 
   add_index "users", ["name"], :name => "index_users_on_name", :unique => true

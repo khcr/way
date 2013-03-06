@@ -9,7 +9,15 @@ module SessionsHelper
 	end
 
 	def signed_in?
-		!current_user.nil?
+		if !current_user.nil?
+			current_user.level >= 1
+		end
+	end
+
+	def signed_in_superadmin?
+		if !current_user.nil?
+			current_user.level == 2
+		end
 	end
 
 	def current_user=(user)

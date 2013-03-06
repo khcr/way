@@ -10,6 +10,10 @@
 <%= form_for [:admin, @user] do |f| %>
 
 	<%= render 'fields', f: f %>
+
+
+	<%= f.label :level %>
+	<%= f.select :level, [0, 1] %>
 	
 	<%= f.submit "Ajouter" %>
 

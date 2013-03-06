@@ -2,7 +2,7 @@
 # encoding: utf-8
 
 class Admin::GalleriesController < ApplicationController
-	before_filter :signed_in_user
+	before_filter :signed_in_admin
 	layout 'admin'
 
 	def index

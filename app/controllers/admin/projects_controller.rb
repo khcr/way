@@ -2,7 +2,7 @@
 # encoding: utf-8
 
 class Admin::ProjectsController < ApplicationController
-	before_filter :signed_in_user
+	before_filter :signed_in_admin
   layout 'admin'
 
 	def index
