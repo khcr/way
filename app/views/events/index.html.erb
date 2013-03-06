@@ -30,7 +30,7 @@
 
     	<%-# ==========- First row -========== -%>
     	<tr class="marker">
-	    	<% (Date.today..@events.last.date).each do |day| %>
+	    	<% (Date.today..last_date).each do |day| %>
 	    		<td>
 	    			<% if ((event = match_event(day)) != nil) %>														                <!-- to check if it matches -->		
 	    					<%= image_tag "timeline/" + sort_event(event) , :class => day.day.to_s + ' b' %>		<!-- to display image  depending on the event.type -->
@@ -41,7 +41,7 @@
 
     	<%-# ==========- Second row -========== -%>
     	<tr class="date">
-	    	<% (Date.today..((date=@events.last.date) < (date2=Date.today + 10.day) ? date2 : date)).each do |day| %>                    
+	    	<% (Date.today..((last_date) < (date2=Date.today + 10.day) ? date2 : last_date)).each do |day| %>                    
 		    		<td class="<%= day.strftime('%w').to_f == 6 || day.strftime('%w').to_f == 0 ? "weekend " : "" %><%= (day == Date.today) ? 'today ' : '' %> ">
               <%= day.day %>
             </td>
