@@ -40,7 +40,7 @@ module SessionsHelper
 		end
 	end
 	
-	def signed_in superadmin
+	def signed_in_superadmin
 		unless current_user.level == 2
 			redirect_to root_path, notice: "Vous devez être le superadministrateur pour accèder à cette page"
 		end
