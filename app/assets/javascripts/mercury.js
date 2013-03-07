@@ -92,8 +92,8 @@ window.Mercury = {
     // `Mercury.Toolbar.Button.contexts` and `Mercury.Toolbar.ButtonGroup.contexts`
     toolbars: {
       primary: {
-        save:                  ['Enregistrer', 'Enregistrer cette page'],
-        preview:               ['Prévisualiser', 'Prévisualiser cette page', { toggle: true, mode: true }],
+        save:                  ['Save', 'Enregistrer cette page'],
+        preview:               ['Preview', 'Prévisualiser cette page', { toggle: true, mode: true }],
         sep1:                  ' ',
         undoredo:              {
           undo:                ['Annuler', 'Annule votre dernière action'],
