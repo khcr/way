@@ -11,7 +11,7 @@
 
 <p><%= link_to "Ajouter des images", new_admin_gallery_painting_path(@gallery.id) %></p>
 
-<%= form_for [:admin, @gallery] do |f| %>
+<%= form_for @gallery, url: admin_gallery_path(@gallery.id) do |f| %>
 
 	<%= render 'fields', f: f %>
 

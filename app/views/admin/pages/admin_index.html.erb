@@ -14,8 +14,11 @@
 			<th>Gestion utilisateurs</th>
 			<td><%= link_to "Utilisateurs", admin_users_path %></td>
 		</tr>
-		<tr>
-	<% end %>
+		<% end %>
+	<tr>
+		<th>Mon profil</th>
+		<td><%= link_to "Editer mon profile", edit_admin_user_path(@current_user) %>
+	<tr>
 		<th>Pages du site</th>
 		<td><%= link_to "Contenu du site", admin_pages_path %></td>
 	</tr>

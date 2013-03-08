@@ -29,9 +29,9 @@ class Admin::ProjectsController < ApplicationController
 
 	def update
 		@project = Project.find(params[:id])
-		if @project.save_attributes(params[:project])
+		if @project.update_attributes(params[:project])
 			flash[:success] = "Projet édité "
-			redirect_to project_path(@project.id)
+			redirect_to edit_admin_project_path(@project.id)
 		else
 			render 'edit'
 		end

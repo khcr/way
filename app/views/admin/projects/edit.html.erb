@@ -9,7 +9,7 @@
 
 <h1>Editer un projet:</h1>
 
-<%= form_for [:admin, @project] do |f| %>
+<%= form_for @project, url: admin_project_path(@project.id) do |f| %>
 
 	<%= render 'fields', f: f %>
 
