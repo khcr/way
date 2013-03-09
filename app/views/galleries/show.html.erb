@@ -6,7 +6,7 @@
 
 <div class="photos">
 	<p>
-	<% @gallery.paintings.each do |painting| %>
+	<% @gallery.paintings.sort.each do |painting| %>
 		
 		<a class="fancybox-button" rel="fancybox-button" href="<%= painting.image_url %>" title="<%= painting.name %>">
 		<img src="<%= painting.image_url(:thumb) %>" alt="" />

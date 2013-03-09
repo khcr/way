@@ -5,7 +5,7 @@ class GalleriesController < ApplicationController
 	before_filter :find_page, only: [:show]
 
 	def index
-		@galleries = Gallery.order('date DESC').page(params[:page]).per_page(3)
+		@galleries = Gallery.order('date DESC').page(params[:page]).per_page(8)
 	end
 
 	def show
