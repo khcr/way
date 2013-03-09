@@ -59,7 +59,7 @@
         <% @events.each_with_index do |event, index| %>
 
           <tr class="<%= 'a ' + event.date.day.to_s + 'a' %>">
-            <td class="countdown"><%= Date.today == event.date ? "Aujourd'hui!" : "Dans "+time_ago_in_words(event.date) %></td>
+            <td class="countdown"><%= Date.today == event.date ? "Aujourd'hui!" : Date.today == event.date-1.day ? "Demain!" : "Dans "+time_ago_in_words(event.date) %></td>
             <td class="marker"><%= image_tag "timeline/" + sort_event(event) %></td>
             <td class="<%= event.date.strftime('%w').to_f == 6 || event.date.strftime('%w').to_f == 0 ? "weekend" : "number" %>"><%= event.date.day %></td>
             <td class="description">
@@ -134,7 +134,7 @@
 </div>
 
 </div>
-
+<a href="#content" class="sasa">sdf</a>
 </article>
 
 
@@ -156,4 +156,8 @@
   $(document).ready(function() {
     $(".fancybox").fancybox();
   });
+  $("html, body").animate({ 
+    scrollTop: "240px",
+    
+  }, 1500);
 </script>

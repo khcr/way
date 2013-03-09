@@ -3,6 +3,8 @@
 
 @import 'variables.css.scss';
 
+/* ==================== Global body ====================*/
+
 * {
 	margin: 0;
 	padding: 0
@@ -22,14 +24,42 @@ body {
 		line-height: 22px;
 	}
 
-a {
-	text-decoration: none;
-	color: #8d0000
-}
+	a {
+		text-decoration: none;
+		color: #8d0000
+	}
 
-img {
-	border: none;
-}
+	img {
+		border: none;
+	}
+
+	header {
+		height: 50px;
+		margin-bottom: 10px;
+	}
+
+	nav {
+		margin-left: 8%;
+	// chrome/firefox:8% safari:5% margin-bottom:10%
+	}
+
+	.clear {
+		clear: both
+	}
+
+	footer {
+		margin-top: 2em;
+		margin-bottom: 2em;
+		padding-top: 1em;
+		width: 100%;
+		height: 2em;
+		text-align: center;
+		background: #E4E4E4;
+		border-radius: 10px
+	}
+
+
+/* ==================== Global container ====================*/
 
 div#container {
 	margin-top: 17em;
@@ -54,20 +84,21 @@ div#container {
 		left: -9999px;
 	}
 
-		#container h1.index {
-			position: static;
-			text-align: center;
-			font-size: 24px;
-		}
-
-		#container h1>strong{
-		}
-
-	#container h2, #container h3 {
-			color: $title_color;
+	#container h1.index {
+		position: static;
+		text-align: center;
+		font-size: 24px;
 	}
 
-	#container h2, #container #presentation article h3 {
+	#container h2 {
+		color: $title_color;
+	}
+
+	#container h3 {
+		color: $title_color;
+	}
+
+	#container h2 {
 		margin-bottom: 1em;
 		padding-bottom: 0.3em;
 		text-align: center;
@@ -79,28 +110,12 @@ div#container {
 		text-align: right
 	}
 
+
+/* ==================== INDEX event ====================*/
+
 	#container div.nextevent {
 		margin-left: 1.2em;
 	}
-
-		#container div.nextevent h4 {
-			font-size: 17px;
-		}
-
-			#container div.nextevent h4 img {
-				
-			}
-
-			#container div.nextevent .icns {
-				display: inline-block;
-				margin-right: 10px;
-				color: $l-grey;
-			}
-
-			#container div.nextevent h4 sup {
-				font-size: 10px;
-				margin-left: 10px;
-			}
 
 		#container div.nextevent p {
 			margin-bottom: .5em
@@ -115,27 +130,45 @@ div#container {
 			float: left;
 		}
 
-	#container #presentation {
-
-	}
-
-		#container #presentation .content {
-
+		#container div.nextevent h4 {
+			font-size: 17px;
 		}
+
+			#container div.nextevent h4 img {
+				
+			}
+
+			#container div.nextevent h4 sup {
+				font-size: 10px;
+				margin-left: 10px;
+			}
+
+		#container div.nextevent .icns {
+			display: inline-block;
+			margin-right: 10px;
+			color: $l-grey;
+		}
+
+
+/* ==================== INDEX presentation ====================*/
+
+	#container #presentation {
+		width: 100%;
+		margin: 0 auto;
+	}
 
 		#container #presentation h3 {
 			margin-top: 20px;
+			margin-bottom: 1em;
+			text-align: center;
+			width: 100%;
+			border-bottom: 2px solid #000000
 		}
 
 		#container #presentation .img {
 			width: 100%;
 			text-align: center;
 		}
-
-	#container #presentation {
-		width: 100%;
-		margin: 0 auto;
-	}
 
 		#container #presentation article.left {
 			display: table-cell;
@@ -169,130 +202,35 @@ div#container {
 				color: $l-grey;
 			}
 
-	#container #presentation article.middle {
-		display: table-cell;
-		min-width: 30px;
+			#container #presentation article.right .home_galery .gallery_txt {
+				font-weight: bold;
+			}	
+
+		#container #presentation article.middle {
+			display: table-cell;
+			min-width: 30px;
+		}
+
+
+/* ==================== INDEX news ====================*/
+
+	#container #news {
+
 	}
 
+		#container div#news article h3 {
+			margin-bottom: 0.5em
+		}
+
+		#container div#news article div {
+			width: 100%;
+			padding: 0.5em;
+			border-radius: 10px;
+			background: #e9e9e9;
+		}
 
 
-
-
-p.nextevent img {
-	float: left;
-	margin-right: 2em
-}
-article div.docs {
-	margin-top: -3em;
-	margin-left: 16em
-}
-article div.docs p {
-	margin-left: 5em;
-	margin-top: -3.5em;
-	font-weight: 300
-}
-article div.docs p span {
-	font-weight: bold
-}
-
-div#news-events article h3 {
-	margin-bottom: 0.5em
-}
-div#news-events article div {
-	width: 100%;
-	padding: 0.5em;
-	border-radius: 10px;
-	background: #e9e9e9;
-}
-header {
-	height: 50px;
-	margin-bottom: 10px;
-}
-nav {
-	margin-left: 8%;
-// chrome/firefox:8% safari:5% margin-bottom:10%
-}
-
-
-
-div.types-soirees{
-	margin-left:4.5em;
-}
-article.medias p {
-	width: 50%;
-	margin-left: auto;
-	margin-right: auto
-}
-p.form input#name{
-	width:15em
-}
-p.form textarea#message{
-	width:30em
-}
-table tr td.title{
-	font-decoration:underline;
-	margin-bottom:2em
-}
-ul.link {
-	margin-left: 3em
-}
-
-.address {
-	font-weight: bold;
-	font-size: 18px;
-	padding: 0.3em;
-	width: 30%;
-	background: #eeeeee;
-	border: 0px;
-	border-radius: 10px
-}
-
-.data {
-	font-weight: bold;
-	font-size: 18px
-}
-.bubble {
-	color: transparent;
-	border: 5px solid transparent;
-	background-color: transparent;
-	position: absolute
-}
-.bubble:hover {
-	color: #000000;
-	border: 3px solid red;
-	background-color: #CCCCCC;
-	position: absolute
-}
-.hidden {
-	color: transparent
-}
-.hidden:hover {
-	color: #000000
-}
-.clear {
-	clear: both
-}
-p.text {
-	background: #eee;
-	border: 0px;
-	border-radius: 10px;
-	margin-bottom: 2em;
-	padding: 0.3em
-}
-footer {
-	margin-top: 2em;
-	margin-bottom: 2em;
-	padding-top: 1em;
-	width: 100%;
-	height: 2em;
-	text-align: center;
-	background: #E4E4E4;
-	border-radius: 10px
-}
-
-	#container #presentation .right .home_galery .gallery_txt {
-		font-weight: bold;
-	}	
+/* ==================== GALLERY show ====================*/	
 
 	#container #gallery_show {
 		background-color: #222;
@@ -308,6 +246,8 @@ footer {
 			text-align: center;
 			width: 100%;
 		}
+
+/* ==================== EVENT type soirées ====================*/		
 
 		#container #type_soirees {
 
@@ -332,6 +272,9 @@ footer {
 	#container .editor #page_content {
 		margin: 40px 40px 40px 40px;
 	}
+
+
+/* ==================== Session login ====================*/
 
 	#container .login {
 		width: 300px;
@@ -387,37 +330,37 @@ footer {
 					-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
 				}
 
-				#container .login form .footer {
-					padding: 25px 30px 40px 30px;
-					overflow: auto;
-					
-					background: #d4dedf;
-					border-top: 1px solid #fff;
-					
-					box-shadow: inset 0 1px 0 rgba(0,0,0,0.15);
-					-moz-box-shadow: inset 0 1px 0 rgba(0,0,0,0.15);
-					-webkit-box-shadow: inset 0 1px 0 rgba(0,0,0,0.15);
-				}
+			#container .login form .footer {
+				padding: 25px 30px 40px 30px;
+				overflow: auto;
+				
+				background: #d4dedf;
+				border-top: 1px solid #fff;
+				
+				box-shadow: inset 0 1px 0 rgba(0,0,0,0.15);
+				-moz-box-shadow: inset 0 1px 0 rgba(0,0,0,0.15);
+				-webkit-box-shadow: inset 0 1px 0 rgba(0,0,0,0.15);
+			}
 
-					#container .login form .footer .button {
-						float:right;
-						padding: 11px 25px;
-						
-						font-family: 'Bree Serif', serif;
-						font-weight: 300;
-						font-size: 18px;
-						color: #fff;
-						text-shadow: 0px 1px 0 rgba(0,0,0,0.25);
-						
-						background: #56c2e1;
-						border: 1px solid #46b3d3;
-						border-radius: 5px;
-						cursor: pointer;
-						
-						box-shadow: inset 0 0 2px rgba(255,255,255,0.75);
-						-moz-box-shadow: inset 0 0 2px rgba(255,255,255,0.75);
-						-webkit-box-shadow: inset 0 0 2px rgba(255,255,255,0.75);
-					}
+				#container .login form .footer .button {
+					float:right;
+					padding: 11px 25px;
+					
+					font-family: 'Bree Serif', serif;
+					font-weight: 300;
+					font-size: 18px;
+					color: #fff;
+					text-shadow: 0px 1px 0 rgba(0,0,0,0.25);
+					
+					background: #56c2e1;
+					border: 1px solid #46b3d3;
+					border-radius: 5px;
+					cursor: pointer;
+					
+					box-shadow: inset 0 0 2px rgba(255,255,255,0.75);
+					-moz-box-shadow: inset 0 0 2px rgba(255,255,255,0.75);
+					-webkit-box-shadow: inset 0 0 2px rgba(255,255,255,0.75);
+				}
 
 					#container .login form .footer .button:hover {
 						background: #3f9db8;
@@ -440,11 +383,8 @@ footer {
 					}
 
 
-
-
-
-
-/* ============= IE popup =============*/
+/* ==================== IE popup ====================*/
+/* ================= */
 
 /* Mask for background, by default is not display */
 #mask {
@@ -457,80 +397,73 @@ footer {
 	z-index: 999;
 }
 
-/* You can customize to your needs  */
-.login-popup{
-	display:none;
-	background: #333;
-	padding: 10px; 	
-	border: 2px solid #ddd;
-	float: left;
-	font-size: 1.2em;
-	position: fixed;
-	top: 50%; left: 50%;
-	z-index: 99999;
-	box-shadow: 0px 0px 20px #999; /* CSS3 */
-        -moz-box-shadow: 0px 0px 20px #999; /* Firefox */
-        -webkit-box-shadow: 0px 0px 20px #999; /* Safari, Chrome */
-	border-radius:3px 3px 3px 3px;
-        -moz-border-radius: 3px; /* Firefox */
-        -webkit-border-radius: 3px; /* Safari, Chrome */
-}
+	#container .alert-popup{
+		display:none;
+		background: #333;
+		padding: 10px; 	
+		border: 2px solid #ddd;
+		float: left;
+		font-size: 1.2em;
+		position: fixed;
+		top: 50%; left: 50%;
+		z-index: 99999;
+		box-shadow: 0px 0px 20px #999; /* CSS3 */
+	        -moz-box-shadow: 0px 0px 20px #999; /* Firefox */
+	        -webkit-box-shadow: 0px 0px 20px #999; /* Safari, Chrome */
+		border-radius:3px 3px 3px 3px;
+	        -moz-border-radius: 3px; /* Firefox */
+	        -webkit-border-radius: 3px; /* Safari, Chrome */
+	}
 
-img.btn_close {
-	float: right; 
-	margin: -28px -28px 0 0;
-}
+		#container .alert-popup img.btn_close {
+			float: right; 
+			margin: -28px -28px 0 0;
+		}
 
-fieldset { 
-	border:none; 
-}
+		#container .alert-popup fieldset { 
+			border:none; 
+		}
 
-
-
-form.signin p, form.signin span { 
-	color:#999; 
-	font-size:11px; 
-	line-height:18px;
-} 
+		#container .alert-popup form.signin p, form.signin span { 
+			color:#999; 
+			font-size:11px; 
+			line-height:18px;
+		} 
 
 
+/* ==================== Popup 've been redirected ====================*/
+/* ================= */
 
+	#container #message {
+	    position:fixed;
+	    top:0px;
+	    left:0px;
+	    width:100%;
+	    z-index:105;
+	    text-align:center;
+	    color:white;
+	    padding:10px 0px 10px 0px;
+	    background-color:#8181a1;
+	    font-weight: lighter;
+	}
 
+		#container #message span {
+		    text-align: center;
+		    width: 95%;
+		    float:left;
+		}
 
+		#container #message .close-notify {
+		    white-space: nowrap;
+		    float:right;
+		    margin-right:10px;
+		    color:#fff;
+		    text-decoration:none;
+		    padding-left:3px;
+		    padding-right:3px
+		}
 
-
-/* ============= popup redirect =============*/
-	#message {
-    position:fixed;
-    top:0px;
-    left:0px;
-    width:100%;
-    z-index:105;
-    text-align:center;
-    color:white;
-    padding:10px 0px 10px 0px;
-    background-color:#8181a1;
-    font-weight: lighter;
-}
-
-#message span {
-    text-align: center;
-    width: 95%;
-    float:left;
-}
-
-.close-notify {
-    white-space: nowrap;
-    float:right;
-    margin-right:10px;
-    color:#fff;
-    text-decoration:none;
-    padding-left:3px;
-    padding-right:3px
-}
-
-.close-notify a {
-    color: #fff;
-}
-
+			#container #message .close-notify a {
+			    color: #fff;
+			}
 

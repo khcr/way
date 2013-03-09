@@ -40,7 +40,7 @@ $(document).ready(function() {
 
 	<article class="left">   
 	<h3 id="page_title" data-mercury="full"><%= @presentation.title %></h3>
-    <div><p class="content"><div id="page_content" data-mercury="full"><%=raw simple_format @presentation.content %></p></div></div><div class="img"><p><img src="assets/utils/salle.jpg"/></p></div>
+    <div><p><div id="page_content" data-mercury="full"><%=raw simple_format @presentation.content %></p></div></div><div class="img"><p><img src="assets/utils/salle.jpg"/></p></div>
 	  <div class="fb">
       <p><a href="https://www.facebook.com/groups/206372632235/"><img class="fb" src="assets/utils/facebook_logo.png" alt="Logo Facebook"/></a> Retrouve-nous sur notre page <a href="https://www.facebook.com/groups/206372632235/">Facebook</a></p>
 	  </div>
@@ -67,7 +67,7 @@ $(document).ready(function() {
 
 <div class="clear"></div>
 
-<div id="news-events">
+<div id="news">
 	<h2 class="home">News <a href="#"><img src="assets/layout/rss.jpeg" alt="RSS" title="RSS" width="30" height="27" /></a></h2>
 	<article class="left">
 
@@ -81,43 +81,31 @@ $(document).ready(function() {
 </div>
 <div class="clear"></div>
 
-
-
-
 <!--[if lt IE 9]>
-
 <script type="text/javascript">
 $(document).ready(function() {
-
 //Fade in the Popup
-$('#login-box').fadeIn(300);
-
+$('.alert-popup').fadeIn(300);
 //Set the center alignment padding + border see css style
-var popMargTop = ($('#login-box').height() + 24) / 2; 
-var popMargLeft = ($('#login-box').width() + 24) / 2; 
-
-$('#login-box').css({ 
+var popMargTop = ($('.alert-popup').height() + 24) / 2; 
+var popMargLeft = ($('.alert-popup').width() + 24) / 2; 
+$('.alert-popup').css({ 
   'margin-top' : -popMargTop,
   'margin-left' : -popMargLeft
 });
-
 // Add the mask to body
 $('body').append('<div id="mask"></div>');
 $('#mask').fadeIn(300);
-    
-
-  
   // When clicking on the button close or the mask layer the popup closed
   $('a.close, #mask').click(function(){
-    $('#mask , .login-popup').fadeOut(300 , function() {
+    $('#mask , .alert-popup').fadeOut(300 , function() {
     $('#mask').remove();  
   }); 
   return false;
   });
 });
 </script>
-
-<div id="login-box" class="login-popup">
+<div id="login-box" class="alert-popup">
         <a href="#" class="close"><img src="assets/utils/close_pop.png" class="btn_close" title="Close Window" alt="Close" /></a>
           <form method="post" class="signin" action="#">
                 <fieldset class="textbox">
