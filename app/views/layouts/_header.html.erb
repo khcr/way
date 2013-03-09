@@ -3,10 +3,10 @@
 	<nav>
 	  <ul class="topnav">
 	    <li><%= link_to "Home", root_path %></li>
-	    <li><%= link_to "Vision", vision_path %></li>
+	    <li><%= link_to "Présentation", vision_path %></li>
 	    <li><%= link_to "Programme", programme_path %></li>
 	    <li><%= link_to "Medias", galleries_path %></li>
-	    <li><a href="#">Projets</a>
+	    <li><a href="#">Activités</a>
 	      <ul class="subnav">
 	      	<% Project.all.each do |project| %>
 	        	<li><%= link_to project.name , project_path(project) %></li>
