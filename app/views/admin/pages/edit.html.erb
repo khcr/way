@@ -3,8 +3,6 @@
 <%= link_to 'Pages', admin_pages_path %>/
 <%= link_to 'Editer', edit_admin_page_path(@page) %>
 
-<%= render '/shared/flash', flash: flash %>
-
 <h1>Editer un contenu:</h1>
 
 <%= form_for [:admin, @page] do |f| %>

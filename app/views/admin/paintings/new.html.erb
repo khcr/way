@@ -3,8 +3,6 @@
 <%= link_to 'Galleries', admin_galleries_path %>/
 <%= link_to 'Edition', edit_admin_gallery_path(@gallery.id) %>
 
-<%= render '/shared/flash', flash: flash %>
-
 <h2><%= @gallery.name %></h1>
 
 <%= form_for [:admin, @gallery, @painting], :remote => true do |f| %>

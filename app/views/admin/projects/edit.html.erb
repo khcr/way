@@ -3,8 +3,6 @@
 <%= link_to 'Projet', admin_projects_path %>/
 <%= link_to 'Editer', edit_admin_project_path(@project.id) %>
 
-<%= render '/shared/flash', flash: flash %>
-
 <h1>Editer un projet:</h1>
 
 <%= form_for @project, url: admin_project_path(@project.id) do |f| %>

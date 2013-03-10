@@ -23,6 +23,11 @@
 <body>
 	<% store_location %>
 	<div id="container">
+    
+    <%-# ==========- FLASH -========== -%>
+    
+    <%= render 'layouts/flash', flash: flash %>
+
 		<%-# ==========- CONTENT FROM THE VIEW -========== -%>
 		<%= yield %>
 
