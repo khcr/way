@@ -1,2 +1,6 @@
-<h2><%= @event.theme %></h2>
-<p><%= @event.info %></p>
+<div class="nextevent">
+<h4> <span class="icns"><%= image_tag "timeline/" + sort_event(@event) %> <%= l @event.date, format: :long %></span><%=raw @event.theme %> <sup> <%= link_to "voir tout le programme", programme_path %></sup> </h4> 
+    <%=raw @event.image_id? ? "<div class='img'><p>#{image_tag(Image.find(@event.image_id).image.url)}</p></div>" : "" %>
+    <p> <%=raw simple_format @event.info %> </p>
+  </div>
+  <div class="clear"></div>
