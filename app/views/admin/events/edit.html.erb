@@ -11,8 +11,6 @@
 
 <%= form_for [:admin, @event] do |f| %>
 
-	<%= @event.type_events.name %>
-
 	<%= render 'fields', f: f, event: @event %>
 
 	<% if @event.image_id? %>

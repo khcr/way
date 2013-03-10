@@ -1,7 +1,7 @@
 module EventsHelper
 
 	def sort_event(event)
-		type_soiree = event.type_soiree
+		type_soiree = event.type_events.name
 
 		if type_soiree == 'GPS'
 			icon = 'marker_blue.png'
