@@ -1,11 +1,38 @@
 <% provide(:title, 'Index') %>
 <% provide(:h1_title, 'Bienvenue sur le site du <strong>groupe de jeunes</strong> <strong>WAY</strong> à Bulle') %>
-<%= content_for :head, auto_discovery_link_tag(:atom, events_url(format: "atom")) %>
 
+<% if params[:redirect] == "true" %>
+
+<div id='message' style="display: none;">
+    <span>Attention, nous attirons le fait que vous venez d'utiliser l'ancienne adresse <u>gdjway.com</u>.<br/> Cette addresse à été remplacée par <u>gdjway.ch</u>, merci d'en prendre note.</span>
+    <a href="#" class="close-notify">X</a>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#message").fadeIn("slow");
+    $("#message a.close-notify").click(function() {
+        $("#message").fadeOut("slow");
+        return false;
+    });
+});
+</script>
+
+
+<% end %>
 
 <h1 class="index">Bienvenue sur le site du <strong>groupe de jeunes</strong> <strong>WAY</strong> à Bulle</h1>
 <article>
-	
+	<h2 class="home" style="padding-top:40px">Prochain événement<%= link_to image_tag("layout/rss.jpeg"), events_url(format: "atom"), :target => "_blank" %></h2>
+	<div class="nextevent">
+    <% if(@next_event != nil) %>
+		<h4> <span class="icns"><%= image_tag "timeline/" + sort_event(@next_event) %> <%= l @next_event.date, format: :long %></span><%=raw @next_event.theme %> <sup> <%= link_to "voir tout le programme", programme_path %></sup> </h4> 
+    <%=raw @next_event.image_id? ? "<div class='img'><p>#{image_tag(Image.find(@next_event.image_id).image.url)}</p></div>" : "" %>
+    <p> <%=raw simple_format @next_event.info %> </p>
+    <% else %>
+    <p> Pas d'événement agendé</p>
+    <% end %>
+	</div>
 </article>
 
 <div class="clear"></div>
@@ -13,7 +40,27 @@
 <div id="presentation">
 
 	<article class="left">   
-	
+	<h3 id="page_title" data-mercury="full"><%= @presentation.title %></h3>
+    <div><p><div id="page_content" data-mercury="full"><%=raw simple_format @presentation.content %></p></div></div><div class="img"><p><img src="assets/utils/salle.jpg"/></p></div>
+	  <div class="fb">
+      <p><a href="https://www.facebook.com/groups/206372632235/"><img class="fb" src="assets/utils/facebook_logo.png" alt="Logo Facebook"/></a> Retrouve-nous sur notre page <a href="https://www.facebook.com/groups/206372632235/">Facebook</a></p>
+	  </div>
+    <%= render 'editor', page: @presentation %>
+	</article>
+  <article class="middle"></article>
+	<article class="right">
+    <h3>Les dernières galleries</h3>
+    <table class="home_galery">
+      <tr>
+        <% @galleries.each do |gallery| %> 
+        <td>
+          <p class="gallery_txt"><%= gallery.name %></p>
+          <div class="image_container"><p><%= (image = gallery.paintings.last) != nil ? link_to(image_tag(image.image_url(:thumb), class: 'nice_pic'), gallery) : "*pas d'images*" %></p></div>
+        </td>
+        <% end %>
+    	</tr>
+    </table>
+    <p class="pict">Retrouves toutes les autres photos <%= link_to "ici", galleries_path %></p>
   </article>
   <p class="clear"></p>
 
@@ -22,7 +69,50 @@
 <div class="clear"></div>
 
 <div id="news">
+	<h2 class="home">News <a href="#"><img src="assets/layout/rss.jpeg" alt="RSS" title="RSS" width="30" height="27" /></a></h2>
+	<article class="left">
+
+    <h3>News (<%= @news.count %>)</h3>
+    <% if @news.any? %>
+    <%= render @news %>
+    <% end %>
+    
+  </article>
 
 </div>
 <div class="clear"></div>
 
+<!--[if lt IE 9]>
+<script type="text/javascript">
+$(document).ready(function() {
+//Fade in the Popup
+$('.alert-popup').fadeIn(300);
+//Set the center alignment padding + border see css style
+var popMargTop = ($('.alert-popup').height() + 24) / 2; 
+var popMargLeft = ($('.alert-popup').width() + 24) / 2; 
+$('.alert-popup').css({ 
+  'margin-top' : -popMargTop,
+  'margin-left' : -popMargLeft
+});
+// Add the mask to body
+$('body').append('<div id="mask"></div>');
+$('#mask').fadeIn(300);
+  // When clicking on the button close or the mask layer the popup closed
+  $('a.close, #mask').click(function(){
+    $('#mask , .alert-popup').fadeOut(300 , function() {
+    $('#mask').remove();  
+  }); 
+  return false;
+  });
+});
+</script>
+<div id="login-box" class="alert-popup">
+        <a href="#" class="close"><img src="assets/utils/close_pop.png" class="btn_close" title="Close Window" alt="Close" /></a>
+          <form method="post" class="signin" action="#">
+                <fieldset class="textbox">
+              <label class="username">
+                <span>Attention, vous utilisez une version d'internet explorer obsolète. <br/>Pour profiter d'une meilleure expérience utilisateur nous vous recommandons de mettre à jour votre navigateur. <br/>Toutes les fonctionnalités de ce site ne sont pas disponibles.</span>      
+                </fieldset>
+          </form>
+</div>
+<![endif]-->
