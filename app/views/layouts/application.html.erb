@@ -28,9 +28,6 @@
 		<h1><%= yield(:h1_title) %></h1>
 		<%= render 'layouts/header' %>
 
-		<%-# ==========- FLASH -========== -%>
-		
-		<%= render 'layouts/flash', flash: flash %>
 
 		<%-# ==========- CONTENT FROM THE VIEW -========== -%>
 		<%= yield %>
