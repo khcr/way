@@ -4,7 +4,7 @@ Way::Application.routes.draw do
 
   root to: 'pages#home'
 
-  match '/vision', to: 'pages#vision'
+  match '/presentation', to: 'pages#vision'
   match '/liens', to: 'pages#links'
   match '/contact', to: 'pages#contact'
   match '/programme', to: 'events#index'
@@ -33,8 +33,8 @@ Way::Application.routes.draw do
 
     resources :galleries, only: [:index, :show], path: '/medias'
     resources :sessions, only: [:create, :destroy]
-    resources :projects, only: [:show], path: '/projets'
-    resources :events
+    resources :projects, only: [:show], path: '/activites'
+    resources :events, only: [:show]
 
   end
   

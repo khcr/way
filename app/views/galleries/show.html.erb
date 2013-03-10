@@ -1,4 +1,5 @@
-<% @title = @gallery.name %>
+<% provide(:title, @gallery.name) %>
+<% provide(:h1_title, 'Galerie medias photo image fun sortie groupe de jeunes') %>
 
 <h2><%= @gallery.name %></h2>
 <div id="gallery_show">
