@@ -20,6 +20,17 @@
   })();
 
 	</script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+	    $("#message").fadeIn("slow");
+	    $("#message a.close-notify").click(function() {
+        $("#message").fadeOut("slow");
+        return false;
+	    });
+		});
+	</script>
+
 	<%= yield :head %>
 </head>
 <body>
@@ -27,12 +38,17 @@
 	<div id="container">
 		<h1><%= yield(:h1_title) %></h1>
 		<%= render 'layouts/header' %>
+
 		<%-# ==========- FLASH -========== -%>
-		<p>
-			<% flash.each do |key, value| %>
-				<%= content_tag(:div, value, class: "alert alert-#{key}") %>
-			<% end %>
-		</p>
+		<% if flash.any? %>
+			<div id="message">
+				<p>
+					<% flash.each do |key, value| %>
+						<%= content_tag(:div, value, class: "alert alert-#{key}") %>
+					<% end %>
+				</p>
+			</div>
+		<% end %>
 
 		<%-# ==========- CONTENT FROM THE VIEW -========== -%>
 		<%= yield %>
