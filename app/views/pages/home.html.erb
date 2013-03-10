@@ -9,6 +9,16 @@
     <a href="#" class="close-notify">X</a>
 </div>
 
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#message").fadeIn("slow");
+    $("#message a.close-notify").click(function() {
+        $("#message").fadeOut("slow");
+        return false;
+    });
+});
+</script>
+
 <% end %>
 
 <h1 class="index">Bienvenue sur le site du <strong>groupe de jeunes</strong> <strong>WAY</strong> à Bulle</h1>
