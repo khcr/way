@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130306174657) do
+ActiveRecord::Schema.define(:version => 20130310182108) do
 
   create_table "events", :force => true do |t|
     t.string   "theme"
@@ -20,11 +20,11 @@ ActiveRecord::Schema.define(:version => 20130306174657) do
     t.string   "orateur"
     t.boolean  "minigroup"
     t.date     "date"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.string   "type_soiree"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.integer  "image_id"
     t.text     "info"
+    t.integer  "type_events_id"
   end
 
   add_index "events", ["date"], :name => "index_events_on_date"
@@ -42,6 +42,12 @@ ActiveRecord::Schema.define(:version => 20130306174657) do
 
   create_table "images", :force => true do |t|
     t.string   "image"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "levels", :force => true do |t|
+    t.integer  "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -80,13 +86,19 @@ ActiveRecord::Schema.define(:version => 20130306174657) do
 
   add_index "projects", ["slug"], :name => "index_projects_on_slug"
 
+  create_table "type_events", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "password_digest"
     t.string   "remember_token"
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
-    t.integer  "level",           :limit => 255
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.integer  "level_id"
   end
 
   add_index "users", ["name"], :name => "index_users_on_name", :unique => true

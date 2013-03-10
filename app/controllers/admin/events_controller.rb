@@ -11,6 +11,7 @@ class Admin::EventsController < ApplicationController
 
 	def new 
 		@event = Event.new
+		#@type_events = TypeEvents.all
 	end
 
 	def create

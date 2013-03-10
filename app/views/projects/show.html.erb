@@ -1,10 +1,14 @@
 <% provide(:title, @project.name) %>
 <% provide(:h1_title, @project.name) %>
 
-<h2><%= @project.name %></h2>
+<h2 style="text-align:center" id="project_name" data-mercury="full"><%= @project.name %></h2>
 
 <article>
-<p>
+<p><div id="project_content" data-mercury="full">
 	<%= @project.content %>
-</p>
+</div></p>
 </article>
+
+<% if signed_in? %>
+	<p><%= link_to "Editer la page", "/editor" + request.path, id: "edit_link", data: { save_url: mercury_update_admin_project_path(@project.id) } %></p>
+<% end %>

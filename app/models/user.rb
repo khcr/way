@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :password, :password_confirmation, :level
+  attr_accessible :name, :password, :password_confirmation, :level_id
   has_secure_password
+
+  belongs_to :level, :inverse_of => :users
 
   before_save :create_remember_token, :format
 

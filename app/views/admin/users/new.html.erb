@@ -11,9 +11,8 @@
 
 	<%= render 'fields', f: f %>
 
-
-	<%= f.label :level %>
-	<%= f.select :level, [0, 1] %>
+	<%= f.label :level_id %></td>
+	<%= f.collection_select(:level_id, Level.all, :id, :name) %>
 	
 	<%= f.submit "Ajouter" %>
 

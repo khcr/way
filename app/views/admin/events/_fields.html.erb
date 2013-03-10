@@ -1,11 +1,9 @@
 <%= render 'shared/error_messages', object: f.object %>
 
-
-
 <table>
 	<tr>
-		<td><label>Type de soirée</label></td>
-		<td><%= f.select :type_soiree, ['GPS','Extra','Actu','Culte','Youth','Event','Inter-GDJ','Divers'] %></td>
+		<td><%= f.label :type_events_id %></td>
+		<td><%= f.collection_select(:type_events_id, TypeEvents.all, :id, :name) %></td>
 	</tr>
 	<tr>
 		<td><%= f.label :theme %></td>

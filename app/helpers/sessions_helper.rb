@@ -10,13 +10,13 @@ module SessionsHelper
 
 	def signed_in?
 		if !current_user.nil?
-			current_user.level >= 1
+			current_user.level.name >= 1
 		end
 	end
 
 	def signed_in_superadmin?
 		if !current_user.nil?
-			current_user.level == 2
+			current_user.level.name == 2
 		end
 	end
 
@@ -38,18 +38,18 @@ module SessionsHelper
 	end
 
 	def signed_in_user
-		unless current_user.level >= 0
+		unless current_user.level.name >= 0
 			redirect_to login_path, notice: "Connectez-vous pour accèder a cette page"
 		end
 	end
 	def signed_in_admin
-		unless current_user.level >= 1
+		unless current_user.level.name >= 1
 			redirect_to root_path, notice: "Vous devez avoir le niveau administrateur pour accèder à cette page"
 		end
 	end
 	
 	def signed_in_superadmin
-		unless current_user.level == 2
+		unless current_user.level.name == 2
 			redirect_to root_path, notice: "Vous devez être le superadministrateur pour accèder à cette page"
 		end
 	end

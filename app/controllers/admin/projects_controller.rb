@@ -42,4 +42,12 @@ class Admin::ProjectsController < ApplicationController
 		flash[:success] = "Projet supprimé"
 		redirect_to admin_projects_path
 	end
+
+	def mercury_update
+  	project = Project.find(params[:id])
+  	project.name = params[:content][:project_name][:value]
+  	project.content = params[:content][:project_content][:value]
+  	project.save!
+ 	 	render text: ""
+	end
 end
