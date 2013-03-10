@@ -23,19 +23,17 @@
 	<%= yield :head %>
 </head>
 <body>
-	<!--<% store_location %>
+	<% store_location %>
 	<div id="container">
 		<h1><%= yield(:h1_title) %></h1>
-		<%= # render 'layouts/header' %>
+		<%= render 'layouts/header' %>
 
-
-		<%-# ==========- CONTENT FROM THE VIEW -========== -%> -->
+		<%-# ==========- CONTENT FROM THE VIEW -========== -%>
 		<%= yield %>
 
-    <!--
 		<%-# ==========- FOOTER -========== -%>
 		<%= render 'layouts/footer' %>
-    -->
+
 	</div>
 
 </body>
