@@ -7,4 +7,7 @@ class EventsController < ApplicationController
 		@events = Event.where(date: Date.today..Date.today + 25.days).order("date ASC")
 	end
 
+	def show
+		@event = Event.find(params[:id])
+	end
 end

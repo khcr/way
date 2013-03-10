@@ -6,7 +6,7 @@ class Admin::EventsController < ApplicationController
 	layout 'admin'
 
 	def index
-		@events = Event.page(params[:page]).order('date ASC').per_page(10)
+		@events = Event.page(params[:page]).order('date DESC').per_page(10)
 	end
 
 	def new 
