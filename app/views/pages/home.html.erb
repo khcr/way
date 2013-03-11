@@ -12,7 +12,7 @@
 
 <h1 class="index">Bienvenue sur le site du <strong>groupe de jeunes</strong> <strong>WAY</strong> à Bulle</h1>
 <article>
-	<h2 class="home" style="padding-top:40px">Prochain événement</h2>
+	<h2 class="home" style="padding-top:40px">Prochain événement<%= link_to image_tag("layout/rss.jpeg"), events_url(format: "atom"), :target => "_blank" %></h2>
 	<div class="nextevent">
     <% if(@next_event != nil) %>
 		<h4> <span class="icns"><%= image_tag "timeline/" + sort_event(@next_event) %> <%= l @next_event.date, format: :long %></span><%=raw @next_event.theme %> <sup> <%= link_to "voir tout le programme", programme_path %></sup> </h4> 
