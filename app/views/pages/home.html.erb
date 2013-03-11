@@ -8,17 +8,6 @@
     <a href="#" class="close-notify">X</a>
 </div>
 
-<script type="text/javascript">
-$(document).ready(function() {
-    $("#message").fadeIn("slow");
-    $("#message a.close-notify").click(function() {
-        $("#message").fadeOut("slow");
-        return false;
-    });
-});
-</script>
-
-
 <% end %>
 
 <h1 class="index">Bienvenue sur le site du <strong>groupe de jeunes</strong> <strong>WAY</strong> à Bulle</h1>
@@ -40,8 +29,8 @@ $(document).ready(function() {
 <div id="presentation">
 
 	<article class="left">   
-	<h3 id="page_title" data-mercury="full"><%= @presentation.title %></h3>
-    <div><p><div id="page_content" data-mercury="full"><%=raw simple_format @presentation.content %></p></div></div><div class="img"><p><img src="assets/utils/salle.jpg"/></p></div>
+	<h3 id="page_title" data-mercury="full"><%= raw @presentation.title %></h3>
+    <div><p><div id="page_content" data-mercury="full"><%= raw simple_format @presentation.content %></p></div></div><div class="img"><p><img src="assets/utils/salle.jpg"/></p></div>
 	  <div class="fb">
       <p><a href="https://www.facebook.com/groups/206372632235/"><img class="fb" src="assets/utils/facebook_logo.png" alt="Logo Facebook"/></a> Retrouve-nous sur notre page <a href="https://www.facebook.com/groups/206372632235/">Facebook</a></p>
 	  </div>

@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
 		if user && user.authenticate(params[:session][:password])
 			sign_in user
 			if current_user.level.name >= 1
-				redirect_to admin_path
+				redirect_to admin_path, notice: "Connection réussie"
 			end
 		else
 			flash.now[:error] = "Mot de passe ou nom d'utilisateur incorrect."
@@ -22,6 +22,6 @@ class SessionsController < ApplicationController
 
 	def destroy 
 		sign_out
-		redirect_to root_path
+		redirect_to root_path, notice: "Déconnection réussie"
 	end
 end

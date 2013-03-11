@@ -1,11 +1,11 @@
 <% provide(:title, @project.name) %>
 <% provide(:h1_title, @project.name) %>
 
-<h2 style="text-align:center" id="project_name" data-mercury="full"><%= @project.name %></h2>
+<h2 style="text-align:center" id="project_name" data-mercury="full"><%= raw @project.name %></h2>
 
 <article>
 <p><div id="project_content" data-mercury="full">
-	<%= @project.content %>
+	<%= raw @project.content %>
 </div></p>
 </article>
 
