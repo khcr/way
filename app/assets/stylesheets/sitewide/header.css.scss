@@ -1,78 +1,43 @@
 @charset "utf-8";
 /* CSS Document */
 
-ul.topnav {
-	list-style: none;
-	border-radius: 6px;
-	padding: 0 20px;
-	margin: 0;
-	float: left;
-	width: 765px; /*chrome:757px safari:790px firefox:739px*/
+#nav-container {
+	width: 100%;
 	background: #222;
-	background: url(/assets/header/topnav_bg.gif) repeat-x;
-	margin-left: -0.4em;
-	font-size: 17px;
-	font-weight: lighter;
+	position: relative;
+	top: 0px;
+	position: fixed;
 }
-ul.topnav li {
-	float: left;
-	margin: 0;
-	padding: 0 15px 0 0;
-	position: relative; /*--Declare X and Y axis base--*/
-	left: 90px;
-}
-ul.topnav li a {
-	padding: 10px 5px;
-	color: #fff;
-	display: block;
-	text-decoration: none;
-	float: left;
-}
-ul.topnav li a:hover {
-	background: url(/assets/header/topnav_hover.gif) no-repeat center top;
-}
-ul.topnav li span { /*--Drop down trigger styles--*/
-	width: 17px;
-	height: 35px;
-	float: left;
-	background: url(/assets/header/subnav_btn.gif) no-repeat center top;
-}
-ul.topnav li span.subhover {
-	background-position: center bottom;
-	cursor: pointer;
-} /*--Hover effect for trigger--*/
-ul.topnav li ul.subnav {
-	list-style: none;
-	position: absolute; /*--Important - Keeps subnav from affecting main navigation flow--*/
-	left: 0;
-	top: 35px;
-	background: #333;
-	margin: 0;
-	padding: 0;
-	display: none;
-	float: left;
-	width: 170px;
-	-moz-border-radius-bottomleft: 5px;
-	-moz-border-radius-bottomright: 5px;
-	-webkit-border-bottom-left-radius: 5px;
-	-webkit-border-bottom-right-radius: 5px;
-	border: 1px solid #111;
-}
-ul.topnav li ul.subnav li {
-	margin: 0;
-	padding: 0;
-	border-top: 1px solid #252525; /*--Create bevel effect--*/
-	border-bottom: 1px solid #444; /*--Create bevel effect--*/
-	clear: both;
-	width: 170px;
-	left: 0;
-}
-html ul.topnav li ul.subnav li a {
-	float: left;
-	width: 145px;
-	background: #333 url(/assets/header/dropdown_linkbg.gif) no-repeat 10px center;
-	padding-left: 20px;
-}
-html ul.topnav li ul.subnav li a:hover { /*--Hover effect for subnav links--*/
-	background: #222 url(/assets/header/dropdown_linkbg.gif) no-repeat 10px center;
-}
+
+	#nav-container nav {
+		width: 100%;
+		margin: auto;
+	}
+
+	#nav-container nav ul {
+		text-align: center;
+	}
+
+	#nav-container nav ul li {
+		display: inline;
+		list-style: none;
+	}
+
+	#nav-container nav ul li a {
+		text-decoration: none;
+		font-size: 1em;
+		font-weight: lighter;
+		display: inline-block;
+		width: 5em;
+		text-align: center;
+		padding: .5em .7em;
+		border-radius: 1px;
+		color: white;
+		background: #2a2a2a;
+	}
+
+	#nav-container nav ul li a:hover,
+	#nav-container nav ul li a.selected{
+		background: #40bfe8;
+		color: #fff;
+	}

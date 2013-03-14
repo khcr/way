@@ -11,7 +11,25 @@
 
 <% end %>
 
-<h1 class="index">Bienvenue sur le site du <strong>groupe de jeunes</strong> <strong>WAY</strong> à Bulle</h1>
+<script>
+  $(function() {
+    $(".rslides").responsiveSlides({
+      timeout: 6000,
+      pager: true,
+      navContainer: ".nav-slides",
+    });
+  });
+</script>
+
+<div class="slider">
+  <ul class="rslides">
+    <li><img src="/assets/utils/slide1.jpg" alt="image"></li>
+    <li><img src="/assets/utils/slide2.jpg" alt="image"></li>
+  </ul>
+  <div class="nav-slides"></div>
+</div>
+
+<h1>Bienvenue sur le site du <strong>groupe de jeunes</strong> <strong>WAY</strong> à Bulle Chrétien</h1>
 <article>
 	<h2 class="home" style="padding-top:40px">Prochain événement<%= link_to image_tag("layout/rss.jpeg"), events_url(format: "atom"), :target => "_blank" %></h2>
 	<div class="nextevent">

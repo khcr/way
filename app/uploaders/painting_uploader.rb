@@ -20,6 +20,7 @@ class PaintingUploader < CarrierWave::Uploader::Base
 
   version :thumb do
     process resize_to_fit: [136, 90]
+    process :quality => 90
   end
 
   def extension_white_list

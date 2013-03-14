@@ -59,13 +59,19 @@
 	#content #summary_timeline {
 	}
 
-		#content #summary_timeline tr {
+		#content #summary_timeline tr.a {
+		}
+
+		#content #summary_timeline tr span.anchor {
+			position:absolute; 
+			top:-60px;
 		}
 
 		#content #summary_timeline .countdown {
 			font-size: 12px;
 			min-width: 75px;
 			text-align: right;
+			position: relative;
 		}
 
 		#content #summary_timeline .marker {

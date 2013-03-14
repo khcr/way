@@ -18,4 +18,9 @@ module ApplicationHelper
 		session[:return_to] = request.fullpath
 	end
 
+	# Used for nav
+	def is_active?(page_name)
+  	"selected" if params[:action] == page_name
+	end
+
 end

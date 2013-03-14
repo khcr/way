@@ -24,9 +24,10 @@
 </head>
 <body>
 	<% store_location %>
+  <%= render 'layouts/header' %>
+  
 	<div id="container">
 		<h1><%= yield(:h1_title) %></h1>
-		<%= render 'layouts/header' %>
 
     <%-# ==========- FLASH -========== -%>
     

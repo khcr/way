@@ -33,4 +33,8 @@ $(document).ready(function(){
   });
   $(".toggle_now").toggle(2000);
 
+  $('.b').click(function(){
+    $('.toggle_wrap').toggle(true, 2000);
+  });
+
 });
