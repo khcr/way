@@ -11,13 +11,19 @@
 
 	<%= render 'fields', f: f %>
 
-	<%= f.submit 'Editer' %>
+	<table>
+		<tr>
+			<td>Supprimer des images</td>
+			<td>
+				<% @gallery.paintings.each do |painting| %>
+					<img src="<%= painting.image_url(:thumb) %>" />
+					<%= link_to "X", admin_gallery_painting_path(@gallery.id, painting), method: :delete, confirm: "Etes-vous sûr de vouloir supprimer cette image?" %>
+				<% end %>
+			</td>
+		</td>
+	</table>
+
+	<table><tr><td>Editer la gallerie</td><td><%= f.submit "Enregistrer les modifications", class: 'w8-button l-blue' %></td></tr></table>
 
 <% end %>
 
-<% @gallery.paintings.each do |painting| %>
-
-	<img src="<%= painting.image_url(:thumb) %>" />
-	<%= link_to "X", admin_gallery_painting_path(@gallery.id, painting), method: :delete, confirm: "Etes-vous sûr de vouloir supprimer cette image?" %>
-
-<% end %>

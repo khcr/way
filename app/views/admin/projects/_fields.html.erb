@@ -1,7 +1,17 @@
 <%= render 'shared/error_messages', object: f.object %>
 
-<%= f.label :name %>
-<%= f.text_field :name %>
+<table>
+	<tr>
+		<td><%= f.label :name %></td>
+		<td><%= f.text_field :name %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :content %></td>
+		<td><%= f.text_area :content %></td>
+	</tr>
+</table>
 
-<%= f.label :content %>
-<%= f.text_area :content %>
+
+
+
+

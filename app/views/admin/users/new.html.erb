@@ -12,6 +12,6 @@
 	<%= f.label :level_id %></td>
 	<%= f.collection_select(:level_id, Level.all, :id, :name) %>
 	
-	<%= f.submit "Ajouter" %>
+	<table><tr><td>Ajouter l'utilisateur</td><td><%= f.submit "Ajouter", class: "w8-button l-blue" %></td></tr></table>
 
 <% end %>

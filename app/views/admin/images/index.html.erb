@@ -4,7 +4,7 @@
 
 <h2>Images</h2>
 
-<%= link_to "Ajouter des images", new_admin_image_path %>
+<%= link_to "Ajouter des images", new_admin_image_path, class: "w8-button l-blue" %>
 
 <% @images.each do |image| %>
 	<%= image_tag image.image.url %>

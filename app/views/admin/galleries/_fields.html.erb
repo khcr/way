@@ -1,10 +1,16 @@
 <%= render 'shared/error_messages', object: f.object %>
 
-<%= f.label :name %>
-<%= f.text_field :name %>
-
-<%= f.label :description %>
-<%= f.text_area :description %>
-
-<%= f.label :date %>
-<%= f.date_select(:date, order: [:day, :month, :year]) %>
+<table>
+	<tr>
+		<td><%= f.label :name %></td>
+		<td><%= f.text_field :name %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :description %></td>
+		<td><%= f.text_area :description %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :date %></td>
+		<td><%= f.date_select(:date, order: [:day, :month, :year]) %></td>
+	</tr>
+</table>

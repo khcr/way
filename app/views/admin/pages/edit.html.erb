@@ -9,12 +9,17 @@
 
 	<%= render 'shared/error_messages', object: f.object %>
 
-	<%= f.label :title %>
-	<%= f.text_field :title %></br>
+	<table>
+		<tr>
+			<td><%= f.label :title %></td>
+			<td><%= f.text_field :title %></br></td>
+		</tr>
+		<tr>
+			<td><%= f.label :content %></td>
+			<td><%= f.text_area :content %></td>
+		</tr>
+	</table>
 
-	<%= f.label :content %>
-	<%= f.text_area :content %>
-
-	<%= f.submit "Editer" %>
+	<table><tr><td>Editer la page</td><td><%= f.submit "Enregistrer les modifications", class: 'w8-button l-blue' %></td></tr></table>
 
 <% end %>

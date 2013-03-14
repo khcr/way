@@ -9,9 +9,13 @@
 
 	<%= render 'fields', f: f %>
 
-	<label>Image</label>
-	<%= image_tag @slideshow.image.url %>
+	<table>
+		<tr>
+			<td>Image</td>
+			<td><%= image_tag @slideshow.image.url %></td>
+		</tr>
+	</table>
 	
-	<%= f.submit "Ajouter" %>
+	<table><tr><td>Editer le slideshow</td><td><%= f.submit "Enregistrer les modifications", class: 'w8-button l-blue' %></td></tr></table>
 
 <% end %>

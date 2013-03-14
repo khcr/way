@@ -1,13 +1,31 @@
 <%= render 'shared/error_messages', object: f.object %>
 
-<%= f.label :name %>
-<%= f.text_field :name %>
+<table>
+	<tr>
+		<td><%= f.label :name %></td>
+		<td><%= f.text_field :name %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :link %></td>
+		<td><%= f.text_field :link %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :date_exp %></td>
+		<td><%= f.date_select :date_exp %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :image %></td>
+		<td><%= f.file_field :image %></td>
+	</tr>
+</table>
 
-<%= f.label :link %>
-<%= f.text_field :link %>
 
-<%= f.label :date_exp %>
-<%= f.date_select :date_exp %>
 
-<%= f.label :image %>
-<%= f.file_field :image %>
+
+
+
+
+
+
+
+

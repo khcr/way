@@ -6,6 +6,7 @@
 <%= form_for [:admin, @user] do |f| %>
 	
 	<%= render 'fields', f: f %>
-	<%= f.submit "Editer" %>
+	
+	<table><tr><td>Editer l'utilisateur</td><td><%= f.submit "Enregistrer les modifications", class: 'w8-button l-blue' %></td></tr></table>
 
 <% end %> 

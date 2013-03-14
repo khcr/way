@@ -1,16 +1,24 @@
 <%= render 'shared/error_messages', object: f.object %>
 
-<%= f.label :first_name %>
-<%= f.text_field :first_name %>
-
-<%= f.label :last_name %>
-<%= f.text_field :last_name %>
-
-<%= f.label :adress %>
-<%= f.text_field :adress %>
-
-<%= f.label :phone %>
-<%= f.text_field :phone %>
-
-<%= f.label :email %>
-<%= f.text_field :email %>
+<table>
+	<tr>
+		<td><%= f.label :first_name %></td>
+		<td><%= f.text_field :first_name %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :last_name %></td>
+		<td><%= f.text_field :last_name %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :adress %></td>
+		<td><%= f.text_field :adress %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :phone %></td>
+		<td><%= f.text_field :phone %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :email %></td>
+		<td><%= f.text_field :email %></td>
+	</tr>
+</table>
