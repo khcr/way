@@ -68,7 +68,7 @@
                 <p>
                   <% # .gsub(/(?:\n\r?|\r\n?)/, '<br>') %>
                   <%= event.image_id? ? image_tag(Image.find(event.image_id).image.url) : "" %>
-                  <%=raw simple_format event.info%>
+                  <%= raw simple_format(event.info, {}, sanitize: false) %>
                   <span class="perma_link">permalink: <%= link_to "event n° #{event.id}", event_path(event) %></span>
                 </p>
               </div>

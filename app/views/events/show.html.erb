@@ -5,7 +5,7 @@
 	</h4> 
   <p>
   	<%=raw @event.image_id? ? "<div class='img'><p>#{image_tag(Image.find(@event.image_id).image.url)}</p></div>" : "" %>
-    <%=raw simple_format @event.info %> 
+    <%= raw simple_format(@event.info, {}, sanitize: false) %> 
   </p>
 </div>
 <div class="clear"></div>
