@@ -28,7 +28,8 @@ Way::Application.routes.draw do
         member { post :mercury_update }
       end 
       resources :users, except: [:show]
-      resources :images
+      resources :images, except: [:show]
+      resources :slideshows, except: [:show]
     end
 
     resources :galleries, only: [:index, :show], path: '/medias'
