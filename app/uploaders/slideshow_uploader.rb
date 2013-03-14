@@ -15,6 +15,7 @@ class SlideshowUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}"
   end
 
+  process :resize_to_fill => [984, 154]
   process :quality => 90
 
   def extension_white_list

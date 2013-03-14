@@ -23,8 +23,13 @@
 
 <div class="slider">
   <ul class="rslides">
-    <li><img src="/assets/utils/slide1.jpg" alt="image"></li>
-    <li><img src="/assets/utils/slide2.jpg" alt="image"></li>
+    <% if @slideshows.any? %>
+    <% @slideshows.each do |slide| %>
+    <li><%= link_to image_tag(slide.image.url), slide.link %></li>
+    <% end %>
+    <% else %>
+    <li><img src="/assets/utils/default_slide.jpg"></li>
+    <% end %>
   </ul>
   <div class="nav-slides"></div>
 </div>

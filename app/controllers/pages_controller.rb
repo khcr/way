@@ -8,6 +8,7 @@ class PagesController < ApplicationController
 		@news = New.where('created_at <=?', [Time.zone.now])
 		@galleries = Gallery.order('date DESC').limit(2)
 		@next_event = Event.where('date >=?', [Time.zone.now]).order('date ASC').first
+		@slideshows = Slideshow.where('date_exp>=?', [Time.zone.now]).order('date_exp ASC')
 	end
 
 	def vision
