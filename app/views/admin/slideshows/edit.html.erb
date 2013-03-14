@@ -8,6 +8,9 @@
 <%= form_for [:admin, @slideshow] do |f| %>
 
 	<%= render 'fields', f: f %>
+
+	<label>Image</label>
+	<%= image_tag @slideshow.image.url %>
 	
 	<%= f.submit "Ajouter" %>
 

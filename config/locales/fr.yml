@@ -40,6 +40,11 @@ fr:
     password_digest: "Mot de passe"
     password_confirmation: "Confirmation"
     level: "Niveau"
+   slideshow:
+    name: "Nom"
+    link: "Lien"
+    image: "Image"
+    date_exp: "Date"
   errors:
    messages:
     blank: "Veuillez compléter le champ \"%{attribute}\""

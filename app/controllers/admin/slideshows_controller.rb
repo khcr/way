@@ -38,7 +38,9 @@ class Admin::SlideshowsController < ApplicationController
 	end
 
 	def destroy
-		Slideshow.find(params[:id]).destroy
+		@slideshow = Slideshow.find(params[:id])
+		FileUtils.rm("public#{@slideshow.image}")
+		@slideshow.destroy
 		flash[:success] = "Slideshow supprimé"
 		redirect_to admin_slideshows_path
 	end
