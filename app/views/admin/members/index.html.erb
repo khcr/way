@@ -1,0 +1,11 @@
+<%= link_to 'Home', root_path %>/
+<%= link_to 'Admin', admin_path %>/
+<%= link_to 'Membres', admin_members_path %>
+
+<h1>Membres:</h1>
+
+<p><%= link_to "Ajouter un membre", new_admin_member_path, class: "w8-button red", id: 'w8-red' %>
+
+<h2>Membres</h2>
+
+<%= render partial: "shared/admin_render", locals: { arrayi: @members} %>

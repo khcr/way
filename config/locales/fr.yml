@@ -45,6 +45,12 @@ fr:
     link: "Lien"
     image: "Image"
     date_exp: "Date"
+   member:
+    first_name: "Prénom"
+    last_name: "Nom de famille"
+    phone: "Téléphone"
+    adress: "Adresse"
+    email: "Email"
   errors:
    messages:
     blank: "Veuillez compléter le champ \"%{attribute}\""

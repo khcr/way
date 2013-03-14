@@ -30,6 +30,7 @@ Way::Application.routes.draw do
       resources :users, except: [:show]
       resources :images, except: [:show]
       resources :slideshows, except: [:show]
+      resources :members, except: [:show]
     end
 
     resources :galleries, only: [:index, :show], path: '/medias'

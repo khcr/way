@@ -1,0 +1,14 @@
+<%= link_to 'Home', root_path %>/
+<%= link_to 'Admin', admin_path %>/
+<%= link_to 'Membres', admin_members_path %>/
+<%= link_to 'Editer', edit_admin_member_path %>
+
+<h1>Editer un membre</h1>
+
+<%= form_for [:admin, @member] do |f| %>
+
+	<%= render 'fields', f: f %>
+
+	<%= f.submit "Ajouter" %>
+
+<% end %>
