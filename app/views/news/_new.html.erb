@@ -1,5 +1,5 @@
-<div style="min-height:210px; margin-top:1px; padding-bottom: 7px">
-	<h4><%= new.title %> <sup style="font-size:10px; text-decoration:none;">le <%= l new.created_at, format: :long %></sup></h4>
-  <p><%= new.content %></p>
+<div class="new">
+	<h3><%= new.title %> <sup style="font-size:10px; text-decoration:none;">le <%= l new.created_at, format: :long %></sup></h3>
+  <p><%= raw simple_format(new.content, {}, sanitize: false) %></p>
   <p style="text-align: right; font-style:italic; font-size: 10px"><br /><br />Expire le <%= l new.date_exp, format: :short %>, mis à jour le <%= l new.updated_at, format: :short %></p>
 </div>

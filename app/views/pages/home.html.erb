@@ -82,12 +82,13 @@
 <div class="clear"></div>
 
 <div id="news">
-	<h2 class="home">News <a href="#"><img src="assets/layout/rss.jpeg" alt="RSS" title="RSS" width="30" height="27" /></a></h2>
-	<article class="left">
+	<h2 class="home">News (<%= @news.count %>) </h2>
+	<article>
 
-    <h3>News (<%= @news.count %>)</h3>
     <% if @news.any? %>
     <%= render @news %>
+    <% else %>
+    <p>Pas de news pour le moment</p>
     <% end %>
     
   </article>

@@ -1,6 +1,8 @@
 @charset "utf-8";
 /* CSS Document */
 
+@import 'variables.css.scss';
+
 #nav-container {
 	width: 100%;
 	background: #222;
@@ -40,7 +42,7 @@
 
 	#nav-container nav ul li a:hover,
 	#nav-container nav ul li a.selected{
-		background: #40bfe8;
+		background: $color_menu_blue;
 		color: #fff;
 	}
 
