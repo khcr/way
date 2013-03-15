@@ -29,6 +29,9 @@ class Admin::SlideshowsController < ApplicationController
 
 	def update
 		@slideshow = Slideshow.find(params[:id])
+		if @slideshow.image != nil
+			FileUtils.rm("public#{@slideshow.image}")
+		end
 		if @slideshow.update_attributes(params[:slideshow])
 			flash[:success] = "Slideshow édité"
 			redirect_to admin_slideshows_path

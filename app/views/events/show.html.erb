@@ -1,3 +1,5 @@
+<% provide(:title, @event.theme) %>
+
 <div class="nextevent">
 	<h4>
 		<span class="icns"><%= image_tag "timeline/" + sort_event(@event) %> <%= l @event.date, format: :long %></span>
