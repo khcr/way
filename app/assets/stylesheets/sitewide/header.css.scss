@@ -19,8 +19,9 @@
 	}
 
 	#nav-container nav ul li {
-		display: inline;
+		display: inline; /* Instead of insane float: left */
 		list-style: none;
+		position: relative; /* For submenu */
 	}
 
 	#nav-container nav ul li a {
@@ -41,4 +42,18 @@
 	#nav-container nav ul li a.selected{
 		background: #40bfe8;
 		color: #fff;
+	}
+
+	#nav-container nav ul li ul {
+		position: absolute;
+		left: 0;
+		display: none;
+	}
+
+	#nav-container nav ul li ul a {
+		display: block;
+	}
+
+	#nav-container nav ul li.submenu a.not_link {
+		cursor: default;
 	}

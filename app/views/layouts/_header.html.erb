@@ -1,16 +1,25 @@
 <div id="nav-container">
 	<nav>
 	  <ul class="topnav">
+	  	<li style=""><img style="margin: 0 20px -10px 0;" src="/assets/header/logo.png"></li>
 	    <li><%= link_to "Home", root_path, class: (current_page?(root_path)? 'selected' : '') %></li>
 	    <li><%= link_to "Présentation", presentation_path, class: (current_page?(presentation_path)? 'selected' : '') %></li>
+	    <% active = false %>
+	    <% # Handle current page when testing unexisting route %>
+	    <% begin %>
+	    <% Project.all.each { |p| active ||= current_page?(project_path)} %>
+	    <% rescue %>
+	    <% end %>
+	    <li class="submenu"><a class="not_link <%= active ? 'selected' : nil %>" href="#">Activités <img src="/assets/header/drop.png"></a>
+	    	<ul>
+			    <% Project.all.each do |project| %>
+			    <li><%= link_to project.name , project_path(project), class: (current_page?(project_path(project))? 'selected' : '') %></li>
+			    <% end %>
+		  	</ul>
+		  </li>
 	    <li><%= link_to "Programme", programme_path, class: (current_page?(programme_path)? 'selected' : '') %></li>
 	    <li><%= link_to "Medias", galleries_path, class: (current_page?(galleries_path)? 'selected' : '') %></li>
-	    <% Project.all.each do |project| %>
-	    <li><%= link_to project.name , project_path(project), class: (current_page?(project_path(project))? 'selected' : '') %></li>
-	    <% end %>
-	    </li>
 	    <li><%= link_to "Contact", contact_path, class: (current_page?(contact_path)? 'selected' : '') %></li>
-	    </li>
 	  </ul>
 	</nav>
 </div>
