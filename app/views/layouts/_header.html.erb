@@ -1,8 +1,7 @@
 <div id="nav-container">
 	<nav>
 	  <ul class="topnav">
-	  	<li style=""><img style="margin: 0 20px -10px 0;" src="/assets/header/logo.png"></li>
-	    <li><%= link_to "Home", root_path, class: (current_page?(root_path)? 'selected' : '') %></li>
+	  	<li style=""><%= link_to(image_tag("/assets/header/logo.png"), root_path, class: 'head_logo') %></li>
 	    <li><%= link_to "Présentation", presentation_path, class: (current_page?(presentation_path)? 'selected' : '') %></li>
 	    <% active = false %>
 	    <% # Handle current page when testing unexisting route %>
