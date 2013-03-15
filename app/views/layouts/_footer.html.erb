@@ -1,10 +1,13 @@
 <footer>
-	<p>
+	<p style="border-bottom: 1px solid #ff8383; margin-bottom:7px">
 		<% if signed_in? %>
 			<%= link_to @current_user.name, admin_path %> | <%= link_to "Déconnecter", signout_path, method: "delete" %>
 		<% else %>
 			<%= link_to 'Admin', login_path %>
 		<% end %>
-		© 2013 | www.gdjway.ch | Project manager by <a href="mailto:nkcr.je@gmail.com" title="Contacter le designer par e-mail">Noémien Kocher </a> and mastered by <a href="mailto:kocher.ke@gmail.com" title="Contacter le designer par e-mail">Keran Kocher</a>
+		| © 2013 | www.gdjway.ch | Project manager by <a href="mailto:nkcr.je@gmail.com" title="Contacter le designer par e-mail">Noémien Kocher </a> and mastered by <a href="mailto:kocher.ke@gmail.com" title="Contacter le designer par e-mail">Keran Kocher</a>
+	</p>
+	<p style="position:relative; padding-bottom:10px">
+		À propos de ce site, <a href="https://github.com/khcr/way">retrouvez le projet sur github.</a> <img style="margin:auto; position:absolute; top:0; bottom:0; " src="/assets/layout/octocat_gems.png">
 	</p>
 </footer>
