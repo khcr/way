@@ -29,7 +29,7 @@ class Admin::SlideshowsController < ApplicationController
 
 	def update
 		@slideshow = Slideshow.find(params[:id])
-		if @slideshow.image != nil
+		if @slideshow.image != nil && params[:image] != nil
 			FileUtils.rm("public#{@slideshow.image}")
 		end
 		if @slideshow.update_attributes(params[:slideshow])

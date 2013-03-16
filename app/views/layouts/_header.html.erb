@@ -9,7 +9,7 @@
 	    <% Project.all.each { |p| active ||= current_page?(project_path)} %>
 	    <% rescue %>
 	    <% end %>
-	    <li class="submenu"><a class="not_link <%= active ? 'selected' : nil %>" href="#">Activités <img src="/assets/header/drop.png"></a>
+	    <li class="submenu"><a class="not_link <%= active ? 'selected' : nil %>" href="/activites">Activités <img src="/assets/header/drop.png"></a>
 	    	<ul>
 			    <% Project.all.each do |project| %>
 			    <li><%= link_to project.name , project_path(project), class: (current_page?(project_path(project))? 'selected' : '') %></li>

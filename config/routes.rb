@@ -35,7 +35,7 @@ Way::Application.routes.draw do
 
     resources :galleries, only: [:index, :show], path: '/medias'
     resources :sessions, only: [:create, :destroy]
-    resources :projects, only: [:show], path: '/activites'
+    resources :projects, only: [:show, :index], path: '/activites'
     resources :events, only: [:show, :index]
 
   end
