@@ -14,9 +14,24 @@
 </article>
 
 <% if signed_in? %>
-<p>
-	<%= link_to "Editer la page", "/editor" + request.path, id: "edit_link", data: { save_url: mercury_update_admin_project_path(project.id) } %>
+<p style="margin-top:20px">
+	<%= link_to "Editer la page", "/editor" + project_path(project.slug), id: "edit_link", data: { save_url: mercury_update_admin_project_path(project.id) }, class: "w8-button l-blue" %>
 </p>
+
 <% end %>
 
 <% end %>
+
+<script>
+  $(document).ready(function() {
+    $(".fancybox-button").fancybox({
+      prevEffect    : 'none',
+      nextEffect    : 'none',
+      closeBtn    : false,
+      helpers   : {
+        title : { type : 'inside' },
+        buttons : {}
+      }
+    });
+  });
+</script>

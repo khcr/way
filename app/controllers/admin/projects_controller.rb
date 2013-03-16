@@ -17,7 +17,7 @@ class Admin::ProjectsController < ApplicationController
 		@project = Project.new(params[:project])
 		if @project.save
 			flash[:success] = "Projet créé"
-			redirect_to project_path(@project.id)
+			redirect_to admin_projects_path
 		else
 			render 'new'
 		end
@@ -44,10 +44,10 @@ class Admin::ProjectsController < ApplicationController
 	end
 
 	def mercury_update
-  	project = Project.find(params[:id])
-  	project.name = params[:content][:project_name][:value]
-  	project.content = params[:content][:project_content][:value]
-  	project.save!
- 	 	render text: ""
+		project = Project.find(params[:id])
+		project.name = params[:content][:project_name][:value]
+		project.content = params[:content][:project_content][:value]
+		project.save!
+		render text: ""
 	end
 end
