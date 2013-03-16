@@ -2,4 +2,5 @@
 
 We love rails, we love codding and - most of all - we do it for our God.
 
-We hope one day this git repository will inspire and help someone attending to du the same we did.
+We hope one day this git repository will inspire and help someone attending to do the same we did.
+Visit our website at http://gdjway.ch
