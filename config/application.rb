@@ -58,5 +58,8 @@ module Way
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Added by nkcr (17.04.13) to use specific error view
+    config.exceptions_app = self.routes
   end
 end

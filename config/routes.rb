@@ -13,6 +13,11 @@ Way::Application.routes.draw do
   match '/login', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
 
+  match "/404", :to => "errors#error_404"
+  match "/422", :to => "errors#error_404"
+  match "/500", :to => "errors#error_500"
+
+
   scope(:path_names => { :new => "nouveau", :edit => "edition" }) do
   
     namespace :admin do
