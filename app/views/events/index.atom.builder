@@ -5,7 +5,7 @@ atom_feed do |feed|
 	@events.each do |event|
 		feed.entry(event, plublished: event.date) do |entry|
 			entry.title event.theme
-			entry.content event.info
+			entry.content event.info, type: 'html'
 			entry.author do |author|
 				author.name 'Lead WAY'
 			end
