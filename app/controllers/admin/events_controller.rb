@@ -11,10 +11,10 @@ class Admin::EventsController < ApplicationController
 
 	def new 
 		@event = Event.new
-		#@type_events = TypeEvents.all
 	end
 
 	def create
+		params[:event].delete(:slug) if params[:event][:slug].blank?
 		@event = Event.new(params[:event])
 		if @event.save
 			flash[:success] = "Evénement ajouté"
@@ -29,6 +29,7 @@ class Admin::EventsController < ApplicationController
 	end 
 
 	def update
+		params[:event].delete(:slug) if params[:event][:slug].blank?
 		@event = Event.find(params[:id])
 		if @event.update_attributes(params[:event])
 			flash[:success] = "Evénement édité"

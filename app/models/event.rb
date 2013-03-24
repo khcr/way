@@ -1,12 +1,12 @@
 class Event < ActiveRecord::Base
-  attr_accessible :date, :info, :orateur, :president, :remarque, :theme, :image_id, :type_events_id
+  attr_accessible :date, :info, :orateur, :president, :remarque, :theme, :image_id, :type_events_id, :slug
 
   belongs_to :type_events, :inverse_of => :events
 
   validates :date, presence: true
   validates :theme, presence: true, length: { maximum: 55}
 
-  validates :slug, uniqueness: true, presence: true
+  validates :slug, uniqueness: true
 
 	before_validation :generate_slug
 	

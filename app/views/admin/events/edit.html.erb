@@ -5,7 +5,7 @@
 
 <h1>Editer un événement</h1>
 
-<%= form_for [:admin, @event] do |f| %>
+<%= form_for @event, url: admin_event_path(@event.id) do |f| %>
 
 	<%= render 'fields', f: f, event: @event %>
 
