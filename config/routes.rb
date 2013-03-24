@@ -17,7 +17,6 @@ Way::Application.routes.draw do
   match "/422", :to => "errors#error_404"
   match "/500", :to => "errors#error_500"
 
-
   scope(:path_names => { :new => "nouveau", :edit => "edition" }) do
   
     namespace :admin do
@@ -41,8 +40,10 @@ Way::Application.routes.draw do
     resources :galleries, only: [:index, :show], path: '/medias'
     resources :sessions, only: [:create, :destroy]
     resources :projects, only: [:show, :index], path: '/activites'
-    resources :events, only: [:show, :index]
+    resources :events, only: [:show, :index], :constraints => {:id => /[a-z]+/}
 
   end
+
+  match "/events/:id" => redirect {|params| "/events/" + Event.find(params[:id]).slug }
   
 end

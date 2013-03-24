@@ -5,4 +5,16 @@ class Event < ActiveRecord::Base
 
   validates :date, presence: true
   validates :theme, presence: true, length: { maximum: 55}
+
+  validates :slug, uniqueness: true, presence: true
+
+	before_validation :generate_slug
+	
+	def to_param
+  	slug 
+	end
+
+	def generate_slug
+  	self.slug ||= theme.parameterize
+	end
 end
