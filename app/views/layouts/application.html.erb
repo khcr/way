@@ -4,9 +4,9 @@
   <title>GDJ Way - <%= yield(:title) %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
-  <%= yield :javascript_includes %>
   <%= csrf_meta_tags %>
-  <link rel="icon" type="image/png" href="favicon.ico" />
+  <link rel="icon" type="image/png" href="/public/favicon.ico" />
+
   <script type="text/javascript">
 
   var _gaq = _gaq || [];
@@ -20,6 +20,7 @@
   })();
 
 	</script>
+  
 	<%= yield :head %>
 </head>
 <body>
