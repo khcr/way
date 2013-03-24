@@ -26,12 +26,12 @@
 		<td><%= f.text_field :orateur %></td>
 	</tr>
 	<tr>
-		<td><%= f.label :minigroup %></td>
-		<td><%= f.radio_button :minigroup, true %>oui<%= f.radio_button :minigroup, false %>non</td>
-	</tr>
-	<tr>
 		<td><%= f.label :date %></td>
 		<td><%= f.date_select(:date, order: [:day, :month, :year]) %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :slug %></td>
+		<td><%= f.text_field :slug %></td>
 	</tr>
 </table>
 

@@ -15,11 +15,11 @@ fr:
     theme: "Thème"
     date: "Date"
     info: "Information"
-    minigroup: "Mini-groupe"
     orateur: "Orateur"
     president: "Président"
     remarque: "Remarque"
     type_soiree: "Type de soirée"
+    slug: "URL"
    gallery:
     name: "Nom"
     description: "Description"
