@@ -1,0 +1,29 @@
+<%= link_to 'Home', root_path %>/
+<%= link_to 'Admin', admin_path %>/
+<%= link_to 'Inscription', admin_forms_path %>
+
+<h2>Inscription RJ:</h2>
+
+<table>
+
+	<% @forms.each do |form| %>
+		
+		<tr>
+			<% form.attributes.each do |attr_name, attr_value| %>
+
+				<td>
+					<% if attr_value == '1' %>
+						<%= attr_name.titleize %>
+					<% elsif attr_value == '0' || attr_name == 'updated_at' || attr_name == 'created_at' %>
+					<% else %>
+						<%= attr_value %>
+					<% end %>
+				</td>
+
+			<% end %>
+
+			<td><%= link_to "X", admin_form_path(form), method: :delete, confirm: "Etes-vous sûr de vouloir supprimer cette entrée?" %></td>
+		</tr>
+	<% end %>
+
+</table>

@@ -1,0 +1,51 @@
+<% provide(:title, 'Inscription') %>
+
+<h2>Inscription pour la RJ 2013</h2>
+
+<%= form_for @form do |f| %>
+
+	<table>
+		<%= render 'shared/error_messages', object: f.object %>
+		<tr>
+			<td><%= f.label :first_name %></td>
+			<td><%= f.text_field :first_name %></td>
+		</tr>
+		<tr>
+			<td><%= f.label :last_name %></td>
+			<td><%= f.text_field :last_name %></td>
+		</tr>
+		<tr>
+			<td><%= f.label :phone %></td>
+			<td><%= f.text_field :phone %></td>
+		</tr>
+		<tr>
+			<td><%= f.label :vendredi_soir, "Vendredi soir" %></td>
+			<td><%= f.check_box :vendredi_soir %></td>
+		</tr>
+		<tr>
+			<td><%= f.label :vendredi_nuit, "Nuit du vendredi" %></td>
+			<td><%= f.check_box :vendredi_nuit %></td>
+		</tr>
+		<tr>
+			<td><%= f.label :samedi_midi, "Samedi midi" %></td>
+			<td><%= f.check_box :samedi_midi %></td>
+		</tr>
+		<tr>
+			<td><%= f.label :samedi_soir, "Samedi soir" %></td>
+			<td><%= f.check_box :samedi_soir %></td>
+		</tr>
+		<tr>
+			<td><%= f.label :samedi_nuit, "Nuit du samedi" %></td>
+			<td><%= f.check_box :samedi_nuit %></td>
+		</tr>
+		<tr>
+			<td><%= f.label :dimanche_midi, "Dimanche midi" %></td>
+			<td><%= f.check_box :dimanche_midi %></td>
+		</tr>
+		<tr>
+			<td>Envoyer</td>
+			<td><%= f.submit "Envoyer" %></td>
+		</tr>
+	</table>
+
+<% end %>

@@ -11,6 +11,10 @@ fr:
    project: "Projet"
    user: "Utilisateur"
   attributes:
+   form:
+    first_name: "Prénom"
+    last_name: "Nom de famille"
+    phone: "Téléphone"
    event:
     theme: "Thème"
     date: "Date"

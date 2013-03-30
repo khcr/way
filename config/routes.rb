@@ -17,6 +17,9 @@ Way::Application.routes.draw do
   match "/422", :to => "errors#error_404"
   match "/500", :to => "errors#error_500"
 
+  resources :forms, only: [:create], path: '/inscriptions'
+  match '/inscription', to: 'forms#new'
+
   scope(:path_names => { :new => "nouveau", :edit => "edition" }) do
   
     namespace :admin do
@@ -35,6 +38,7 @@ Way::Application.routes.draw do
       resources :images, except: [:show]
       resources :slideshows, except: [:show]
       resources :members, except: [:show]
+      resources :forms
     end
 
     resources :galleries, only: [:index, :show], path: '/medias'
