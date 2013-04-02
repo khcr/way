@@ -1,0 +1,97 @@
+/* Portrait Tablet 768  (min-width: 481px) and (max-width: 950px) */
+@media (max-width: 950px) {
+	body {
+		width: 100%;
+		background: url('/assets/admin/bg.jpg');
+	}
+	div#container {
+		width: 80%;
+		margin: 5em auto;
+	}
+	/* Home */
+	div#container h2.home {
+		text-align: center;
+		border: none;
+	}
+	#container #presentation h3 {
+		border: none;
+	}
+	#container #presentation article.left {
+		background: url('/assets/admin/bg2.jpg');
+		min-height: 100%;
+		overflow: auto;
+		margin: 5px 0 0 0;
+		padding: 7px;
+		display: block;
+		min-width: 0;
+	}
+	#container #presentation article.left h3 {
+		color: #333;
+	}
+	#container #presentation article.right {
+		background: url('/assets/admin/bg2.jpg');
+		margin: 5px 100px 0 0;
+		padding: 7px 0 0 0;
+		display: block;
+	}
+	#container #presentation article.right h3 {
+		border: none;
+		text-align: center;
+		color: #333;
+	}
+	#container div.nextevent {
+		background: url('/assets/admin/bg2.jpg');
+		min-height: 100%;
+		overflow: auto;
+		margin: 0;
+		padding: 7px;
+	}
+	#container div.nextevent .img {
+		width: 40%;
+	}
+	#container div.nextevent .img img {
+		max-width: 100%;
+    height: auto;
+	}
+	#container div#news article div {
+		background: url('/assets/admin/bg2.jpg');
+		min-height: 100%;
+		overflow: auto;
+		margin: 5px 0 0 0;
+		padding: 7px;
+		display: block;
+	}
+	#container div#news article h3 {
+		color: #333;
+	}
+	#container div#news h2 {
+		margin: 12px 0 0 0;
+	}
+	#container div.slider {
+		height: auto;
+	}
+	/* Programme */
+	#content #summary_timeline .description img {
+		max-width: 100%;
+		height: auto;
+	}
+	/* Medias */
+	#gallery .left {
+		display: block;
+		width: auto;
+	}
+	#gallery .right {
+		display: block;
+		width: auto;
+	}
+}
+
+/* Landscape smart phone 
+@media (min-width: 321px) and (max-width: 480px) {
+
+}*/
+
+/* Portrait smart phone 
+@media (max-width: 320px) {
+
+}*/
