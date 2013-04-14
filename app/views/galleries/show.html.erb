@@ -6,7 +6,6 @@
 	<p class="description"><%= @gallery.description %></p>
 
 	<div class="photos">
-		
 		<p>
 		<% @gallery.paintings.sort.each do |painting| %>
 			
@@ -36,9 +35,9 @@
 	$(function() {
 		var images = $('img')
 		images.hide()
-		$('.photos').prepend('<p id="loading">Chargement en cours... Veuillez patientez.</p>')
+		$('.photos').prepend('<p class="loading" style="background:#fff; color:#333; margin:20px;">Chargement en cours... Veuillez patientez. <img style="vertical-align:middle" src="/assets/admin/loading.gif"></p>')
 		$(window).load(function() {
-			$('#loading').hide()
+			$('.loading').hide()
 			images.show()
 		})
 	});
