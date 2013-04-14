@@ -3,18 +3,20 @@
 
 <h2><%= @gallery.name %></h2>
 <div id="gallery_show">
-<p class="description"><%= @gallery.description %></p>
+	<p class="description"><%= @gallery.description %></p>
 
-<div class="photos">
-	<p>
-	<% @gallery.paintings.sort.each do |painting| %>
+	<div class="photos">
 		
-		<a class="fancybox-button" rel="fancybox-button" href="<%= painting.image_url %>" title="<%= painting.name %>">
-		<img src="<%= painting.image_url(:thumb) %>" alt="" />
-		</a>
+		<p>
+		<% @gallery.paintings.sort.each do |painting| %>
+			
+			<a class="fancybox-button" rel="fancybox-button" href="<%= painting.image_url %>" title="<%= painting.name %>">
+			<img src="<%= painting.image_url(:thumb) %>" alt="" />
+			</a>
 
-	<% end %>
-	</p>
+		<% end %>
+		</p>
+	</div>
 </div>
 <script>
 	$(document).ready(function() {
@@ -30,9 +32,14 @@
 	});
 </script>
 
-<script type="text/javascript">
-	$(document).ready(function() {
-		$(".fancybox").fancybox();
+<script>
+	$(function() {
+		var images = $('img')
+		images.hide()
+		$('.photos').prepend('<p id="loading">Chargement en cours... Veuillez patientez.</p>')
+		$(window).load(function() {
+			$('#loading').hide()
+			images.show()
+		})
 	});
 </script>
-</div>
