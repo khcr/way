@@ -10,6 +10,8 @@ Way::Application.routes.draw do
   match '/programme', to: 'events#index'
   match '/admin', to: 'admin::pages#admin_index'
 
+  match '/worship', to: 'pages#worship'
+
   match '/login', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
 

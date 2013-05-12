@@ -22,4 +22,8 @@ class PagesController < ApplicationController
 	def contact 
 		@contact = Page.find_by_name('contact')
 	end
+
+	def worship 
+		@worship = Page.find_by_name('worship')
+	end
 end
