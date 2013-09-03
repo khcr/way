@@ -1,6 +1,6 @@
 require "bundler/capistrano"
 
-server "37.59.232.172", :web, :app, :db, primary: true
+server "62.4.23.180", :web, :app, :db, primary: true
 
 set :application, "way"
 set :user, "way"
