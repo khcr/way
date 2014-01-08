@@ -5,7 +5,7 @@ class GalleriesController < ApplicationController
 	before_filter :find_page, only: [:show]
 
 	def index
-		@galleries = Gallery.order('date DESC').where('isPrivate = ?', false).page(params[:page]).per_page(8)
+		@galleries = Gallery.order('date DESC').where('isprivate = ?', false).page(params[:page]).per_page(8)
 	end
 
 	def show
@@ -30,7 +30,7 @@ class GalleriesController < ApplicationController
 	
 	def find_page
   	@gallery = Gallery.find_by_slug!(params[:id])
-  	signed_in_gallery(@gallery) if @gallery.isPrivate
+  	signed_in_gallery(@gallery) if @gallery.isprivate
 	end
 
 end
