@@ -23,6 +23,7 @@
 		$(function () {
 		    $('#fileupload').fileupload({
 		    		acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
+		    		sequentialUploads: true,
 		        dataType: 'json',
 		        url: '<%= admin_gallery_paintings_path(@gallery.id) %>',
 		        done: function (e, data) {
