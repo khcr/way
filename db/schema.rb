@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(:version => 20140107095541) do
     t.datetime "updated_at",                     :null => false
     t.string   "slug"
     t.date     "date"
-    t.boolean  "isPrivate",   :default => false
+    t.boolean  "isprivate",   :default => false
     t.string   "key"
   end
 
