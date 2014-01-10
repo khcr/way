@@ -24,6 +24,10 @@
 		    $('#fileupload').fileupload({
 		    		acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
 		    		sequentialUploads: true,
+		    		// disableImageMetaDataSave: true, // Otherwise orientation is broken on iOS Safari
+						// imageOrientation: true,
+						// previewOrientation: true, // Leaving default seemed to flip the image with imageOrientation true
+
 		        dataType: 'json',
 		        url: '<%= admin_gallery_paintings_path(@gallery.id) %>',
 		        done: function (e, data) {

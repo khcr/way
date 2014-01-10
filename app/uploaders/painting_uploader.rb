@@ -17,6 +17,7 @@ class PaintingUploader < CarrierWave::Uploader::Base
 
   process :resize_to_limit => [1200, 1200]
   process :quality => 90
+  process :right_orientation
 
   version :thumb do
     process resize_to_fit: [136, 90]
@@ -26,4 +27,12 @@ class PaintingUploader < CarrierWave::Uploader::Base
   def extension_white_list
     %w(jpg jpeg gif png)
   end
+
+  def right_orientation
+    manipulate! do |img|
+      img.auto_orient
+      img
+    end
+  end
+
 end
