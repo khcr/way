@@ -13,4 +13,15 @@
 		<td><%= f.label :date %></td>
 		<td><%= f.date_select(:date, order: [:day, :month, :year]) %></td>
 	</tr>
+	<tr>
+		<td><%= f.label :isPrivate %></td>
+		<td><%= f.check_box :isPrivate, class: 'cb' %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :key %></td>
+		<td><%= f.text_field :key, class: 'key' %></td>
+	</tr>
 </table>
+<script type="text/javascript">
+	$('.key').attr("disabled", "disabled");
+</script>
