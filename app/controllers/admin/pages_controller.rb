@@ -6,7 +6,11 @@ class Admin::PagesController < ApplicationController
 	layout 'admin'
 
 	def index
-		@pages = Page.page(params[:page]).per_page(10)
+		@table = Table.new(view_context, Page)
+		respond_to do |format|
+			format.html
+			format.js { render 'shared/sort' }
+		end
 	end
 
 	def admin_index
@@ -25,13 +29,4 @@ class Admin::PagesController < ApplicationController
 			render 'edit'
 		end
 	end
-
-	def mercury_update
-  	page = Page.find(params[:id])
-  	page.title = params[:content][:page_title][:value]
-  	page.content = params[:content][:page_content][:value]
-  	page.save!
- 	 	render text: ""
-	end
-
 end

@@ -7,7 +7,11 @@ class Admin::UsersController < ApplicationController
 	before_filter :correct_user, only: [:edit, :update]
 
 	def index
-		@users = User.page(params[:page]).per_page(10)
+		@table = Table.new(view_context, User)
+		respond_to do |format|
+			format.html
+			format.js { render 'shared/sort' }
+		end
 	end
 
 	def new

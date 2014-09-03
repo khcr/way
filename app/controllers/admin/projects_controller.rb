@@ -6,7 +6,11 @@ class Admin::ProjectsController < ApplicationController
   layout 'admin'
 
 	def index
-		@projects = Project.page(params[:page]).per_page(10)
+		@table = Table.new(view_context, Project)
+		respond_to do |format|
+			format.html
+			format.js { render 'shared/sort' }
+		end
 	end
 
 	def new
@@ -41,13 +45,5 @@ class Admin::ProjectsController < ApplicationController
 		Project.find(params[:id]).destroy
 		flash[:success] = "Projet supprimé"
 		redirect_to admin_projects_path
-	end
-
-	def mercury_update
-		project = Project.find(params[:id])
-		project.name = params[:content][:project_name][:value]
-		project.content = params[:content][:project_content][:value]
-		project.save!
-		render text: ""
 	end
 end

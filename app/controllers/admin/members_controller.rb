@@ -6,7 +6,11 @@ class Admin::MembersController < ApplicationController
 	layout 'admin'
 
 	def index
-		@members = Member.page(params[:page]).per_page(10)
+		@table = Table.new(view_context, Member)
+		respond_to do |format|
+			format.html
+			format.js { render 'shared/sort' }
+		end
 	end
 
 	def new

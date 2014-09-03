@@ -6,7 +6,12 @@ class Admin::EventsController < ApplicationController
 	layout 'admin'
 
 	def index
-		@events = Event.page(params[:page]).order('date DESC').per_page(10)
+		events = Event.page(params[:page]).order('date DESC').per_page(10)
+		@table = Table.new(view_context, Event, events)
+		respond_to do |format|
+			format.html
+			format.js { render 'shared/sort' }
+		end
 	end
 
 	def new 

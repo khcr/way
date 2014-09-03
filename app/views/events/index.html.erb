@@ -67,7 +67,6 @@
               <div><a class="toggle_trigger <%= index == 0 ? "active" : ""%>"><%= event.theme %></a></div>
               <div class="<%= index == 0 ? "toggle_now" : "toggle_wrap" %>">
                 <p>
-                  <% # .gsub(/(?:\n\r?|\r\n?)/, '<br>') %>
                   <%= event.image_id? ? image_tag(Image.find(event.image_id).image.url) : "" %>
                   <%= raw simple_format(event.info, {}, sanitize: false) %>
                   <span class="perma_link">permalink: <%= link_to "event n° #{event.id}", event_path(event) %></span>
@@ -87,16 +86,15 @@
 </div>
 
 <% else %>
-<p> Pas d'événents agendés. </p>
+<p> Pas d'événement agendé.</p>
 <% end %>
 
 <p><br /><br /><br /><br /><br />
  <b>L'horaire officiel :</b> <br />
-      Ouverture des locaux : 19h30 <br />
-      Début de la soirée : 20h00 <br />
-      Fin de la soirée : 21h30 <br />
+      Ouverture : dès 20h <br />
+      Fin de la soirée : 22h00 <br />
       Vidage des locaux : 23h30 <br />
       <br />
-      Remarque : <b>Il en va de la responsabilité de chaque parent de venir chercher leur(s) enfant(s) entre 21h30 et 23h30</b>. Au plus tard à 23h30, chaque enfant doit en effet être à nouveau sous la responsabilité de ses parents. <br />
+      Remarque : <b>Il en va de la responsabilité de chaque parent de venir chercher leur(s) enfant(s) entre 22h00 et 23h30</b>. Au plus tard à 23h30, chaque enfant doit en effet être à nouveau sous la responsabilité de ses parents. <br />
       <br /><br /><br /><br /><br />
     </p>

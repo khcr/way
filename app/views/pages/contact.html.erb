@@ -2,16 +2,14 @@
 <% provide(:h1_title, 'Contact lieu plan carte télépnone email e-mail responsables dons Groupe de jeunes WAY Bulle') %>
 
 
-<h2 style="text-align:center" id="page_title" data-mercury="full"><%= raw @contact.title %></h2>
+<h2 style="text-align:center" id="page_title"><%= raw @contact.title %></h2>
 
 <article class="editor">
-	<div id="page_content" data-mercury="full">
+	<div id="page_content">
 		<p>
 			<%=raw @contact.content %>
 		</p>
 	</div>
 </article>
-
-<%= render 'editor', page: @contact %>
 
 <div class="clear"></div>

@@ -7,8 +7,7 @@ class SessionsController < ApplicationController
 	end
 
 	def create
-		params[:session][:name] = params[:session][:name].gsub(/\s+/, "").downcase
-		user = User.find_by_name(params[:session][:name])
+		user = User.find_by_name(params[:session][:name].strip.downcase)
 		if user && user.authenticate(params[:session][:password])
 			sign_in user
 			if current_user.level.name >= 1

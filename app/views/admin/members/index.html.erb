@@ -8,4 +8,6 @@
 
 <h2>Membres</h2>
 
-<%= render partial: "shared/admin_render", locals: { arrayi: @members} %>
+<div id="admin_table">
+	<%= present @table %>
+</div>

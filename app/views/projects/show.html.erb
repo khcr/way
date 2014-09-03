@@ -1,14 +1,12 @@
 <% provide(:title, @project.name) %>
 <% provide(:h1_title, @project.name) %>
 
-<h2 style="text-align:center" id="project_name" data-mercury="full"><%= raw @project.name %></h2>
+<h2 style="text-align:center" id="project_name"><%= raw @project.name %></h2>
 
 <article>
-<p><div id="project_content" data-mercury="full">
-	<%= raw @project.content %>
-</div></p>
+	<p>
+		<div id="project_content" data-mercury="full">
+			<%= raw @project.content %>
+		</div>
+	</p>
 </article>
-
-<% if signed_in? %>
-	<p style="margin-top:20px"><%= link_to "Editer la page", "/editor" + request.path, id: "edit_link", data: { save_url: mercury_update_admin_project_path(@project.id) }, class: "w8-button l-blue" %></p>
-<% end %>

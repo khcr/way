@@ -17,6 +17,6 @@ class User < ActiveRecord::Base
   end
 
   def format
-    self.name = self.name.gsub(/\s+/, "").downcase
+    self.name = self.name.strip.downcase
   end
 end

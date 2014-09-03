@@ -17,23 +17,10 @@
 		</p>
 	</div>
 </div>
-<script>
-	$(document).ready(function() {
-		$(".fancybox-button").fancybox({
-			prevEffect		: 'none',
-			nextEffect		: 'none',
-			closeBtn		: false,
-			helpers		: {
-				title	: { type : 'inside' },
-				buttons	: {}
-			}
-		});
-	});
-</script>
 
 <script>
 	$(function() {
-		$('.photos').prepend('<p class="loading" style="background:#fff; color:#333; margin:20px;">Chargement en cours... Veuillez patientez. <img style="vertical-align:middle" src="/assets/admin/loading.gif"></p>')
+		$('.photos').prepend('<p class="loading" style="background:#fff; color:#333; margin:20px;">Chargement en cours... Veuillez patientez.' + <%= image_tag "admin/loading.gif", style: "vertical-align:middle" %> +'</p>')
 		$(window).load(function() {
 			$('.loading').hide()
 		})

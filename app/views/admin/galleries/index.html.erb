@@ -8,5 +8,6 @@
 
 <h2>Galleries:</h2>
 
-<%= render partial: "shared/admin_render", locals: { arrayi: @galleries} %>
-
+<div id="admin_table">
+	<%= present @table %>
+</div>

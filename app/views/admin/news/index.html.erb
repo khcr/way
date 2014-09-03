@@ -8,4 +8,6 @@
 
 <h2>News</h2>
 
-<%= render partial: "shared/admin_render", locals: { arrayi: @news} %>
+<div id="admin_table">
+	<%= present @table %>
+</div>

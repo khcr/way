@@ -2,12 +2,10 @@
 <% provide(:h1_title, 'Présentation et vision Amitié Dynamisme Evangélisation Groupe de jeunes WAY Bulle') %>
 
 
-<h2 style="text-align:center" id="page_title" data-mercury="full"><%= raw @vision.title %></h2>
+<h2 style="text-align:center" id="page_title"><%= raw @vision.title %></h2>
 
-<article ><div id="page_content" data-mercury="full">
+<article ><div id="page_content">
 		<%=raw @vision.content %>
 </div></article>
-
-<%= render 'editor', page: @vision %>
 
 <div class="clear"></div>

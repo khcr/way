@@ -6,7 +6,11 @@ class Admin::SlideshowsController < ApplicationController
   layout 'admin'
 
 	def index
-		@slideshows = Slideshow.page(params[:page]).per_page(10)
+		@table = Table.new(view_context, Slideshow)
+		respond_to do |format|
+			format.html
+			format.js { render 'shared/sort' }
+		end
 	end
 
 	def new

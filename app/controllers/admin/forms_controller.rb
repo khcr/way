@@ -6,7 +6,17 @@ class Admin::FormsController < ApplicationController
 	layout 'admin'
 
 	def index
-		@forms = Form.page(params[:page]).per_page(10)
+		@table = Table.new(view_context, Form, nil, buttons: false)
+		respond_to do |format|
+			format.html
+			format.js { render 'shared/sort' }
+		end
+	end
+
+	def reset
+		Form.destroy_all
+		flash[:success] = 'Inscriptions réinitialisées'
+		redirect_to admin_forms_path
 	end
 
 	def destroy

@@ -6,7 +6,11 @@ class Admin::NewsController < ApplicationController
 	layout 'admin'
 
 	def index
-		@news = New.page(params[:page]).per_page(10)
+		@table = Table.new(view_context, New)
+		respond_to do |format|
+			format.html
+			format.js { render 'shared/sort' }
+		end
 	end
 
 	def new

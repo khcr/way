@@ -23,4 +23,8 @@ module ApplicationHelper
   	"selected" if params[:action] == page_name
 	end
 
+	def present(table)
+		render 'shared/table', presenter: table
+	end
+
 end

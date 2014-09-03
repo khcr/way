@@ -1,6 +1,6 @@
 <div style="width:100%; text-align:center">
 	<%= form_for(:gallery, url: galleries_path) do |f| %>
-		<%= f.label(:key, "Entrez la clef pour voir la gallerie") %><br>
+		<%= f.label(:key, "Entrez la clef pour voir la galerie") %><br>
 		<%= f.password_field(:key, placeholder: 'entrez la clef...') %>
 		<%= f.hidden_field(:id) %>
 		<span class="a"><%= f.submit("Login") %></span>

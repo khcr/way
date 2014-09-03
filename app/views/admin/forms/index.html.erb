@@ -2,33 +2,15 @@
 <%= link_to 'Admin', admin_path %>/
 <%= link_to 'Inscription', admin_forms_path %>
 
-<h2>Inscription RJ:</h2>
+<h2>Inscriptions</h2>
 
-<table>
+<div class="table_buttons">
+	<%= link_to "Ajouter", request.path + "/nouveau", class: "add" %>
+	<a class="delete off">Supprimer</a>
+	<a class="delete on" href="#" data-method="delete" rel="nofollow" data-confirm="Etes-vous sûr de vouloir supprimer cette entrée ?">Supprimer</a>
+	<%= link_to "Réinitialiser", reset_admin_forms_path, method: :post, class: "add", data: {confirm: "Etes-vous sûr de vouloir supprimer TOUTES les entrées ?"} %>
+</div>
 
-	<% @forms.each do |form| %>
-		
-		<tr>
-			<% form.attributes.each do |attr_name, attr_value| %>
-
-				<td>
-					<% if attr_value == '1' %>
-						<%= attr_name.titleize %>
-					<% elsif attr_value == '0' || attr_name == 'updated_at' || attr_name == 'created_at' %>
-					<% else %>
-						<%= attr_value %>
-					<% end %>
-				</td>
-
-			<% end %>
-
-			<td><%= link_to "X", admin_form_path(form), method: :delete, confirm: "Etes-vous sûr de vouloir supprimer cette entrée?" %></td>
-		</tr>
-	<% end %>
-	<% # Affichage des liens de pagination %>
-	<% unless @forms == nil || @forms.empty? %>
-	<table>
-		<tr><td><%= will_paginate(@forms, previous_label: 'Précédent', next_label: 'Suivant') %></td></tr>
-	</table>
-	<% end %>
-</table>
+<div id="admin_table">
+	<%= present @table %>
+</div>

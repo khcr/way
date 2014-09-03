@@ -1,6 +1,6 @@
 <% provide(:title, 'Inscription') %>
 
-<h2>Inscription pour la RJ 2014</h2>
+<h2>Inscriptions</h2>
 
 <%= form_for @form do |f| %>
 
@@ -19,28 +19,8 @@
 			<td><%= f.text_field :phone %></td>
 		</tr>
 		<tr>
-			<td><%= f.label :vendredi_soir, "Vendredi soir" %></td>
-			<td><%= f.check_box :vendredi_soir %></td>
-		</tr>
-		<tr>
-			<td><%= f.label :vendredi_nuit, "Nuit du vendredi" %></td>
-			<td><%= f.check_box :vendredi_nuit %></td>
-		</tr>
-		<tr>
-			<td><%= f.label :samedi_midi, "Samedi midi" %></td>
-			<td><%= f.check_box :samedi_midi %></td>
-		</tr>
-		<tr>
-			<td><%= f.label :samedi_soir, "Samedi soir" %></td>
-			<td><%= f.check_box :samedi_soir %></td>
-		</tr>
-		<tr>
-			<td><%= f.label :samedi_nuit, "Nuit du samedi" %></td>
-			<td><%= f.check_box :samedi_nuit %></td>
-		</tr>
-		<tr>
-			<td><%= f.label :dimanche_midi, "Dimanche midi" %></td>
-			<td><%= f.check_box :dimanche_midi %></td>
+			<td><%= f.label :notice %></td>
+			<td><%= f.text_area :notice %></td>
 		</tr>
 		<tr>
 			<td>Envoyer</td>
