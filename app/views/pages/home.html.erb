@@ -43,11 +43,10 @@
 	<article class="left">
 	<h3 id="page_title"><%= raw @presentation.title %></h3>
     <div>
-      <p><div id="page_content"><%= raw @presentation.content.html_safe %></div></p>
+      <p>
+        <div id="page_content"><%= raw @presentation.content.html_safe %></div>
+      </p>
     </div>
-	  <div class="fb">
-      <p><a href="https://www.facebook.com/waykup"><%= image_tag "utils/facebook_logo.png", class: "fb", alt: "Logo Facebook" %> Retrouve-nous sur notre page <a href="https://www.facebook.com/waykup">Facebook</a></p>
-	  </div>
 	</article>
   <article class="middle"></article>
 	<article class="right">
