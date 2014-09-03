@@ -2,11 +2,7 @@
 <%= link_to 'Admin', admin_path %>/
 <%= link_to 'Galleries', admin_galleries_path %>
 
-<h1>Galeries:</h1>
-
-<p><%= link_to "Ajouter une gallerie", new_admin_gallery_path, class: "w8-button red", id: 'w8-red' %></p>
-
-<h2>Galleries:</h2>
+<h2>Galeries</h2>
 
 <div id="admin_table">
 	<%= present @table %>

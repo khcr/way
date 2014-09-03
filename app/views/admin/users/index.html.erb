@@ -2,11 +2,7 @@
 <%= link_to 'Admin', admin_path %>/
 <%= link_to 'Utilisateurs', admin_users_path %>
 
-<h1>Utilisateurs:</h1>
-
-<p><%= link_to "Ajouter un utilisateur", new_admin_user_path, class: "w8-button red", id: 'w8-red' %></p>
-
-<h2>Utilisateur</h2>
+<h2>Utilisateurs</h2>
 
 <div id="admin_table">
 	<%= present @table %>
