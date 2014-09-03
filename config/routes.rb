@@ -10,6 +10,8 @@ Way::Application.routes.draw do
   match '/programme', to: 'events#index'
   match '/admin', to: 'admin::pages#admin_index'
 
+  match '/media/authenticate/:id', to: 'galleries#auth'
+
   match '/worship', to: 'pages#worship'
 
   match '/login', to: 'sessions#new'
@@ -43,7 +45,7 @@ Way::Application.routes.draw do
       resources :forms
     end
 
-    resources :galleries, only: [:index, :show], path: '/medias'
+    resources :galleries, only: [:index, :show, :create], path: '/medias'
     resources :sessions, only: [:create, :destroy]
     resources :projects, only: [:show, :index], path: '/activites'
     resources :events, only: [:show, :index], :constraints => {:id => /(?:[a-z]|-)+\d*/}

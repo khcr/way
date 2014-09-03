@@ -57,7 +57,6 @@ body {
 		padding-top: 1em;
 		width: 100%;
 		text-align: center;
-		background: #ffd5d5;
 		border-radius: 10px;
 		font-size: 12px;
 	}
@@ -66,7 +65,7 @@ body {
 /* ==================== Global container ====================*/
 
 div#container {
-	margin: 13em auto;
+	margin: 217px auto 0 auto;
 	padding-left: 20px;
 	padding-right: 20px;
 	background: #ffffff;
@@ -108,7 +107,6 @@ div#container {
 		padding-bottom: 0.3em;
 		text-align: center;
 		width: 100%;
-		border-bottom: 2px solid #000000
 	}
 
 	#container h2.home {
@@ -167,7 +165,6 @@ div#container {
 			margin-bottom: 1em;
 			text-align: center;
 			width: 100%;
-			border-bottom: 2px solid #000000
 		}
 
 		#container #presentation .img {

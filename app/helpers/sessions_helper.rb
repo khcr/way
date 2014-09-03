@@ -53,5 +53,9 @@ module SessionsHelper
 			redirect_to root_path, notice: "Vous devez être le superadministrateur pour accèder à cette page"
 		end
 	end
+
+	def signed_in_gallery(gallery)
+		redirect_to "/media/authenticate/#{gallery.id}" unless signed_in?
+	end
 	
 end
