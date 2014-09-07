@@ -1,11 +1,10 @@
-<% provide(:title, 'Programme GDJ Bulle chrétien') %>
-<% provide(:h1_title, 'Programme soirées GPS actu extra culte event inter-gdj youth horaire Groupe de jeunes WAY Bulle') %>
+<% provide(:title, 'Programme & événements Groupe de jeunes chrétien évangélique de Bulle') %>
+
+<h1 style="text-align:center">Programme & événements WayKUP</h1>
 
 <%# Return the end date of timeline. First test if not nil, second test if the date is not too close. In this case, return the date after 10 days %>
 <% if @events.any? %>
 <% last_date = @events.last.date? ? (@events.last.date < Date.today + 10.day ? Date.today + 10.day : @events.last.date) : Date.today + 10.day %>
-
-<h2 style="text-align:center">Programme actuel </h2>
 
 <article>
 	<p> 

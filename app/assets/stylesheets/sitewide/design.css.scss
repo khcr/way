@@ -83,30 +83,17 @@ div#container {
 		background: #ddd;
 	}
 
-	#container h1 {
-		position: absolute;
-		left: -9999px;
-	}
-
-	#container h1.index {
-		position: static;
-		text-align: center;
-		font-size: 24px;
-	}
-
-	#container h2 {
-		color: $title_color;
-	}
-
 	#container h3 {
 		color: $title_color;
 	}
 
-	#container h2 {
+	#container h2,h1 {
 		margin-bottom: 1em;
 		padding-bottom: 0.3em;
 		text-align: center;
 		width: 100%;
+		color: $title_color;
+		font-size: 22px;
 	}
 
 	#container h2.home {
@@ -159,6 +146,15 @@ div#container {
 		width: 100%;
 		margin: 0 auto;
 	}
+
+		#container #presentation h1 {
+			display: inline-block;
+			font-size: 16px;
+			color: #000;
+			width: initial;
+			margin-bottom: initial;
+			padding-bottom: initial;
+		}
 
 		#container #presentation h3 {
 			margin-top: 20px;

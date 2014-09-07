@@ -1,5 +1,4 @@
-<% provide(:title, 'Groupe de jeunes chrétien à Bulle') %>
-<% provide(:h1_title, 'Bienvenue sur le site du <strong>groupe de jeunes</strong> <strong>WAY</strong> à Bulle') %>
+<% provide(:title, 'Groupe de jeunes chrétien évangélique de Bulle') %>
 <% content_for :head, auto_discovery_link_tag(:atom, programme_url(format: "atom")) %>
 
 <% if params[:redirect] == "true" %>
@@ -22,7 +21,6 @@
   <div class="nav-slides"></div>
 </div>
 
-<h1>Bienvenue sur le site du <strong>groupe de jeunes</strong> <strong>WAY</strong> à Bulle Chrétien</h1>
 <article>
 	<h2 class="home" style="padding-top:40px">Prochain événement<%= link_to image_tag("layout/rss.jpeg"), events_url(format: "atom"), :target => "_blank" %></h2>
 	<div class="nextevent">

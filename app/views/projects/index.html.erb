@@ -1,9 +1,8 @@
-<% provide(:title, "Activités") %>
-<% provide(:h1_title, "Activités chrétiens") %>
+<% provide(:title, 'Activités Groupe de jeunes chrétien évangélique de Bulle') %>
 
 <% @projects.each do |project| %>
 
-  <h2 style="text-align:center;" id="project_name"><span style="position:relative"><span style="position:absolute; top:-60px;" id="<%= project.name %>"></span></span><%=raw project.name %></h2>
+  <h1 style="text-align:center;" id="project_name"><span style="position:relative"><span style="position:absolute; top:-60px;" id="<%= project.name %>"></span></span><%=raw project.name %></h1>
 
   <article>
   	<p>
