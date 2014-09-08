@@ -12,15 +12,15 @@
 		<% end %>
 	<tr>
 		<th>Mon profil</th>
-		<td><%= link_to "Editer mon profile", edit_admin_user_path(@current_user) %></td>
+		<td><%= link_to "Editer mon profil", edit_admin_user_path(@current_user) %></td>
 	</tr>
 	<tr>
-		<th>Les membres</th>
+		<th>Les membres du groupe</th>
 		<td><%= link_to "Les membres", admin_members_path %></td>
 	</tr>
 	<tr>
-		<th>Pages du site</th>
-		<td><%= link_to "Contenu du site", admin_pages_path %></td>
+		<th>Pages éditables du site</th>
+		<td><%= link_to "Pages", admin_pages_path %></td>
 	</tr>
 	<tr>
 		<th>Les news</th>
@@ -28,11 +28,11 @@
 	</tr>
 	<tr>
 		<th>Le programme</th>
-		<td><%= link_to "Programme", admin_events_path %></td>
+		<td><%= link_to "Evénements", admin_events_path %></td>
 	</tr>
 	<tr>
-		<th>La galerie photos</th>
-		<td><%= link_to "Galleries", admin_galleries_path %></td>
+		<th>Les galeries photos</th>
+		<td><%= link_to "Galeries", admin_galleries_path %></td>
 	</tr>
 	<tr>
 		<th>Les projets</th>
