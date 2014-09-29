@@ -14,13 +14,8 @@
 		<td><%= f.date_select(:date, order: [:day, :month, :year]) %></td>
 	</tr>
 	<tr>
-<<<<<<< HEAD
 		<td><%= f.label :isPrivate %></td>
 		<td><%= f.check_box :isPrivate, class: 'cb' %></td>
-=======
-		<td><%= f.label :isprivate %></td>
-		<td><%= f.check_box :isprivate, class: 'cb' %></td>
->>>>>>> 53e51685e5725d1f68490d1d477f7a6ccbd98d58
 	</tr>
 	<tr>
 		<td><%= f.label :key %></td>
@@ -28,12 +23,8 @@
 	</tr>
 </table>
 <script type="text/javascript">
-<<<<<<< HEAD
-	$('.key').attr("disabled", "disabled");
-=======
 	$('.key').attr('disabled',!this.checked)
 	$('.cb').click(function(){
    $('.key').attr('disabled',!this.checked)
 	});
->>>>>>> 53e51685e5725d1f68490d1d477f7a6ccbd98d58
 </script>

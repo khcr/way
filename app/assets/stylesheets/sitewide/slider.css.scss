@@ -1,64 +1,68 @@
-.slider {
-	height: 150px;
-  background: #ddd;
-  padding: 5px;
+#slider {
+  position: relative;
+  margin: 0 auto;
+  left: 0; top: 40px;
+  width: 1300px;
+  height: 250px;
+  overflow: hidden;
+  box-shadow: 0 0 6px;
 }
  
-.rslides {
-  position: relative;
-  list-style: none;
+.slides {
+  cursor: move; 
+  position: absolute; 
+  left: 0px; top: 0px; 
+  width: 1300px;
+  height: 250px; 
   overflow: hidden;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  }
+}
 
-.rslides li {
-  -webkit-backface-visibility: hidden;
+
+                
+/* Bullet Navigator Skin Begin */
+/* jssor slider bullet navigator skin 21 css */
+.jssorb21 { position: absolute; left: 6px; }
+/*
+.jssorb21 div           (normal)
+.jssorb21 div:hover     (normal mouseover)
+.jssorb21 .av           (active)
+.jssorb21 .av:hover     (active mouseover)
+.jssorb21 .dn           (mousedown)
+*/
+.jssorb21 div, .jssorb21 div:hover, .jssorb21 .av
+{
+    background: image-url("slider/b21.png") no-repeat;
+    overflow:hidden;
+    cursor: pointer;
+}
+.jssorb21 div { background-position: -5px -5px; POSITION: absolute; WIDTH: 19px; HEIGHT: 19px; text-align:center; line-height:19px; color:White; font-size:12px; }
+.jssorb21 div:hover, .jssorb21 .av:hover { background-position: -35px -5px; }
+.jssorb21 .av { background-position: -65px -5px; }
+.jssorb21 .dn, .jssorb21 .dn:hover { background-position: -95px -5px; }
+
+/* Bullet Navigator Skin End */
+
+/* Arrow Navigator Skin Begin */
+/* jssor slider arrow navigator skin 21 css */
+/*
+.jssora21l              (normal)
+.jssora21r              (normal)
+.jssora21l:hover        (normal mouseover)
+.jssora21r:hover        (normal mouseover)
+.jssora21ldn            (mousedown)
+.jssora21rdn            (mousedown)
+*/
+.jssora21l, .jssora21r, .jssora21ldn, .jssora21rdn
+{
   position: absolute;
-  display: none;
-  width: 100%;
-  left: 0;
-  top: 0;
-  }
-
-.rslides li:first-child {
-  position: relative;
+  cursor: pointer;
   display: block;
-  float: left;
-  }
-
-.rslides img {
-  display: block;
-  height: auto;
-  float: left;
-  width: 100%;
-  border: 0;
-  height: 100%;
-  }
-
-  /* Navigation */
-
-  .slider .nav-slides {
-  	width: inherit;
-  	margin: auto;
-  	text-align: center;
-  	margin-top: 0px;
-  }
-
-  .slider .nav-slides li {
-  	display: inline;
-  }
-
-  .slider .nav-slides li a{
-  	padding: .1em 1em;
-  	background: #ddd;
-  	color: #bbb;
-  	border-radius: 1em;
-  }
-
-  .slider .nav-slides .rslides_here a {
-  	background: #bbb;
-  	font-weight: bold;
-    color: #ddd;
-  }
+  background: image-url("slider/a21.png") center center no-repeat;
+  overflow: hidden;
+}
+.jssora21l { background-position: -3px -33px; width: 55px; height: 55px; top: 123px; left: 8px; }
+.jssora21r { background-position: -63px -33px; width: 55px; height: 55px; top: 123px; right: 8px }
+.jssora21l:hover { background-position: -123px -33px; }
+.jssora21r:hover { background-position: -183px -33px; }
+.jssora21ldn { background-position: -243px -33px; }
+.jssora21rdn { background-position: -303px -33px; }
