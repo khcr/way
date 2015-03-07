@@ -1,16 +1,12 @@
 #!/bin/env ruby
 # encoding: utf-8
 
-class Admin::SlideshowsController < ApplicationController
-	before_filter :signed_in_admin
-  layout 'admin'
+class Admin::SlideshowsController < Admin::BaseController
+	before_action { |c| c.authorize_level(2) }
 
 	def index
-		@table = Table.new(view_context, Slideshow)
-		respond_to do |format|
-			format.html
-			format.js { render 'shared/sort' }
-		end
+		@table = Table.new(self, Slideshow)
+		@table.respond
 	end
 
 	def new
@@ -18,7 +14,7 @@ class Admin::SlideshowsController < ApplicationController
 	end
 
 	def create
-		@slideshow = Slideshow.new(params[:slideshow])
+		@slideshow = Slideshow.new(slideshow_params)
 		if @slideshow.save
 			flash[:success] = "Slideshow créé"
 			redirect_to admin_slideshows_path
@@ -36,7 +32,7 @@ class Admin::SlideshowsController < ApplicationController
 		if @slideshow.image != nil && params[:image] != nil
 			FileUtils.rm("public#{@slideshow.image}")
 		end
-		if @slideshow.update_attributes(params[:slideshow])
+		if @slideshow.update_attributes(slideshow_params)
 			flash[:success] = "Slideshow édité"
 			redirect_to admin_slideshows_path
 		else
@@ -50,5 +46,11 @@ class Admin::SlideshowsController < ApplicationController
 		@slideshow.destroy
 		flash[:success] = "Slideshow supprimé"
 		redirect_to admin_slideshows_path
+	end
+
+	private
+
+	def slideshow_params
+		params.require(:slideshow).permit(:date_exp, :image, :link, :name)
 	end
 end

@@ -1,62 +1,31 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>WaykUP - <%= yield(:title) %></title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-  <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
-  <link rel="icon" type="image/png" href="/favicon-196x196.png" sizes="196x196">
-  <link rel="icon" type="image/png" href="/favicon-160x160.png" sizes="160x160">
-  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
-  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
-  <!-- <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <link rel="apple-touch-icon"  href="/favicon.ico" /> -->
-  <script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-38967567-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-	</script>
-
-</head>
-<body>
-	<% store_location %>
-  <%= render 'layouts/header' %>
-
-  <%= yield :slider %>
-  
-	<div id="container">
-
-    <%-# ==========- FLASH -========== -%>
+  <head>
+    <title>WaykUP - <%= yield(:title) %></title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
     
-    <%= render 'layouts/flash', flash: flash %>
+    <%= render 'layouts/favicon' %>
+  </head>
+  <body>
+    <%= render 'layouts/header' %>
 
-		<%-# ==========- CONTENT FROM THE VIEW -========== -%>
-		<%= yield %>
+    <%= yield :slider %>
+    
+  	<div id="container">
 
-		<%-# ==========- FOOTER -========== -%>
-		<%= render 'layouts/footer' %>
+      <%-# ==========- FLASH -========== -%>
+      
+      <%= render 'layouts/flash', flash: flash %>
 
-	</div>
+  		<%-# ==========- CONTENT FROM THE VIEW -========== -%>
+  		<%= yield %>
 
-</body>
+  		<%-# ==========- FOOTER -========== -%>
+  		<%= render 'layouts/footer' %>
+
+  	</div>
+
+  </body>
 </html>

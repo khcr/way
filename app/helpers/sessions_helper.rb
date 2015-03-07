@@ -3,27 +3,36 @@
 
 module SessionsHelper
 
+	# Sign in a user with a cookie (remove on browser close)
+	# 
+	# * *Args*		:
+	# 	- a user to sign in
+	# * *Returns*	:
+	#
 	def sign_in(user)
-		cookies[:remember_token] = { value: user.remember_token, expires: Time.now + 2592000 }
+		cookies[:remember_token] = user.remember_token
 		self.current_user = user
 	end
 
-	def signed_in?
-		if !current_user.nil?
-			current_user.level.name >= 1
-		end
-	end
-
-	def signed_in_superadmin?
-		if !current_user.nil?
-			current_user.level.name == 2
-		end
+	# Sign in a user with a cookie (remove after 2 months)
+	# 
+	# * *Args*		:
+	# 	- a user to sign in
+	# * *Returns*	:
+	#
+	def sign_in_permanent(user)
+		cookies[:remember_token] = { value: user.remember_token, expires: Time.now + 2592000 }
+		self.current_user = user
 	end
 
 	def current_user=(user)
 		@current_user = user
 	end
 
+	# Provid the user currently signed in.
+	# 
+	# * *Returns*	:
+	# 	- the user currently signed in
 	def current_user
 		@current_user ||= User.find_by_remember_token(cookies[:remember_token])
 	end
@@ -32,30 +41,18 @@ module SessionsHelper
 		user == current_user
 	end
 
+	# Check if there is a user signed in.
+	# 
+	# * *Returns*	:
+	# 	- true or false
+	def signed_in?
+		!current_user.nil?
+	end
+
+	# Sign out a user by removing the cookie.
 	def sign_out
 		self.current_user = nil
 		cookies.delete(:remember_token)
 	end
 
-	def signed_in_user
-		unless !current_user.nil? && current_user.level.name >= 0
-			redirect_to login_path, notice: "Connectez-vous pour accèder a cette page"
-		end
-	end
-	def signed_in_admin
-		unless !current_user.nil? && current_user.level.name >= 1
-			redirect_to root_path, notice: "Vous devez avoir le niveau administrateur pour accèder à cette page"
-		end
-	end
-	
-	def signed_in_superadmin
-		unless !current_user.nil? && current_user.level.name == 2
-			redirect_to root_path, notice: "Vous devez être le superadministrateur pour accèder à cette page"
-		end
-	end
-
-	def signed_in_gallery(gallery)
-		redirect_to "/media/authenticate/#{gallery.id}" unless signed_in?
-	end
-	
 end

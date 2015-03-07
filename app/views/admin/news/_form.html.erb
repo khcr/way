@@ -1,0 +1,22 @@
+<%= form_for [:admin, @new] do |f| %>
+
+	<%= render 'shared/error_messages', object: f.object %>
+
+	<ul>
+		<li>
+			<%= f.label :title %>
+			<%= f.text_field :title %>
+		</li>
+		<li>
+			<%= f.label :content %>
+			<%= f.text_area :content %>
+		</li>
+		<li>
+			<%= f.label :date_exp %>
+			<%= f.date_select :date_exp %>
+		</li>
+	</ul>
+
+	<ul><li><%= f.submit %></li></ul>
+
+<% end %>

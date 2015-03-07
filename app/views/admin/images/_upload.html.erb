@@ -1,0 +1,14 @@
+<%= form_for [:admin, @image] do |f| %>
+	<ul>
+		<li>
+			<%= f.label :image %>
+			<%= f.file_field :image %>
+		</li>
+	</ul>
+
+	<ul>
+		<li>
+			<%= f.submit "Téléverser l'image" %>
+		</li>
+	</ul>
+<% end %>

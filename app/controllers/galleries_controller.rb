@@ -2,35 +2,24 @@
 # encoding: utf-8
 
 class GalleriesController < ApplicationController
-	before_filter :find_page, only: [:show]
+	before_action :current_resource, only: [:show]
+	before_action only: :show { |c| c.authorize_level(3) }
 
 	def index
-		@galleries = Gallery.order('date DESC').where('isprivate = ?', false).page(params[:page]).per_page(8)
+		@galleries = if !authorize_level?(3)
+			Gallery.where(isprivate: false)
+		else
+			Gallery.all
+		end.order('date DESC').paginate(page: params[:page], per_page: 10)
 	end
 
 	def show
 	end
 
-	# log with key
-	def create
-		@gallery = Gallery.find(params[:gallery][:id])
-		if @gallery.key == params[:gallery][:key]
-			render 'show'
-		else
-			flash.now[:error] = "Clef incorrect."
-			render 'auth'
-		end
-	end
-
-	def auth
-		@gallery = Gallery.find(params[:id])
-	end
-
 	private 
 	
-	def find_page
-  	@gallery = Gallery.find_by_slug!(params[:id])
-  	signed_in_gallery(@gallery) if @gallery.isprivate
+	def current_resource
+  	@gallery = Gallery.find(params[:id])
 	end
 
 end

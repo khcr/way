@@ -1,17 +1,14 @@
 #!/bin/env ruby
 # encoding: utf-8
 
-class Admin::UsersController < ApplicationController
-	layout 'admin'
-	before_filter :signed_in_superadmin, except: [:edit, :update]
-	before_filter :correct_user, only: [:edit, :update]
+class Admin::UsersController < Admin::BaseController
+	before_action except: [:edit, :update, :profile] { |c| c.authorize_level(1) }
+	before_action :signed_in?, only: [:profile]
+	before_action :correct_user, only: [:edit, :update]
 
 	def index
-		@table = Table.new(view_context, User)
-		respond_to do |format|
-			format.html
-			format.js { render 'shared/sort' }
-		end
+		@table = Table.new(self, User)
+		@table.respond
 	end
 
 	def new
@@ -49,11 +46,16 @@ class Admin::UsersController < ApplicationController
 		redirect_to admin_users_path
 	end
 
+	def profile
+	end
+
 	private
 
 	def correct_user
   	@user = User.find(params[:id])
-    redirect_to(root_path) unless current_user?(@user)
+  	unless (current_user && current_user?(@user)) || authorize_level?(1)
+    	redirect_to(profile_path)
+    end
   end
 
 end

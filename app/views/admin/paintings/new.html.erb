@@ -1,9 +1,4 @@
-<%= link_to 'Home', root_path %>/
-<%= link_to 'Admin', admin_path %>/
-<%= link_to 'Galleries', admin_galleries_path %>/
-<%= link_to 'Edition', edit_admin_gallery_path(@gallery.id) %>
-
-<h2><%= @gallery.name %></h1>
+<h1><%= @gallery.name %></h1>
 
 <%= form_for [:admin, @gallery, @painting], :remote => true do |f| %>
 
@@ -47,10 +42,10 @@
 				    	$('.console').text('Problème rencontré');
 				    },
 				    start: function (e, data) {
-				    	$('.console').append(<%= image_tag "admin/loading.gif" %> + 'chargement en cours, veuillez patienter ...');
+				    	$('.console').append(<%= image_tag "admin/loading.gif" %> + 'Chargement en cours, veuillez patienter.');
 				    },
 				    stop: function (e, data) {
-				    	$('.progress .progress-val').text('100% chargement terminé');
+				    	$('.progress .progress-val').text('100% Chargement terminé');
 				    	$('.console').text('');
 				    }
 				});

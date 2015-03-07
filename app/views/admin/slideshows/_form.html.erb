@@ -1,0 +1,28 @@
+<%= form_for [:admin, @slideshow] do |f| %>
+
+	<%= render 'shared/error_messages', object: f.object %>
+
+	<p>Taille : 1300 x 250 </p>
+
+	<ul>
+		<li>
+			<%= f.label :name %>
+			<%= f.text_field :name %>
+		</li>
+		<li>
+			<%= f.label :link %>
+			<%= f.text_field :link %>
+		</li>
+		<li>
+			<%= f.label :date_exp %>
+			<%= f.date_select :date_exp %>
+		</li>
+		<li>
+			<%= f.label :image %>
+			<%= f.file_field :image %>
+		</li>
+	</ul>
+
+	<ul><li><%= f.submit %></li></ul
+
+<% end %>

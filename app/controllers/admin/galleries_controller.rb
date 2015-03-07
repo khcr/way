@@ -1,16 +1,12 @@
 #!/bin/env ruby
 # encoding: utf-8
 
-class Admin::GalleriesController < ApplicationController
-	before_filter :signed_in_admin
-	layout 'admin'
+class Admin::GalleriesController < Admin::BaseController¨
+  before_action { |c| c.authorize_level(2) }
 
 	def index
-		@table = Table.new(view_context, Gallery)
-		respond_to do |format|
-			format.html
-			format.js { render 'shared/sort' }
-		end
+		@table = Table.new(self, Gallery)
+    @table.respond
 	end
 
 	def new
@@ -18,9 +14,9 @@ class Admin::GalleriesController < ApplicationController
 	end
 
 	def create 
-		@gallery = Gallery.new(params[:gallery])
+		@gallery = Gallery.new(gallery_params)
     if @gallery.save
-      flash[:success] = "Gallerie crée"
+      flash[:success] = "Galerie crée"
       redirect_to edit_admin_gallery_path(@gallery.id)
     else
       render 'new' 
@@ -33,8 +29,8 @@ class Admin::GalleriesController < ApplicationController
 
 	def update
 		@gallery = Gallery.find(params[:id])
-    if @gallery.update_attributes(params[:gallery])
-      flash[:success] = "Gallerie modifiée"
+    if @gallery.update_attributes(gallery_params)
+      flash[:success] = "Galerie modifiée"
       redirect_to edit_admin_gallery_path(@gallery.id)
     else
       render 'edit'
@@ -45,7 +41,13 @@ class Admin::GalleriesController < ApplicationController
 		@gallery = Gallery.find(params[:id])
     FileUtils.rm_rf("public/uploads/painting/image/#{@gallery.id}")   
     @gallery.destroy
-    flash[:success] = "Gallerie supprimée"
+    flash[:success] = "Galerie supprimée"
     redirect_to admin_galleries_path
+  end
+
+  private
+
+  def gallery_params
+    params.require(:gallery).permit(:name, :description, :isprivate, :date)
   end
 end

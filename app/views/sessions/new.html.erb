@@ -1,13 +1,13 @@
 <% provide(:title, "Connexion") %>
 
-<h1>Connexion:</h1>
-<h2>Connexion admin</h2>
+<h1>Connexion</h1>
+<h2>admin</h2>
 
 <div class="login">
 
 <%= form_for(:session, url: sessions_path) do |f| %>
 	<div>
-	<%= f.text_field :name, placeholder: 'Pseudo' %>
+	<%= f.text_field :name, placeholder: "Nom d'utilisateur" %>
 	<%= f.password_field :password, placeholder: 'Mot de passe' %>
 	</div>
 	<div>

@@ -1,29 +1,17 @@
-<%= link_to 'Home', root_path %>/
-<%= link_to 'Admin', admin_path %>/
-<%= link_to 'Galleries', admin_galleries_path %>/
-<%= link_to 'Editer', edit_admin_gallery_path(@gallery.id) %>
+<h1><%= @gallery.name %></h1>
 
-<h2><%= @gallery.name %></h1>
+<%= link_to "Ajouter des images", new_admin_gallery_painting_path(@gallery.id) %>
 
-<p><%= link_to "Ajouter des images", new_admin_gallery_painting_path(@gallery.id) %></p>
+<%= render 'form' %>
 
-<%= form_for @gallery, url: admin_gallery_path(@gallery.id) do |f| %>
-
-	<%= render 'fields', f: f %>
-
-	<table>
-		<tr>
-			<td>Supprimer des images</td>
-			<td>
-				<% @gallery.paintings.each do |painting| %>
-					<img src="<%= painting.image_url(:thumb) %>" />
-					<%= link_to "X", admin_gallery_painting_path(@gallery.id, painting), method: :delete, confirm: "Etes-vous sûr de vouloir supprimer cette image?" %>
-				<% end %>
-			</td>
+<table>
+	<tr>
+		<td>Supprimer des images</td>
+		<td>
+			<% @gallery.paintings.each do |painting| %>
+				<img src="<%= painting.image_url(:thumb) %>" />
+				<%= link_to "X", admin_gallery_painting_path(@gallery.id, painting), method: :delete, confirm: "Etes-vous sûr de vouloir supprimer cette image?" %>
+			<% end %>
 		</td>
-	</table>
-
-	<table><tr><td>Editer la gallerie</td><td><%= f.submit "Enregistrer les modifications", class: 'w8-button l-blue' %></td></tr></table>
-
-<% end %>
-
+	</td>
+</table>

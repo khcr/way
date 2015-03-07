@@ -1,21 +1,10 @@
-<%= link_to 'Home', root_path %>/
-<%= link_to 'Admin', admin_path %>/
-<%= link_to 'Slideshows', admin_slideshows_path %>/
-<%= link_to 'Editer', edit_admin_slideshow_path %>
+<h1>Editer un slideshow</h1>
 
-<h1>Editer un slideshow:</h1>
+<%= render 'form' %>
 
-<%= form_for [:admin, @slideshow] do |f| %>
-
-	<%= render 'fields', f: f %>
-
-	<table>
-		<tr>
-			<td>Image</td>
-			<td><%= image_tag @slideshow.image.url %></td>
-		</tr>
-	</table>
-	
-	<table><tr><td>Editer le slideshow</td><td><%= f.submit "Enregistrer les modifications", class: 'w8-button l-blue' %></td></tr></table>
-
-<% end %>
+<ul>
+	<li>
+		Image
+		<%= image_tag @slideshow.image.url %>
+	</li>
+</ul>

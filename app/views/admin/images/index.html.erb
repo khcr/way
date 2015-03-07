@@ -1,14 +1,9 @@
-<%= link_to 'Home', root_path %>/
-<%= link_to 'Admin', admin_path %>/
-<%= link_to 'Images', admin_images_path %>
-
 <h2>Images</h2>
 
-<%= link_to "Ajouter des images", new_admin_image_path, class: "w8-button l-blue" %>
+<%= link_to "Ajouter des images", new_admin_image_path %>
 
 <% @images.each do |image| %>
 	<%= image_tag image.image.url %>
-	<% (@events = Event.where('image_id = ?', image.id)).any? ? confirmation = "Cette image est utilisée dans les événements suivant: #{@events.map{ |event| event.id } }. Voulez-vous vraiment la supprimer ?" : confirmation = "Etes-vous sûr de vouloir supprimer cette image?" %>
-	<%= link_to "X", admin_image_path(image), method: :delete, confirm: confirmation %>
+	<%= link_to "X", admin_image_path(image), method: :delete, confirm: "Supprimer cette image ?" %>
 <% end %>
 

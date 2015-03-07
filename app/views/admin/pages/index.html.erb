@@ -1,9 +1,9 @@
-<%= link_to 'Home', root_path %>/
-<%= link_to 'Admin', admin_path %>/
-<%= link_to 'Pages', admin_pages_path %>
-
 <h2>Pages</h2>
 
 <div id="admin_table">
-	<%= present @table %>
+  <div class="table_buttons">
+    <a class="edit" href="#">Editer</a>
+  </div>
+  
+	<%= @table.present %>
 </div>

@@ -14,15 +14,9 @@
 # ActiveSupport::Inflector.inflections(:en) do |inflect|
 #   inflect.acronym 'RESTful'
 # end
-
-ActiveSupport::Inflector.inflections(:fr) do |inflect|
-	inflect.irregular 'erreur', 'erreurs'
-end
-ActiveSupport::Inflector.inflections(:en) do |inflect|
+ActiveSupport::Inflector.inflections do |inflect|
 	inflect.irregular 'new', 'news'
 	inflect.irregular 'admin', 'admins'
-	inflect.irregular 'page', 'pages'
-	inflect.irregular 'admin', 'admins'
 	inflect.irregular 'projet', 'projets'
-	inflect.irregular 'image', 'images'
+  inflect.irregular 'erreur', 'erreurs'
 end

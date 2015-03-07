@@ -47,14 +47,16 @@
 <article>
 	<h2 class="home" style="padding-top:40px">Prochain événement</h2>
 	<div class="nextevent">
-    <% if(@next_event != nil) %>
-		  <h4> <span class="icns"><%= image_tag "timeline/" + sort_event(@next_event) %> Le <%= l @next_event.date, format: :long %></span><%=raw @next_event.theme %> <sup> <%= link_to "voir tout le programme", programme_path %></sup> </h4> 
-      <%=raw @next_event.image_id? ? "<div class='img'><p>#{image_tag(Image.find(@next_event.image_id).image.url)}</p></div>" : "" %>
-      <p> <%= raw simple_format(@next_event.info, {}, sanitize: false) %></p>
+    <% if @next_event && @next_event.remove? %>
+      <p>Pas d'événement ce samedi</p>
     <% else %>
-      <p> Pas d'événement agendé</p>
+      <% unless @next_event && @next_event.replace? %>
+        <p>Le texte</p>
+      <% end %>
+      <p><%= @next_event.try(:content) %></p>
     <% end %>
 	</div>
+
 </article>
 
 <div class="clear"></div>

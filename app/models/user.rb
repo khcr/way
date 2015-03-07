@@ -1,12 +1,9 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :password, :password_confirmation, :level_id
   has_secure_password
 
-  belongs_to :level, :inverse_of => :users
+  before_save :create_remember_token
 
-  before_save :create_remember_token, :format
-
-  validates :name, presence: true, length: { maximum: 15 }
+  validates :name, presence: true, length: { maximum: 15 }, uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 5 }
   validates :password_confirmation, presence: true
 
@@ -14,9 +11,5 @@ class User < ActiveRecord::Base
 
   def create_remember_token
   	self.remember_token = SecureRandom.urlsafe_base64
-  end
-
-  def format
-    self.name = self.name.strip.downcase
   end
 end

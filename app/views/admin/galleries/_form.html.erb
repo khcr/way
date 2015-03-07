@@ -1,0 +1,26 @@
+<%= form_for [:admin, @gallery] do |f| %>
+
+	<%= render 'shared/error_messages', object: f.object %>
+
+	<ul>
+		<li>
+			<%= f.label :name %>
+			<%= f.text_field :name %>
+		</li>
+		<li>
+			<%= f.label :description %>
+			<%= f.text_area :description %>
+		</li>
+		<li>
+			<%= f.label :date %>
+			<%= f.date_select(:date, order: [:day, :month, :year]) %>
+		</li>
+		<li>
+			<%= f.label :isprivate %>
+			<%= f.check_box :isprivate %>
+		</li>
+	</ul>
+
+	<ul><li><%= f.submit %></li></ul>
+
+<% end %>

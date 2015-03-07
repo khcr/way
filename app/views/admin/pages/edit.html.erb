@@ -1,25 +1,20 @@
-<%= link_to 'Home', root_path %>/
-<%= link_to 'Admin', admin_path %>/
-<%= link_to 'Pages', admin_pages_path %>/
-<%= link_to 'Editer', edit_admin_page_path(@page) %>
-
-<h1>Editer un contenu:</h1>
+<h1>Editer une page</h1>
 
 <%= form_for [:admin, @page] do |f| %>
 
 	<%= render 'shared/error_messages', object: f.object %>
 
-	<table>
-		<tr>
-			<td><%= f.label :title %></td>
-			<td><%= f.text_field :title %></br></td>
-		</tr>
-		<tr>
-			<td><%= f.label :content %></td>
-			<td><%= f.text_area :content, size: "10x40" %></td>
-		</tr>
-	</table>
+	<ul>
+		<li>
+			<%= f.label :title %>
+			<%= f.text_field :title %></br>
+		</li>
+		<li>
+			<%= f.label :content %>
+			<%= f.text_area :content, size: "20x10" %>
+		</li>
+	</ul>
 
-	<table><tr><td>Editer la page</td><td><%= f.submit "Enregistrer les modifications", class: 'w8-button l-blue' %></td></tr></table>
+	<ul><li><%= f.submit %></li></ul>
 
 <% end %>

@@ -1,9 +1,5 @@
-<%= link_to 'Home', root_path %>/
-<%= link_to 'Admin', admin_path %>/
-<%= link_to 'Galleries', admin_galleries_path %>
-
 <h2>Galeries</h2>
 
 <div id="admin_table">
-	<%= present @table %>
+	<%= @table.present %>
 </div>

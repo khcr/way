@@ -1,17 +1,16 @@
 #!/bin/env ruby
 # encoding: utf-8
 
-class Admin::PaintingsController < ApplicationController
-  before_filter :signed_in_admin
-  before_filter :gallery
-  layout 'admin'
+class Admin::PaintingsController < Admin::BaseController
+  before_action { |c| c.authorize_level(2) }
+  before_action :current_resource
 
   def new
     @painting = Painting.new
   end
 
   def create
-    @painting = @gallery.paintings.new(params[:painting])
+    @painting = @gallery.paintings.new(painting_params)
     if @painting.save
     else
       render 'new'
@@ -28,7 +27,11 @@ class Admin::PaintingsController < ApplicationController
 
   private 
 
-  def gallery
-    @gallery = Gallery.find(params["gallery_id"])
+  def painting_params
+    params.require(:painting).permit(:gallery_id, :image, :name)
+  end
+
+  def current_resource
+    @gallery = Gallery.find(params[:gallery_id])
   end
 end

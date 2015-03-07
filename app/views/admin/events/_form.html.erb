@@ -1,0 +1,26 @@
+<%= form_for [:admin, @event] do |f| %>
+
+	<%= render 'shared/error_messages', object: f.object %>
+
+	<ul>
+		<li>
+			<%= f.label :content %>
+			<%= f.text_area(:content, size: '40x10') %>
+		</li>
+		<li>
+			<%= f.label :date %>
+			<%= f.date_select(:date, order: [:day, :month, :year]) %>
+		</li>
+		<li>
+			<%= f.label :remove %>
+			<%= f.check_box :remove %>
+		</li>
+		<li>
+			<%= f.label :replace %>
+			<%= f.check_box :replace %>
+		</li>
+	</ul>
+
+	<ul><li><%= f.submit %></li></ul>
+
+<% end %>

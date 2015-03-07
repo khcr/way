@@ -1,9 +1,9 @@
 <footer>
 	<p style="border-bottom: 1px solid #ff8383; margin-bottom:7px">
 		<% if signed_in? %>
-			<%= link_to @current_user.name, admin_path %> | <%= link_to "Déconnecter", signout_path, method: "delete" %>
+			<%= link_to @current_user.name, profile_path %> | <%= link_to "Déconnecter", signout_path, method: "delete" %>
 		<% else %>
-			<%= link_to 'Admin', login_path %>
+			<%= link_to 'Connexion', login_path %>
 		<% end %>
 		| © 2014 | www.gdjway.ch | Project managed by <a href="mailto:nkcr.je@gmail.com" title="Contacter le designer par e-mail">Noémien Kocher </a> and mastered by <a href="mailto:kocher.ke@gmail.com" title="Contacter le designer par e-mail">Keran Kocher</a>
 	</p>

@@ -23,8 +23,14 @@ module Way
     config.i18n.default_locale = :fr
 
     # disable the automatic generators
-    config.generators.stylesheets = false
-    config.generators.javascripts = false
-    config.generators.helper = false
+    config.generators do |g|
+      g.orm             :active_record
+      g.template_engine :erb
+      g.stylesheets     false
+      g.javascripts     false
+      g.helper          false
+    end
+
+    config.paths.add "app/tables", eager_load: true, glob: "*"
   end
 end

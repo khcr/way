@@ -1,16 +1,12 @@
 #!/bin/env ruby
 # encoding: utf-8
 
-class Admin::ProjectsController < ApplicationController
-	before_filter :signed_in_admin
-  layout 'admin'
+class Admin::ProjectsController < Admin::BaseController
+	before_action { |c| c.authorize_level(2) }
 
 	def index
-		@table = Table.new(view_context, Project)
-		respond_to do |format|
-			format.html
-			format.js { render 'shared/sort' }
-		end
+		@table = Table.new(self, Project)
+		@table.respond
 	end
 
 	def new
@@ -18,7 +14,7 @@ class Admin::ProjectsController < ApplicationController
 	end
 
 	def create 
-		@project = Project.new(params[:project])
+		@project = Project.new(project_params)
 		if @project.save
 			flash[:success] = "Projet créé"
 			redirect_to admin_projects_path
@@ -33,7 +29,7 @@ class Admin::ProjectsController < ApplicationController
 
 	def update
 		@project = Project.find(params[:id])
-		if @project.update_attributes(params[:project])
+		if @project.update_attributes(project_params)
 			flash[:success] = "Projet édité "
 			redirect_to edit_admin_project_path(@project.id)
 		else
@@ -45,5 +41,9 @@ class Admin::ProjectsController < ApplicationController
 		Project.find(params[:id]).destroy
 		flash[:success] = "Projet supprimé"
 		redirect_to admin_projects_path
+	end
+
+	def project_params
+		params.require(:project).permit(:name, :content)
 	end
 end

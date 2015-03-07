@@ -1,16 +1,12 @@
 #!/bin/env ruby
 # encoding: utf-8
 
-class Admin::FormsController < ApplicationController
-	before_filter :signed_in_admin
-	layout 'admin'
+class Admin::FormsController < Admin::BaseController
+	before_action { |c| c.authorize_level(2) }
 
 	def index
-		@table = Table.new(view_context, Form, nil, buttons: false)
-		respond_to do |format|
-			format.html
-			format.js { render 'shared/sort' }
-		end
+		@table = Table.new(self, Form, nil, buttons: false)
+		@table.respond
 	end
 
 	def reset

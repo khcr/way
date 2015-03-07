@@ -1,17 +1,13 @@
 #!/bin/env ruby
 # encoding: utf-8
 
-class Admin::EventsController < ApplicationController
-	before_filter :signed_in_admin
-	layout 'admin'
+class Admin::EventsController < Admin::BaseController
+	before_action { |c| c.authorize_level(2) }
 
 	def index
-		events = Event.page(params[:page]).order('date DESC').per_page(10)
-		@table = Table.new(view_context, Event, events)
-		respond_to do |format|
-			format.html
-			format.js { render 'shared/sort' }
-		end
+		@events = Event.order('date DESC')
+		@table = Table.new(self, Event, @events)
+		@table.respond
 	end
 
 	def new 
@@ -19,8 +15,7 @@ class Admin::EventsController < ApplicationController
 	end
 
 	def create
-		params[:event].delete(:slug) if params[:event][:slug].blank?
-		@event = Event.new(params[:event])
+		@event = Event.new(event_params)
 		if @event.save
 			flash[:success] = "Evénement ajouté"
 			redirect_to admin_events_path
@@ -34,9 +29,8 @@ class Admin::EventsController < ApplicationController
 	end 
 
 	def update
-		params[:event].delete(:slug) if params[:event][:slug].blank?
 		@event = Event.find(params[:id])
-		if @event.update_attributes(params[:event])
+		if @event.update_attributes(event_params)
 			flash[:success] = "Evénement édité"
 			redirect_to admin_events_path
 		else
@@ -48,5 +42,11 @@ class Admin::EventsController < ApplicationController
 		Event.find(params[:id]).destroy
 		flash[:success] = "Evénement supprimé"
 		redirect_to admin_events_path
+	end
+
+	private
+
+	def event_params
+		params.require(:event).permit(:content, :date, :remove, :replace)
 	end
 end

@@ -1,0 +1,28 @@
+<%= form_for [:admin, @user] do |f| %>
+
+	<%= render 'shared/error_messages', object: f.object %>
+
+	<ul>
+		<li>
+			<%= f.label :name %>
+			<%= f.text_field :name %>
+		</li>
+		<li>
+			<%= f.label :password %>
+			<%= f.password_field :password %>
+		</li>
+		<li>
+			<%= f.label :password_confirmation %>
+			<%= f.password_field :password_confirmation %>
+		</li>
+		<% if authorize_level?(1) %>
+			<li>
+				<%= f.label :level %>
+				<%= f.select :level, {"superadmin" => "1", "leader" => "2", "member" => "3"} %>
+			</li>
+		<% end %>
+	</ul>
+
+	<ul><li><%= f.submit %></li></ul>
+
+<% end %>

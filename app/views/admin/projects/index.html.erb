@@ -1,9 +1,5 @@
-<%= link_to 'Home', root_path %>/
-<%= link_to 'Admin', admin_path %>/
-<%= link_to 'Projet', admin_projects_path %>
-
 <h2>Projets</h2>
 
 <div id="admin_table">
-	<%= present @table %>
+	<%= @table.present %>
 </div>

@@ -11,22 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140903165900) do
+ActiveRecord::Schema.define(version: 20150307171321) do
 
   create_table "events", force: true do |t|
-    t.string   "theme"
-    t.string   "orateur"
     t.date     "date"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.integer  "image_id"
-    t.text     "info"
-    t.integer  "type_events_id"
-    t.string   "slug"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.text     "content"
+    t.boolean  "remove",     default: false
+    t.boolean  "replace",    default: false
   end
 
   add_index "events", ["date"], name: "index_events_on_date"
-  add_index "events", ["slug"], name: "index_events_on_slug"
 
   create_table "forms", force: true do |t|
     t.string   "first_name"
@@ -42,32 +38,12 @@ ActiveRecord::Schema.define(version: 20140903165900) do
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.string   "slug"
     t.date     "date"
-    t.boolean  "isPrivate"
-    t.string   "key"
+    t.boolean  "isprivate"
   end
-
-  add_index "galleries", ["slug"], name: "index_galleries_on_slug"
 
   create_table "images", force: true do |t|
     t.string   "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "levels", force: true do |t|
-    t.integer  "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "members", force: true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "phone"
-    t.string   "adress"
-    t.string   "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -100,11 +76,8 @@ ActiveRecord::Schema.define(version: 20140903165900) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "slug"
     t.text     "content"
   end
-
-  add_index "projects", ["slug"], name: "index_projects_on_slug"
 
   create_table "slideshows", force: true do |t|
     t.string   "name"
@@ -115,22 +88,13 @@ ActiveRecord::Schema.define(version: 20140903165900) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "type_events", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "password_digest"
     t.string   "remember_token"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.integer  "level_id"
+    t.integer  "level"
   end
-
-  add_index "users", ["name"], name: "index_users_on_name", unique: true
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
 end

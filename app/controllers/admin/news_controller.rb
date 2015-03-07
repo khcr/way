@@ -1,16 +1,12 @@
 #!/bin/env ruby
 # encoding: utf-8
 
-class Admin::NewsController < ApplicationController
-	before_filter :signed_in_admin
-	layout 'admin'
+class Admin::NewsController < Admin::BaseController
+	before_action { |c| c.authorize_level(2) }
 
 	def index
-		@table = Table.new(view_context, New)
-		respond_to do |format|
-			format.html
-			format.js { render 'shared/sort' }
-		end
+		@table = Table.new(self, New)
+		@table.respond
 	end
 
 	def new
@@ -18,9 +14,9 @@ class Admin::NewsController < ApplicationController
 	end
 
 	def create
-		@new = New.new(params[:new])
+		@new = New.new(news_params)
 		if @new.save
-			flash[:success] = "New ajoutée"
+			flash[:success] = "News ajoutée"
 			redirect_to admin_news_path
 		else
 			render 'new'
@@ -33,8 +29,8 @@ class Admin::NewsController < ApplicationController
 
 	def update
 		@new = New.find(params[:id])
-		if @new.update_attributes(params[:new])
-			flash[:success] = "New éditée"
+		if @new.update_attributes(news_params)
+			flash[:success] = "News éditée"
 			redirect_to admin_news_path
 		else 
 			render 'edit'
@@ -43,7 +39,13 @@ class Admin::NewsController < ApplicationController
 
 	def destroy
 		New.find(params[:id]).destroy
-		flash[:success] = 'New supprimmée'
+		flash[:success] = 'News supprimée'
 		redirect_to admin_news_path
+	end
+
+	private
+
+	def news_params
+		params.require(:new).permit(:title, :content, :date_exp)
 	end
 end
