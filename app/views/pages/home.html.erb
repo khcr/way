@@ -47,14 +47,13 @@
 <article>
 	<h2 class="home" style="padding-top:40px">Prochain événement</h2>
 	<div class="nextevent">
-    <% if @next_event && @next_event.remove? %>
-      <p>Pas d'événement ce samedi</p>
-    <% else %>
-      <% unless @next_event && @next_event.replace? %>
-        <p>Le texte</p>
+    <p><%= @date %></p>
+    <p>
+      <% unless @event && @event.replace %>
+        Texte
       <% end %>
-      <p><%= @next_event.try(:content) %></p>
-    <% end %>
+      <%= @event.try(:content) %>
+    </p>
 	</div>
 
 </article>

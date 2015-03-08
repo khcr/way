@@ -7,8 +7,8 @@ class PagesController < ApplicationController
 		@presentation = Page.find_by_name('presentation')
 		@news = New.where('date_exp >=?', [Time.zone.now]).order('date_exp ASC')
 		@galleries = Gallery.order('date DESC').where('isprivate=?', false).limit(2)
-		@next_event = Event.find_by_date(next_day(:saturday))
 		@slideshows = Slideshow.where('date_exp>=?', [Time.zone.now]).order('date_exp ASC')
+		@event, @date = next_event
 	end
 
 	def vision

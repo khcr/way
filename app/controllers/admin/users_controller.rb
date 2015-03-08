@@ -3,7 +3,7 @@
 
 class Admin::UsersController < Admin::BaseController
 	before_action except: [:edit, :update, :profile] { |c| c.authorize_level(1) }
-	before_action :signed_in?, only: [:profile]
+	before_action :signed_in, only: [:profile]
 	before_action :correct_user, only: [:edit, :update]
 
 	def index
@@ -53,9 +53,13 @@ class Admin::UsersController < Admin::BaseController
 
 	def correct_user
   	@user = User.find(params[:id])
-  	unless (current_user && current_user?(@user)) || authorize_level?(1)
-    	redirect_to(profile_path)
+  	unless (current_user && current_user?(@user) && authorize_level?(2)) || authorize_level?(1)
+    	redirect_to profile_path
     end
+  end
+
+  def signed_in
+  	redirect_to login_path, error: "Veuillez vous connecter" unless signed_in?
   end
 
 end

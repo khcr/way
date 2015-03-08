@@ -2,8 +2,7 @@
 # encoding: utf-8
 
 class GalleriesController < ApplicationController
-	before_action :current_resource, only: [:show]
-	before_action only: :show { |c| c.authorize_level(3) }
+	before_action :authorize_gallery, only: :show
 
 	def index
 		@galleries = if !authorize_level?(3)
@@ -18,8 +17,12 @@ class GalleriesController < ApplicationController
 
 	private 
 	
-	def current_resource
-  	@gallery = Gallery.find(params[:id])
+	def authorize_gallery
+		@gallery = Gallery.find(params[:id])
+		if @gallery && @gallery.isprivate && !authorize_level?(3)
+			flash[:error] = "Pas autorisé"
+			redirect_to login_path
+		end
 	end
 
 end

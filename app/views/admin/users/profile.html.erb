@@ -1,14 +1,14 @@
-<% provide(:title, 'Profil') %>
-
 <h2>Profil</h2>
 
-<%= link_to "Utilisateurs", admin_users_path %>
-<%= link_to "Editer mon profil", edit_admin_user_path(current_user) %>
-<%= link_to "Pages", admin_pages_path %>
-<%= link_to "News", admin_news_path %>
-<%= link_to "Evénements", admin_events_path %>
-<%= link_to "Galeries", admin_galleries_path %>
-<%= link_to "Projets", admin_projects_path %>
-<%= link_to "Images", admin_images_path %>
-<%= link_to "Slideshows", admin_slideshows_path %>
-<%= link_to "Inscriptions", admin_forms_path %>
+<%= link_to "Utilisateurs", admin_users_path if authorize_level?(1) %>
+<% if authorize_level?(2) %>
+  <%= link_to "Editer mon profil", edit_admin_user_path(current_user) %>
+  <%= link_to "Pages", admin_pages_path %>
+  <%= link_to "News", admin_news_path %>
+  <%= link_to "Evénements", admin_events_path %>
+  <%= link_to "Galeries", admin_galleries_path %>
+  <%= link_to "Projets", admin_projects_path %>
+  <%= link_to "Images", admin_images_path %>
+  <%= link_to "Slideshows", admin_slideshows_path %>
+  <%= link_to "Inscriptions", admin_forms_path %>
+<% end %>

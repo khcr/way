@@ -7,10 +7,21 @@ class ApplicationController < ActionController::Base
 
   helper_method :authorize_level?
 
-  def next_day(day)
-    date = Date.parse(day.to_s)
-    date = date.next_week if date < Date.today
-    return date
+  def next_day(day, from=Date.today)
+    wday = Date::DAYNAMES.find_index(day.to_s.capitalize)
+    return from.next_day(wday)
+  end
+
+  def next_event(from=Date.today)
+    date = next_day(:saturday, from)
+    puts date
+    event = Event.where(date: Date.today..date).first
+    if event && event.date == date && event.remove
+      event, date = next_event(date.next_day)
+    elsif event && event.date < date
+      date = event.date
+    end
+    return event, date
   end
 
   # Store the current url in session's variable
@@ -41,7 +52,7 @@ class ApplicationController < ActionController::Base
   def authorize_level(level = 4)
     unless authorize_level?(level)
       store_location
-      redirect_to login_path, error: t('session.unauthorize')
+      redirect_to login_path, error: "Pas autorisé"
     end
   end
 end
