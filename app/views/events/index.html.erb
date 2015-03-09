@@ -1,5 +1,7 @@
 <% provide(:title, 'Programme & événements Groupe de jeunes chrétien évangélique de Bulle') %>
 
+<!-- @dates = { date => (event || nil) } -->
+
 <h1 style="text-align:center">Programme & événements WayKUP</h1>
 
 <article>
@@ -13,10 +15,10 @@
 		<%-# ==========- Title -========== -%>
     <div class="title" style="width:90%; margin:auto">
       <div class="left">
-        <p><span class="discret">du </span><%= h(Date.today) %></p>
+        <p><span class="discret">du </span><%= l(Date.today) %></p>
       </div>
       <div class="right">
-        <p><span class="discret">au </span><%= h(@dates.keys.last) %></p>
+        <p><span class="discret">au </span><%= l(@dates.keys.last) %></p>
       </div>
     </div>
 
@@ -56,15 +58,21 @@
 
         <% @dates.each_with_index do |(date, event), index| %>
 
-          <tr class="<%= 'a ' + date.day.to_s + 'a' %>">
-            <td class="countdown"><span class="anchor" id="<%= date.day.to_s %>"></span><%= Date.today == date ? "Aujourd'hui!" : Date.today == date.yesterday ? "Demain!" : "Dans #{time_ago_in_words(date)}" %></td>
+          <tr class='<%= "a #{date.day}a" %>'>
+            <td class="countdown">
+              <span class="anchor" id="<%= date.day %>"></span>
+              <%= Date.today == date ? "Aujourd'hui!" : Date.today == date.yesterday ? "Demain!" : "Dans #{time_ago_in_words(date)}" %>
+            </td>
             <td class="marker"><%#= image_tag "timeline/" + sort_event(event) %></td>
-            <td class="<%= date.strftime('%w').to_f == 6 || date.strftime('%w').to_f == 0 ? "weekend" : "number" %>"><%= date.day %></td>
+            <td class="<%= date.wday == 6 || date.wday == 0 ? "weekend" : "number" %>"><%= date.day %></td>
             <td class="description">
-              <div><a class="toggle_trigger <%= index == 0 ? "active" : ""%>"><%#= event.theme %></a></div>
+              <div><a class="toggle_trigger <%= "active" if index == 0 %>"><%= l(date, format: :event) %></a></div>
               <div class="<%= index == 0 ? "toggle_now" : "toggle_wrap" %>">
                 <p>
-                  <%= raw simple_format(event.try(:content), {}, sanitize: false) %>
+                  <% unless event && event.replace %>
+                    <%= render 'shared/event' %>
+                  <% end %>
+                  <p><%= raw simple_format(event.try(:content), {}, sanitize: false) %></p>
                   <span class="perma_link">permalink: <%= link_to "event n° #{event.id}", event_path(event) if event %></span>
                 </p>
               </div>

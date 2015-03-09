@@ -5,5 +5,6 @@
 <% @images.each do |image| %>
 	<%= image_tag image.image.url %>
 	<%= link_to "X", admin_image_path(image), method: :delete, confirm: "Supprimer cette image ?" %>
+  <a class="url_link" data-url="<%= image.image_url %>" href="#">Lien</a>
 <% end %>
 

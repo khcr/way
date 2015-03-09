@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function() {
   $(".fancybox-button").fancybox({
     prevEffect    : 'none',
     nextEffect    : 'none',

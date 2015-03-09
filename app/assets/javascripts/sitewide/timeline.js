@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(function() {
   $(".b").hoverIntent(function() {
   	var className = '.' + $(this).attr('class').split(' ')[0] + 'a';
   	$('.a').stop(true, true).fadeTo('fast', 0.5);

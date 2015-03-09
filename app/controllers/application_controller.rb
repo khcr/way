@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
   def next_day(day, from=Date.today)
     wday = Date::DAYNAMES.find_index(day.to_s.capitalize)
-    return from.next_day(wday)
+    return from.next_day(wday - from.wday)
   end
 
   def next_event(from=Date.today)

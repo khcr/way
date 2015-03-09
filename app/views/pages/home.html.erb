@@ -1,4 +1,9 @@
 <% provide(:title, 'Groupe de jeunes chrétien évangélique de Bulle') %>
+
+<% content_for :javascripts do %>
+  <%= javascript_include_tag 'jssor.slider.mini', "data-turbolinks-track" => true %>
+<% end %>
+
 <% content_for :slider do %>
   <!-- Jssor Slider Begin -->
   <div id="slider">
@@ -47,12 +52,12 @@
 <article>
 	<h2 class="home" style="padding-top:40px">Prochain événement</h2>
 	<div class="nextevent">
-    <p><%= @date %></p>
+    <h4> <span class="icns">Le <%= l @date, format: :long %></span><sup><%= link_to "voir tout le programme", programme_path %></sup></h4>
     <p>
       <% unless @event && @event.replace %>
-        Texte
+        <%= render 'shared/event' %>
       <% end %>
-      <%= @event.try(:content) %>
+       <p><%= raw simple_format(@event.try(:content), {}, sanitize: false) %></p>
     </p>
 	</div>
 

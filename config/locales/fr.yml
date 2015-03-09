@@ -5,6 +5,7 @@ fr:
       short: "%e %b"
       long: "%e %b %y"
       text: "le %d %b %Y"
+      event: "le %A %e %B"
     day_names:
       - dimanche
       - lundi

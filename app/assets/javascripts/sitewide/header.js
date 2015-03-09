@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function() {
   $('.submenu').hover(
     function () {
       //show its submenu

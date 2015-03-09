@@ -5,6 +5,7 @@
 	<p class="description"><%= @gallery.description %><br>Nombre : <%= @gallery.paintings.count %></p>
 
 	<div class="photos">
+		<p class="loading" style="background:#fff; color:#333; margin:20px;">Chargement en cours <%= image_tag "admin/loading.gif", style: "vertical-align:middle" %></p>
 		<p>
 		<% @gallery.paintings.sort.each do |painting| %>
 			
@@ -16,12 +17,3 @@
 		</p>
 	</div>
 </div>
-
-<script>
-	$(function() {
-		$('.photos').prepend('<p class="loading" style="background:#fff; color:#333; margin:20px;">Chargement en cours... Veuillez patientez.' + <%= image_tag "admin/loading.gif", style: "vertical-align:middle" %> +'</p>')
-		$(window).load(function() {
-			$('.loading').hide()
-		})
-	});
-</script>
